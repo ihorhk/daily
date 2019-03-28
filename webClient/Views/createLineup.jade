@@ -1,0 +1,267 @@
+extends layout
+
+block head
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.css")
+    link(rel="stylesheet", href="/css/createLineup.css")
+    link(rel="stylesheet", href="/css/createLineupDialog.css")
+
+block content
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.js")
+    script(src='/scripts/res/sortableclusterizetable.min.js')
+    script(src="/scripts/models/Player.js")
+    script(src="/scripts/models/Match.js")
+    script(src="/scripts/models/Tournament.js")
+    script(src="/scripts/models/Competition.js")
+    script(src="/scripts/models/Team.js")
+    script(src="/scripts/res/timer.js")
+    script(src="https://www.gstatic.com/charts/loader.js")
+    script(src="/scripts/createLineup.js")
+
+    header#draftTeamBanner
+
+    .fantasy-container
+
+        #tournamentHeader
+            #tournamentTitleContainer
+                img#tournamentFlag
+                img#tournamentFeatured(src="/icongraphy/svg/icon-star.svg" width="13.5")
+                h2.pageTitle#tournamentTitle
+                button#tournamentBackToLobby
+                    svg(width="12.64" height="11.81") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-back-to-lobby")]
+                    span Back to Contests
+            #tournamentInfoContainer
+                .tournamentInfo
+                    .tournamentInfoInner
+                        img.tournamentInfoImg(src="/icongraphy/svg/icon-entries.svg" width="16")
+                        p.tournamentInfoLabel Entries:
+                        p.tournamentInfoText#tournamentEntries
+                .tournamentInfo
+                    .tournamentInfoInner
+                        img.tournamentInfoImg(src="/icongraphy/svg/icon-dollar.svg" width="14")
+                        p.tournamentInfoLabel Entry fee:
+                        p.tournamentInfoText#tournamentEntryFee
+                .tournamentInfo
+                    .tournamentInfoInner
+                        img.tournamentInfoImg(src="/icongraphy/svg/icon-dollar.svg" width="14")
+                        p.tournamentInfoLabel Prize pool:
+                        p.tournamentInfoText#tournamentPrizePool
+                .tournamentInfo#tournamentStartContainer
+                    #tournamentStartIcon
+                    .tournamentInfoInner
+                        p#tournamentStartTitle LIVE IN:
+                        #tournamentTimer
+                            .hours.timer --
+                            .timer :
+                            .minutes.timer --
+                            .timer :
+                            .seconds.timer --
+
+
+        .collapsed#matchesContainer
+            #matchesSlider
+        button#matchesShowButton Expand
+
+        #draftTeamContainer
+            #playersContainer
+                .sectionHeaderContainer
+                    .sectionHeaderTitle#playersPositionTitle Positions
+                    .sectionHeaderRight#filterPlayerContainer
+                        .sectionHeaderRightInner#filterPlayerInner
+                            .filterItemContainer#filterTeamContainer
+                                .input-group
+                                    input.form-control.singleLineText#filterSearchTeam(type='text' placeholder='All Teams' aria-label='...')
+                                    .input-group-btn
+                                        button.btn.btn-default.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                            span.caret
+                                        ul.dropdown-menu.dropdown-menu-right#filterSearchTeamList
+                            .filterItemContainer#filterNameContainer
+                                input#filterSearchName(type='text' placeholder='All Players')
+                    
+                    ul#positionTabContainer
+                        li.positionTab
+                            button(data-pos='ALL').positionButton.tabItem.selected #[span.tabItemText ALL]
+                        li.positionTab
+                            button(data-pos='GK').positionButton.tabItem #[span.tabItemText GK]
+                        li.positionTab
+                            button(data-pos='DEF').positionButton.tabItem #[span.tabItemText DEF]
+                        li.positionTab
+                            button(data-pos='MID').positionButton.tabItem #[span.tabItemText MID]
+                        li.positionTab
+                            button(data-pos='ATT').positionButton.tabItem #[span.tabItemText ATT]
+                #availabePlayersContainer
+                    .tableHeader#playersHeader
+                        img.tableHeaderLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                        .tableHeaderInner
+                    .clusterize#playersTableContainer
+                        .headTableContainer
+                            table.headTable#playersHeadTable
+                        .clusterize-scroll.forceScrollBar#playersScrollArea
+                            table.clusterizeTable#playersTable
+                                thead
+                                    tr
+                                        th.availablePlayerTeam
+                                        th.availablePlayerPosition
+                                        th.availablePlayerName
+                                        th.availablePlayerSalary
+                                        th.availablePlayerAdd
+                                tbody.clusterize-content#playersTableBody
+                    .tooltipBox#inactivePlayerTooltip
+                        span.tooltipInner#inactivePlayerTooltipText Not Selected
+                    #draftTeamCompleteOverlay
+                        #draftTeamCompletePopup
+                            h4 Team Complete
+                            p Your team is ready to enter the fields!
+                            button.dialogCloseButton#draftTeamCompleteCloseButton #[span]
+
+
+
+            #lineupContainer
+                .sectionHeaderContainer#lineupHeaderContainer
+                    #salaryContainer
+                        #salaryTextContainer
+                            p.salaryText#remainingSalary Remaining Salary: #[span#remainingSalaryText]
+                            p.salaryText#averageSalary Average per Player: #[span#averageSalaryText $105K]
+                        #remainingSalaryBar
+                            .progress
+                                .progress-bar(role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;")
+                    #availableFormationText Formation:
+                    #availableFormationContainer
+                #squadContainer
+                    #lineupArrowContainer
+                        .lineupArrow#lineupArrowGK GK
+                        .lineupArrow#lineupArrowDEF DEF
+                        .lineupArrow#lineupArrowMID MID
+                        .lineupArrow#lineupArrowATT ATT
+
+                #buttonsContainer
+                    button.mainActionButton#enterButton SUBMIT
+                    button.mainActionButton#clearButton #[svg(width="19.7" height="19.7") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-lineup-clear-x")]] CLEAR
+
+        #tournamentClosedContainer
+            p#tournamentClosedText
+            button.mainActionButton#tournamentClosedButton
+
+
+
+        #playerDetailsDialog(style='display:none;')
+
+            .dialogHeader
+                img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                .dialogHeaderInner
+                    span.dialogTitle Player Details
+                    button.dialogCloseButton#playerDialogCloseButton #[span]
+
+            .dialogBody#playerDialogBody
+                
+                .dialogContent#playerDialogContent
+                    
+                    #playerDialogProfile
+                        #playerDialogAvatarContainer
+                        #playerDialogTeamLogoContainer
+                        #playerDialogProfileDetails
+                            p#playerDialogName
+                            #playerDialogProfileInfo
+                                .playerDialogProfileData
+                                    p.playerDialogProfileInfoLabel SALARY:
+                                    p.playerDialogProfileInfoData#playerDialogProfileSalary
+                                .playerDialogProfileData
+                                    p.playerDialogProfileInfoLabel POSITION:
+                                    p.playerDialogProfileInfoData#playerDialogProfilePosition
+                                .playerDialogProfileData
+                                    p.playerDialogProfileInfoLabel TEAM:
+                                    p.playerDialogProfileInfoData#playerDialogProfileTeam
+                        span#playerDialogJerseyNumber
+
+                    #playerDialogTabContainer
+                        button.profileDialogTab#profileDialogTabOverview
+                            svg.profileDialogTabIcon(width="18.4" height="19") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-player-modal-overview")]
+                        button.profileDialogTab#profileDialogTabAllMatches
+                            svg.profileDialogTabIcon(width="19.1" height="19.2") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-player-modal-matches")]
+                    
+                    .playerDialogTabContent#playerDialogTabContentOverview
+                        .playerDialogTabContentHeader
+                            button.playerDialogSubTab.playerDialogOverviewSubTab#playerDialogSubTabLastGame #[span.playerDialogSubTabText LAST GAME]
+                            button.playerDialogSubTab.playerDialogOverviewSubTab#playerDialogSubTabLast10Games #[span.playerDialogSubTabText LAST 10 GAMES]
+                            button.playerDialogSubTab.playerDialogOverviewSubTab#playerDialogSubTabAllSeason #[span.playerDialogSubTabText ALL SEASON]
+                        #playerDialogOverviewContentBody
+                            .tableContainer#playerDialogOverviewTableContainer
+                                table.playerDialogStatsTable#playerDialogActionsStatsTable1
+                                table.playerDialogStatsTable#playerDialogActionsStatsTable2
+
+                        .playerDialogTabContentHeader
+                            button.playerDialogSubTab.playerDialogChartsSubTab#playerDialogSubTabSalary #[span.playerDialogSubTabText SALARY]
+                            button.playerDialogSubTab.playerDialogChartsSubTab#playerDialogSubTabPoints #[span.playerDialogSubTabText POINTS]
+                        .playerDialogTabContentBody#playerDialogChartsContentBody
+                            #playerDialogChartContainer
+                    
+                    .playerDialogTabContent#playerDialogTabContentMatchStats
+                        .clusterize.playerDialogTabContentBody#matchStatsTableContainer
+                            .headTableContainer#matchStatsHeadTableContainer
+                                table.headTable#matchStatsHeadTable
+                                    thead
+                            .clusterize-scroll.forceScrollBar#matchStatsScrollArea
+                                table.clusterizeTable#matchStatsTable
+                                    thead#matchStatsTableHead
+                                    tbody.clusterize-content#matchStatsTableBody
+
+
+
+        #backToLobbyDialog(style='display:none;')
+            .dialogHeader
+                img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                .dialogHeaderInner
+                    span.dialogTitle Back to Contests
+                    button.dialogCloseButton#backToLobbyDialogCloseButton #[span]
+            .alertBody#backToLobbyDialogBody
+                img.has-retina#backToLobbyTeamAvatar(src="/icongraphy/img/daily-champion-avatar.jpg" data-rjs="/icongraphy/img/daily-champion-avatar@2x.jpg" alt="Avatar")
+                #backToLobbyTeamLogoWrapper
+                    img#backToLobbyTeamLogo(src="/icongraphy/svg/icon-logo3.svg" alt="Daily Champion")
+                p.dialogMessage
+                .buttonContainer
+                    button.dialogButton.grayButton#backToLobbyYesButton
+                    button.dialogButton.greenButton#backToLobbyNoButton CANCEL
+
+
+
+        #teamReadyDialog(style='display:none;')
+            .dialogHeader
+                img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                .dialogHeaderInner
+                    span.dialogTitle
+                    button.dialogCloseButton#teamReadyDialogCloseButton #[span]
+            .alertBody#teamReadyDialogBody
+                p.dialogMessage
+                .buttonContainer
+                    button.dialogButton.grayButton#teamReadyYesButton YES
+                    button.dialogButton.greenButton#teamReadyNoButton NO
+
+
+
+        #contestEnteredDialog(style='display:none;')
+            .dialogHeader
+                img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                .dialogHeaderInner
+                    span.dialogTitle Contest entered
+                    button.dialogCloseButton#contestEnteredDialogCloseButton #[span]
+            .alertBody#contestEnteredDialogBody
+                p.dialogMessage
+                .buttonContainer
+                    button.dialogButton.grayButton#contestLobbyButton CONTEST LOBBY
+                .buttonContainer
+                    button#backToAllContestsButton
+                        svg(width="12.64" height="11.81") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-back-to-lobby")]
+                        span Back to all contests
+
+
+
+        #clearLineupDialog(style='display:none;')
+            .dialogHeader
+                img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                .dialogHeaderInner
+                    span.dialogTitle Clear Lineup
+                    button.dialogCloseButton#clearLineupDialogCloseButton #[span]
+            .alertBody#clearLineupDialogBody
+                p.dialogMessage
+                .buttonContainer
+                    button.dialogButton.grayButton#clearLineupYesButton YES, CLEAR LINEUP
+                    button.dialogButton.greenButton#clearLineupNoButton NO, CANCEL

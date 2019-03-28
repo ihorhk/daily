@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Champion League</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/components/toggle.css">
+    <link rel="stylesheet" href="/css/components/dialog.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone.min.js"></script>
+<script src="/scripts/res/stupidtable.min.js"></script>
+<script src="/scripts/helpers/lodash.js"></script>
+<script src="/scripts/helpers/util.js"></script>
+<script src="/scripts/models/User.js"></script>
+<script src="/scripts/main.js"></script>
+<script src="/scripts/res/toggle.js"></script>
+<script src="/scripts/res/retina.min.js"></script>
+<script>
+    var isUserLoggedIn = function () {
+        return false === true
+    }
+    var getLoggedInUsername = function () {
+        return ''
+    }
+    var getUserBalanceForCurrentPlayMode = function () {
+        return
+    }
+    var getUserPlayMode = function () {
+        return 'real'
+    }
+    moment.tz.add('Europe/Dublin|DMT IST GMT BST IST|p.l -y.D 0 -10 -10|01232323232324242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242|-2ax9y.D Rc0 1fzy.D 14M0 1fc0 1g00 1co0 1dc0 1co0 1oo0 1400 1dc0 19A0 1io0 1io0 WM0 1o00 14o0 1o00 17c0 1io0 17c0 1fA0 1a00 1lc0 17c0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1cM0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1io0 1qM0 Dc0 g5X0 14p0 1wn0 17d0 1io0 11A0 1o00 17c0 1fA0 1a00 1fA0 1cM0 1fA0 1a00 17c0 1fA0 1a00 1io0 17c0 1lc0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1a00 1qM0 WM0 1qM0 11A0 1o00 WM0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1tA0 IM0 90o0 U00 1tA0 U00 1tA0 U00 1tA0 U00 1tA0 WM0 1qM0 WM0 1qM0 WM0 1tA0 U00 1tA0 U00 1tA0 11z0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 14o0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|12e5');
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.css">
+<link rel="stylesheet" href="/css/createLineup.css">
+<link rel="stylesheet" href="/css/createLineupDialog.css">
+
+</html>
+
+<body>
+    <div style="display:none;" class="errorDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle">Warning</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button class="dialogButton redButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="warningDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryWarningButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="mainWarningButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="genericDialog">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryGenericDialogButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="genericDialogButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div id="termsAndConditionsDialog" style="display:none;">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle">Terms and Conditions</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <textarea id="termsAndConditionsDialogContent" rows="25" readonly="true"></textarea>
+            <button id="termsAndConditionsDialogDecline"
+                class="dialogButton lightGrayButton dialogActionButton">DECLINE</button>
+            <button id="termsAndConditionsDialogAccept"
+                class="dialogButton lightGrayButton dialogActionButton">ACCEPT</button>
+        </div>
+    </div>
+    <div id="mainHeader">
+        <div id="mainHeaderNavContainer">
+            <div class="fantasy-container">
+                <div class="mainHeaderCell logoCell"><img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg"
+                        alt="Daily Champion"></div>
+                <div class="mainHeaderCell triangleCell">
+                    <div class="triangle"></div>
+                </div>
+                <div class="mainHeaderCell navCell">
+                    <nav class="mainHeaderNav">
+                        <ul class="mainHeaderNavItems">
+                            <li class="mainHeaderItem"><a href="/home" id="headerHomeOption"
+                                    class="mainHeaderOption">Home</a></li>
+                            <li class="mainHeaderItem"><a href="/contests" id="headerLobbyOption"
+                                    class="mainHeaderOption">Contests</a></li>
+                            <li class="mainHeaderItem"><a href="/myContests" id="headerContestsOption"
+                                    class="mainHeaderOption">My Contests</a></li>
+                            <li class="mainHeaderItem"><a href="/account" id="headerAccountOption"
+                                    class="mainHeaderOption">Account</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mainHeaderCell userInfoCell">
+                    <nav id="userInfo">
+                        <svg id="mainHeaderUserIcon" width="16.7" height="15.67">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-icon"></use>
+                        </svg>
+                        <form action="/signIn#login" method="get">
+                            <button id="loginButton" class="userButton">Login</button>
+                        </form><span class="divider"></span>
+                        <form action="/signIn#register" method="get">
+                            <button id="registerButton" class="userButton">Register</button>
+                        </form>
+                        <button id="mainMenuButton">
+                            <svg width="21.55" height="20.64">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu"></use>
+                            </svg>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="mainMobileNavContainer">
+            <div id="mainMobileNavInner">
+                <button id="mainMobileNavCloseButton">
+                    <svg width="18" height="18">
+                        <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu-close"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <header id="promoBanner">
+        <div id="promoBannerInner" class="fantasy-container">
+            <div id="promoContainer">
+                <div id="promoRegister">
+                    <div id="promoRegisterInner">SUPER WEEKEND
+                        <p>FREEROLL</p>
+                    </div>
+                    <button id="promoRegisterButton">REGISTER NOW</button>
+                </div>
+                <div id="promoPrize">
+                    <div id="promoPrizeInner">WIN
+                        <p id="promoPrizeText">$1,000</p>
+                    </div><img id="promoPrizeImage" src="/icongraphy/svg/icon-promo.svg">
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.js"></script>
+    <script src="/scripts/res/sortableclusterizetable.min.js"></script>
+    <script src="/scripts/models/Player.js"></script>
+    <script src="/scripts/models/Match.js"></script>
+    <script src="/scripts/models/Tournament.js"></script>
+    <script src="/scripts/models/Competition.js"></script>
+    <script src="/scripts/models/Team.js"></script>
+    <script src="/scripts/res/timer.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/scripts/createLineup.js"></script>
+    <header id="draftTeamBanner"></header>
+    <div class="fantasy-container">
+        <div id="tournamentHeader">
+            <div id="tournamentTitleContainer"><img id="tournamentFlag"><img id="tournamentFeatured"
+                    src="/icongraphy/svg/icon-star.svg" width="13.5">
+                <h2 id="tournamentTitle" class="pageTitle"></h2>
+                <button id="tournamentBackToLobby">
+                    <svg width="12.64" height="11.81">
+                        <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-back-to-lobby"></use>
+                    </svg><span>Back to Contests</span></button>
+            </div>
+            <div id="tournamentInfoContainer">
+                <div class="tournamentInfo">
+                    <div class="tournamentInfoInner"><img src="/icongraphy/svg/icon-entries.svg" width="16"
+                            class="tournamentInfoImg">
+                        <p class="tournamentInfoLabel">Entries:</p>
+                        <p id="tournamentEntries" class="tournamentInfoText"></p>
+                    </div>
+                </div>
+                <div class="tournamentInfo">
+                    <div class="tournamentInfoInner"><img src="/icongraphy/svg/icon-dollar.svg" width="14"
+                            class="tournamentInfoImg">
+                        <p class="tournamentInfoLabel">Entry fee:</p>
+                        <p id="tournamentEntryFee" class="tournamentInfoText"></p>
+                    </div>
+                </div>
+                <div class="tournamentInfo">
+                    <div class="tournamentInfoInner"><img src="/icongraphy/svg/icon-dollar.svg" width="14"
+                            class="tournamentInfoImg">
+                        <p class="tournamentInfoLabel">Prize pool:</p>
+                        <p id="tournamentPrizePool" class="tournamentInfoText"></p>
+                    </div>
+                </div>
+                <div id="tournamentStartContainer" class="tournamentInfo">
+                    <div id="tournamentStartIcon"></div>
+                    <div class="tournamentInfoInner">
+                        <p id="tournamentStartTitle">LIVE IN:</p>
+                        <div id="tournamentTimer">
+                            <div class="hours timer">--</div>
+                            <div class="timer">:</div>
+                            <div class="minutes timer">--</div>
+                            <div class="timer">:</div>
+                            <div class="seconds timer">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="matchesContainer" class="collapsed">
+            <div id="matchesSlider"></div>
+        </div>
+        <button id="matchesShowButton">Expand</button>
+        <div id="draftTeamContainer">
+            <div id="playersContainer">
+                <div class="sectionHeaderContainer">
+                    <div id="playersPositionTitle" class="sectionHeaderTitle">Positions</div>
+                    <div id="filterPlayerContainer" class="sectionHeaderRight">
+                        <div id="filterPlayerInner" class="sectionHeaderRightInner">
+                            <div id="filterTeamContainer" class="filterItemContainer">
+                                <div class="input-group">
+                                    <input id="filterSearchTeam" type="text" placeholder="All Teams" aria-label="..."
+                                        class="form-control singleLineText">
+                                    <div class="input-group-btn">
+                                        <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                                        <ul id="filterSearchTeamList" class="dropdown-menu dropdown-menu-right"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filterNameContainer" class="filterItemContainer">
+                                <input id="filterSearchName" type="text" placeholder="All Players">
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="positionTabContainer">
+                        <li class="positionTab">
+                            <button data-pos="ALL" class="positionButton tabItem selected"><span
+                                    class="tabItemText">ALL</span></button>
+                        </li>
+                        <li class="positionTab">
+                            <button data-pos="GK" class="positionButton tabItem"><span
+                                    class="tabItemText">GK</span></button>
+                        </li>
+                        <li class="positionTab">
+                            <button data-pos="DEF" class="positionButton tabItem"><span
+                                    class="tabItemText">DEF</span></button>
+                        </li>
+                        <li class="positionTab">
+                            <button data-pos="MID" class="positionButton tabItem"><span
+                                    class="tabItemText">MID</span></button>
+                        </li>
+                        <li class="positionTab">
+                            <button data-pos="ATT" class="positionButton tabItem"><span
+                                    class="tabItemText">ATT</span></button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="availabePlayersContainer">
+                    <div id="playersHeader" class="tableHeader"><img src="/icongraphy/svg/icon-logo2.svg"
+                            alt="Daily Champion" class="tableHeaderLogo">
+                        <div class="tableHeaderInner"></div>
+                    </div>
+                    <div id="playersTableContainer" class="clusterize">
+                        <div class="headTableContainer">
+                            <table id="playersHeadTable" class="headTable"></table>
+                        </div>
+                        <div id="playersScrollArea" class="clusterize-scroll forceScrollBar">
+                            <table id="playersTable" class="clusterizeTable">
+                                <thead>
+                                    <tr>
+                                        <th class="availablePlayerTeam"></th>
+                                        <th class="availablePlayerPosition"></th>
+                                        <th class="availablePlayerName"></th>
+                                        <th class="availablePlayerSalary"></th>
+                                        <th class="availablePlayerAdd"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="playersTableBody" class="clusterize-content"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="inactivePlayerTooltip" class="tooltipBox"><span id="inactivePlayerTooltipText"
+                            class="tooltipInner">Not Selected</span></div>
+                    <div id="draftTeamCompleteOverlay">
+                        <div id="draftTeamCompletePopup">
+                            <h4>Team Complete</h4>
+                            <p>Your team is ready to enter the fields!</p>
+                            <button id="draftTeamCompleteCloseButton" class="dialogCloseButton"><span></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="lineupContainer">
+                <div id="lineupHeaderContainer" class="sectionHeaderContainer">
+                    <div id="salaryContainer">
+                        <div id="salaryTextContainer">
+                            <p id="remainingSalary" class="salaryText">Remaining Salary: <span
+                                    id="remainingSalaryText"></span></p>
+                            <p id="averageSalary" class="salaryText">Average per Player: <span
+                                    id="averageSalaryText">$105K</span></p>
+                        </div>
+                        <div id="remainingSalaryBar">
+                            <div class="progress">
+                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                    style="width: 0%;" class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="availableFormationText">Formation:</div>
+                    <div id="availableFormationContainer"></div>
+                </div>
+                <div id="squadContainer">
+                    <div id="lineupArrowContainer">
+                        <div id="lineupArrowGK" class="lineupArrow">GK</div>
+                        <div id="lineupArrowDEF" class="lineupArrow">DEF</div>
+                        <div id="lineupArrowMID" class="lineupArrow">MID</div>
+                        <div id="lineupArrowATT" class="lineupArrow">ATT</div>
+                    </div>
+                </div>
+                <div id="buttonsContainer">
+                    <button id="enterButton" class="mainActionButton">SUBMIT</button>
+                    <button id="clearButton" class="mainActionButton">
+                        <svg width="19.7" height="19.7">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-lineup-clear-x"></use>
+                        </svg> CLEAR</button>
+                </div>
+            </div>
+        </div>
+        <div id="tournamentClosedContainer">
+            <p id="tournamentClosedText"></p>
+            <button id="tournamentClosedButton" class="mainActionButton"></button>
+        </div>
+        <div id="playerDetailsDialog" style="display:none;">
+            <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+                <div class="dialogHeaderInner"><span class="dialogTitle">Player Details</span>
+                    <button id="playerDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                </div>
+            </div>
+            <div id="playerDialogBody" class="dialogBody">
+                <div id="playerDialogContent" class="dialogContent">
+                    <div id="playerDialogProfile">
+                        <div id="playerDialogAvatarContainer"></div>
+                        <div id="playerDialogTeamLogoContainer"></div>
+                        <div id="playerDialogProfileDetails">
+                            <p id="playerDialogName"></p>
+                            <div id="playerDialogProfileInfo">
+                                <div class="playerDialogProfileData">
+                                    <p class="playerDialogProfileInfoLabel">SALARY:</p>
+                                    <p id="playerDialogProfileSalary" class="playerDialogProfileInfoData"></p>
+                                </div>
+                                <div class="playerDialogProfileData">
+                                    <p class="playerDialogProfileInfoLabel">POSITION:</p>
+                                    <p id="playerDialogProfilePosition" class="playerDialogProfileInfoData"></p>
+                                </div>
+                                <div class="playerDialogProfileData">
+                                    <p class="playerDialogProfileInfoLabel">TEAM:</p>
+                                    <p id="playerDialogProfileTeam" class="playerDialogProfileInfoData"></p>
+                                </div>
+                            </div>
+                        </div><span id="playerDialogJerseyNumber"></span>
+                    </div>
+                    <div id="playerDialogTabContainer">
+                        <button id="profileDialogTabOverview" class="profileDialogTab">
+                            <svg width="18.4" height="19" class="profileDialogTabIcon">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-player-modal-overview"></use>
+                            </svg>
+                        </button>
+                        <button id="profileDialogTabAllMatches" class="profileDialogTab">
+                            <svg width="19.1" height="19.2" class="profileDialogTabIcon">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-player-modal-matches"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="playerDialogTabContentOverview" class="playerDialogTabContent">
+                        <div class="playerDialogTabContentHeader">
+                            <button id="playerDialogSubTabLastGame"
+                                class="playerDialogSubTab playerDialogOverviewSubTab"><span
+                                    class="playerDialogSubTabText">LAST GAME</span></button>
+                            <button id="playerDialogSubTabLast10Games"
+                                class="playerDialogSubTab playerDialogOverviewSubTab"><span
+                                    class="playerDialogSubTabText">LAST 10 GAMES</span></button>
+                            <button id="playerDialogSubTabAllSeason"
+                                class="playerDialogSubTab playerDialogOverviewSubTab"><span
+                                    class="playerDialogSubTabText">ALL SEASON</span></button>
+                        </div>
+                        <div id="playerDialogOverviewContentBody">
+                            <div id="playerDialogOverviewTableContainer" class="tableContainer">
+                                <table id="playerDialogActionsStatsTable1" class="playerDialogStatsTable"></table>
+                                <table id="playerDialogActionsStatsTable2" class="playerDialogStatsTable"></table>
+                            </div>
+                        </div>
+                        <div class="playerDialogTabContentHeader">
+                            <button id="playerDialogSubTabSalary"
+                                class="playerDialogSubTab playerDialogChartsSubTab"><span
+                                    class="playerDialogSubTabText">SALARY</span></button>
+                            <button id="playerDialogSubTabPoints"
+                                class="playerDialogSubTab playerDialogChartsSubTab"><span
+                                    class="playerDialogSubTabText">POINTS</span></button>
+                        </div>
+                        <div id="playerDialogChartsContentBody" class="playerDialogTabContentBody">
+                            <div id="playerDialogChartContainer"></div>
+                        </div>
+                    </div>
+                    <div id="playerDialogTabContentMatchStats" class="playerDialogTabContent">
+                        <div id="matchStatsTableContainer" class="clusterize playerDialogTabContentBody">
+                            <div id="matchStatsHeadTableContainer" class="headTableContainer">
+                                <table id="matchStatsHeadTable" class="headTable">
+                                    <thead></thead>
+                                </table>
+                            </div>
+                            <div id="matchStatsScrollArea" class="clusterize-scroll forceScrollBar">
+                                <table id="matchStatsTable" class="clusterizeTable">
+                                    <thead id="matchStatsTableHead"></thead>
+                                    <tbody id="matchStatsTableBody" class="clusterize-content"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="backToLobbyDialog" style="display:none;">
+            <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+                <div class="dialogHeaderInner"><span class="dialogTitle">Back to Contests</span>
+                    <button id="backToLobbyDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                </div>
+            </div>
+            <div id="backToLobbyDialogBody" class="alertBody"><img id="backToLobbyTeamAvatar"
+                    src="/icongraphy/img/daily-champion-avatar.jpg"
+                    data-rjs="/icongraphy/img/daily-champion-avatar@2x.jpg" alt="Avatar" class="has-retina">
+                <div id="backToLobbyTeamLogoWrapper"><img id="backToLobbyTeamLogo" src="/icongraphy/svg/icon-logo3.svg"
+                        alt="Daily Champion"></div>
+                <p class="dialogMessage"></p>
+                <div class="buttonContainer">
+                    <button id="backToLobbyYesButton" class="dialogButton grayButton"></button>
+                    <button id="backToLobbyNoButton" class="dialogButton greenButton">CANCEL</button>
+                </div>
+            </div>
+        </div>
+        <div id="teamReadyDialog" style="display:none;">
+            <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+                <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                    <button id="teamReadyDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                </div>
+            </div>
+            <div id="teamReadyDialogBody" class="alertBody">
+                <p class="dialogMessage"></p>
+                <div class="buttonContainer">
+                    <button id="teamReadyYesButton" class="dialogButton grayButton">YES</button>
+                    <button id="teamReadyNoButton" class="dialogButton greenButton">NO</button>
+                </div>
+            </div>
+        </div>
+        <div id="contestEnteredDialog" style="display:none;">
+            <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+                <div class="dialogHeaderInner"><span class="dialogTitle">Contest entered</span>
+                    <button id="contestEnteredDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                </div>
+            </div>
+            <div id="contestEnteredDialogBody" class="alertBody">
+                <p class="dialogMessage"></p>
+                <div class="buttonContainer">
+                    <button id="contestLobbyButton" class="dialogButton grayButton">CONTEST LOBBY</button>
+                </div>
+                <div class="buttonContainer">
+                    <button id="backToAllContestsButton">
+                        <svg width="12.64" height="11.81">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-back-to-lobby"></use>
+                        </svg><span>Back to all contests</span></button>
+                </div>
+            </div>
+        </div>
+        <div id="clearLineupDialog" style="display:none;">
+            <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+                <div class="dialogHeaderInner"><span class="dialogTitle">Clear Lineup</span>
+                    <button id="clearLineupDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                </div>
+            </div>
+            <div id="clearLineupDialogBody" class="alertBody">
+                <p class="dialogMessage"></p>
+                <div class="buttonContainer">
+                    <button id="clearLineupYesButton" class="dialogButton grayButton">YES, CLEAR LINEUP</button>
+                    <button id="clearLineupNoButton" class="dialogButton greenButton">NO, CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="mainFooter">
+        <div id="mainFooterBody">
+            <div id="mainFooterBanner"></div>
+            <div id="mainFooterContent" class="fantasy-container">
+                <div id="mainFooterRectangle">
+                    <div id="mainFooterHome" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">Home</p>
+                        <ul>
+                            <li><a href="#">Lobby</a></li>
+                            <li><a href="#">Player Statistics</a></li>
+                            <li><a href="#">Live Match Center</a></li>
+                            <li><a href="#">Football Statistics Center</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterContests" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">Contests</p>
+                        <ul>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Live</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterAbout" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">About</p>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterWarning" class="mainFooterSection"><span>Warning:</span> Morbi tempor cursus
+                        nibh, a tempor nunc mollis nec. Etiam vel dui commodo, suscipit mauris ac, venenatis nunc. Sed
+                        urna nisl, iaculis et elit in, aliquam sodales augue. Praesent ullamcorper condimentum enim et
+                        vestibulum. Sed enim est, mollis sit amet libero vitae, rhoncus malesuada velit. Donec pharetra,
+                        est in aliquam dignissim, libero urna iaculis tellus, id fringilla sem neque a massa. Interdum
+                        et malesuada fames ac ante ipsum primis in fvel. Maecenas pulvinar lectus in dui porta, ut
+                        elementum dolor sodales.</div>
+                </div>
+            </div>
+        </div>
+        <div id="mainFooterPayments">
+            <div id="mainFooterPaymentsInner"><img src="/icongraphy/svg/icon-payment-18+.svg" width="20"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/astropay_card.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/bitcoin.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/discover.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/elv.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/eps.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/giro_pay.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/ideal.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/instant_transfer.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/maestro.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/mastercard.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/neteller.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paypal.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paysafe_card.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/poli.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/przelewy24.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/qiwi.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/safety_pay.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/skrill.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/sofort.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/trustpay.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/visa.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/web_money.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/yandex.svg"
+                    class="mainFooterPaymentLogo"></div>
+        </div>
+    </footer>
+    <div id="mainPopBoxContainer">
+        <div id="accountPopBox">
+            <ul id="accountPopBoxInner">
+                <li>
+                    <form action="/logout" method="get">
+                        <button class="accountPopBoxItem">Logout
+                            <svg width="12.68" height="15">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-logout"></use>
+                            </svg>
+                        </button>
+                    </form>
+                </li>
+                <li>
+                    <button onclick="window.location.pathname = '/account'" class="accountPopBoxItem">Account
+                        <svg width="16.5" height="16.5">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-account"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <div class="accountPopBoxItem">Real Money Contests
+                        <input id="realContestsToggle" type="checkbox" checked class="tv-toggle">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
