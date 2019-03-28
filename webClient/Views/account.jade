@@ -1,0 +1,202 @@
+extends layout
+
+block head
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.css")
+    link(rel="stylesheet", href="/css/account.css")
+
+block content
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.js")
+    script(src='/scripts/res/sortableclusterizetable.min.js')
+    script(src="/scripts/models/Transaction.js")
+    script(src="/scripts/models/User.js")
+    script(src="/scripts/account.js")
+    script(src="/scripts/res/countries.js")
+    script(src="/scripts/res/util.js")
+
+    .fantasy-container
+        h2.pageTitle My Account
+
+        #mainContainer
+            #accountOptions
+                .accountOption#accountInfoOption Account Information
+                    svg(width="19.2" height="24.1") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-account-information")]
+                .accountOption#depositOption Deposit
+                    svg(width="25.6" height="23.8") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-account-deposit")]
+                .accountOption#withdrawOption Withdraw
+                    svg(width="24.6" height="18.1") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-account-withdraw")]
+                .accountOption#transactionHistoryOption Transaction History
+                    svg(width="25.3" height="26.3") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-account-transaction")]
+                .accountOption#balanceHistoryOption Balance History
+                    svg(width="22.4" height="22.4") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-account-balance")]
+                .accountOption#settingsOption Settings
+                    svg(width="23.2" height="23.2") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-account-settings")]
+
+            #panelContainer
+                .panelHeader
+                    img.panelLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                    .panelHeaderInner
+                        span#panelTitle
+
+                .accountOptionContainer#accountInfoContainer
+                    div.accountInfoSection
+                        div
+                            div.accountInfoSubsection
+                                div.accountInfoLine.fixedLabelWidth
+                                    p Balance:
+                                    p#balanceText
+                                div.accountInfoLine.fixedLabelWidth
+                                    p Free Play Balance:
+                                    p#freePlayBalanceText
+                            div.accountInfoSubsection
+                                .filterContainer#playModeFilterContainer
+                                    button.filterButton.playModeFilterButton#realMoneyModeButton Real Money
+                                    button.filterButton.playModeFilterButton#freePlayModeButton Free Play
+                                img.preloader-sm#playModeProgress(src="/icongraphy/img/preloader-sm.gif", style="display:none")
+                        div.accountButtonContainer
+                            button.paymentButton.mainActionButton.paymentNextButton.accountInfoButton#accountInfoDepositButton DEPOSIT
+
+                    div.accountInfoSection
+                        div
+                            div.accountInfoLine.fixedLabelWidth
+                                p Username:
+                                p#usernameText
+                            div.accountInfoLine.fixedLabelWidth
+                                p Registration Date:
+                                p#registrationDateText
+                            div.accountInfoLine.fixedLabelWidth
+                                p E-mail:
+                                p#emailText
+                        div.accountButtonContainer
+                            button.paymentButton.mainActionButton.paymentNextButton.accountInfoButton#changeEmailButton CHANGE E-MAIL
+                            button.paymentButton.mainActionButton.paymentNextButton.accountInfoButton#passwordResetButton
+                                img.preloader-sm#resetPasswordProgress(src="/icongraphy/img/preloader-sm.gif", style="display:none")
+                                span RESET PASSWORD
+
+                    div.accountInfoSection
+                        div
+                            div.accountInfoLine.fixedLabelWidth
+                                p First Name:
+                                p#firstNameText
+                            div.accountInfoLine.fixedLabelWidth
+                                p Last Name:
+                                p#lastNameText
+                            div.accountInfoLine.fixedLabelWidth
+                                p Birth Date:
+                                p#birthDateText
+                        div.accountButtonContainer
+                            button.paymentButton.mainActionButton.paymentNextButton.accountInfoButton#editInfoButton EDIT INFO
+
+                    div.accountInfoSection
+                        div
+                            div.accountInfoLine.fixedLabelWidth
+                                p Country:
+                                p#countryText
+                            div.accountInfoLine.fixedLabelWidth
+                                p City:
+                                p#cityText
+                            div.accountInfoLine.fixedLabelWidth
+                                p Zip Code:
+                                p#zipCodeText
+                            div.accountInfoLine.fixedLabelWidth
+                                p Street:
+                                p#streetText
+                        div.accountButtonContainer
+                            button.paymentButton.mainActionButton.paymentNextButton.accountInfoButton#editResidenceButton EDIT RESIDENCE
+
+                .accountOptionContainer.paymentContainer#depositContainer
+                    .mainPaymentStepsContainer
+                        p.transactionStepText 1. Enter the deposit amount
+                        div.transactionInputContainer
+                            input(type="string" placeholder="€0.00").transactionInput#depositAmount
+
+                        p.transactionStepText 2. Choose how you want to pay
+                        .paymentOptionsContainer#depositOptionsContainer
+                            ul.paymentsMethodsList
+
+                    .extraPaymentStepsContainer
+
+                    .paymentProviderContainer
+
+                    p.errorMessage
+
+                    button.paymentButton.mainActionButton.paymentPreviousButton#depositPrevious
+                        span.paymentButtonArrow <
+                        span PREVIOUS
+
+                    button.paymentButton.mainActionButton.paymentNextButton#depositNext(disabled)
+                        span NEXT
+                        span.paymentButtonArrow >
+
+                .accountOptionContainer.paymentContainer#withdrawalContainer
+                    .mainPaymentStepsContainer
+                        p.transactionStepText 1. Enter the withdrawal amount
+                        div.transactionInputContainer
+                            input(type="string" placeholder="€0.00").transactionInput#withdrawAmount
+
+                        p.transactionStepText 2. Choose the payment method
+                        .paymentOptionsContainer#withdrawalOptionsContainer
+                            ul.paymentsMethodsList
+
+                    .extraPaymentStepsContainer
+
+                    .paymentConfirmationContainer
+                        p This is the confirmation screen
+
+                    .paymentProviderContainer
+
+                    p.errorMessage
+
+                    button.paymentButton.mainActionButton.paymentPreviousButton#withdrawPrevious
+                        span.paymentButtonArrow <
+                        span PREVIOUS
+
+                    button.paymentButton.mainActionButton.paymentNextButton#withdrawNext(disabled)
+                        span NEXT
+                        span.paymentButtonArrow >
+
+                .accountOptionContainer#transactionHistoryContainer
+                    .clusterize#transactionHistoryTableContainer
+                        .headTableContainer
+                            table.headTable#transactionHistoryHeadTable
+                        .clusterize-scroll.forceScrollBar#transactionHistoryScrollArea
+                            table.clusterizeTable#transactionHistoryTable
+                                thead
+                                    tr
+                                        th.transactionAmount
+                                        th.transactionEmail
+                                        th.transactionId
+                                        th.transactionDate
+                                        th.transactionStatus
+                                tbody.clusterize-content#transactionHistoryTableBody
+
+                .accountOptionContainer#balanceHistoryContainer
+                    .clusterize#balanceHistoryTableContainer
+                        .headTableContainer
+                            table.headTable#balanceHistoryHeadTable
+                        .clusterize-scroll.forceScrollBar#balanceHistoryScrollArea
+                            table.clusterizeTable#balanceHistoryTable
+                                thead
+                                    tr
+                                        th.balanceIncoming
+                                        th.balanceReason
+                                        th.balanceTime
+                                        th.balanceContest
+                                        th.balanceRefId
+                                        th.balanceAmount
+                                tbody.clusterize-content#balanceHistoryTableBody
+
+                .accountOptionContainer#settingsContainer
+                    p.settingsSubtitle Responsible Gaming
+                    div.settingInfoRow
+                        p.settingInfoLabel Allow entry to real money contests:
+                        input.tv-toggle#allowRealMoneyToggle(type="checkbox")
+                    div.settingInfoRow
+                        p.settingInfoLabel Maximum contest entry fee:
+                        input.settingInfoInput#maxContestFeeInput(placeholder="No maximum", type="number")
+                    div.settingInfoRow
+                        p.settingInfoLabel Monthly spending cap:
+                        input.settingInfoInput#monthlySpendingInput(placeholder="No limit", type="number")
+
+                    button.paymentButton.mainActionButton.paymentNextButton#applySettings APPLY SETTINGS
+
+                .horizontalErrorMessage#settingsError(style="display:none")

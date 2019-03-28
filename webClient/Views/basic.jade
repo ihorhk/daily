@@ -1,0 +1,77 @@
+doctype html
+html
+    head
+        title #{(title ? title + " | " : "") + "Champion League" }
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+        link(href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css', rel='stylesheet', type='text/css')
+        link(rel='stylesheet', href='/css/fonts.css')
+        link(rel='stylesheet', href='/css/main.css')
+        link(rel='stylesheet', href='/css/index.css')
+        link(rel='stylesheet', href='/css/components/toggle.css')
+        link(rel="stylesheet", href="/css/components/dialog.css")
+
+    block basicHead
+
+body
+    .errorDialog(style='display:none;')
+        .dialogHeader
+            svg.dialogLogo(width="26.8" height="23.1") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning")]
+            .dialogHeaderInner
+                span.dialogTitle Warning
+                button.dialogCloseButton #[span]
+        .alertBody
+            p.dialogMessage
+            button.dialogButton.redButton.dialogActionButton CLOSE
+
+
+    .warningDialog(style='display:none;')
+        .dialogHeader
+            svg.dialogLogo(width="26.8" height="23.1") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning")]
+            .dialogHeaderInner
+                span.dialogTitle
+                button.dialogCloseButton #[span]
+        .alertBody
+            p.dialogMessage
+            button.dialogButton.lightGrayButton.dialogActionButton#secondaryWarningButton
+            button.dialogButton.lightGrayButton.dialogActionButton#mainWarningButton CLOSE
+
+    .genericDialog(style='display:none;')
+        .dialogHeader
+            img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+            .dialogHeaderInner
+                span.dialogTitle
+                button.dialogCloseButton #[span]
+        .alertBody
+            p.dialogMessage
+            button.dialogButton.lightGrayButton.dialogActionButton#secondaryGenericDialogButton
+            button.dialogButton.lightGrayButton.dialogActionButton#genericDialogButton CLOSE
+
+    #termsAndConditionsDialog(style='display:none;')
+        .dialogHeader
+            img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+            .dialogHeaderInner
+                span.dialogTitle Terms and Conditions
+                button.dialogCloseButton #[span]
+        .alertBody
+            p.dialogMessage
+            textarea#termsAndConditionsDialogContent(rows="25", readonly="true")
+            button.dialogButton.lightGrayButton.dialogActionButton#termsAndConditionsDialogDecline DECLINE
+            button.dialogButton.lightGrayButton.dialogActionButton#termsAndConditionsDialogAccept ACCEPT
+
+     #gameRulesUpdatesDialog(style='display:none;')
+        .dialogHeader
+            img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+            .dialogHeaderInner
+                span.dialogTitle Game Rules Changed
+                button.dialogCloseButton #[span]
+        .alertBody
+            p.dialogMessage The Game Rules have been updated since your last log in. 
+                br
+                | You can visit the full #[a(href="/gameRules") Game Rules Page] to have an overview of the entire game rules of Daily Champion.
+            #gameRulesScrollArea
+                #gameRulesUpdatesListBody
+            button.dialogButton.lightGrayButton.dialogActionButton#gameRulesUpdatesDialogButton Ok, got it
+
+    block basicBody

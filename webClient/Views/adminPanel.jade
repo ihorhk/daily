@@ -1,0 +1,188 @@
+extends basic
+
+block basicHead
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone.min.js")
+    script(src='/scripts/res/stupidtable.min.js')
+    link(rel='stylesheet', href='/css/adminPanel.css')
+    link(rel='stylesheet', href='/css/components/dialog.css')
+    link(rel='stylesheet', href='/css/components/checkbox.css')
+
+block basicBody
+    script(src="/scripts/helpers/util.js")
+    script(src="/scripts/models/User.js")
+    script(src="/scripts/models/Tournament.js")
+    script(src="/scripts/adminPanel.js")
+
+    #mainHeaderNavContainer
+        .fantasy-container
+            .mainHeaderCell.logoCell
+                img#mainLogo(src="/icongraphy/svg/icon-logo1.svg" alt="Daily Champion")
+            .mainHeaderCell.triangleCell
+                .triangle
+            .mainHeaderCell.navCell
+                nav.mainHeaderNav
+                    h3.mainHeaderItem DVFS Management Application
+
+    .fantasy-container
+
+        #mainContainer
+            #adminOptions
+                .adminOption#manageTournamentsOption
+                    p Manage Contests
+                .adminOption#createTournamentOption
+                    p Create Contests
+                .adminOption#programmedTournamentsOption
+                    p Programmed Contests
+                .adminOption#manageUsersOption
+                    p Manage Users
+                .adminOption#termsAndConditionsOption
+                    p Terms and Conditions
+                .adminOption#gameRulesOption
+                    p Game Rules
+
+            #panelContainer
+                h3.adminLabel#adminLoadingView Loading...
+
+                .adminOptionContainer#manageTournamentsContainer
+                    input(type='text', placeholder='Filter by name...', autocomplete='off')#manageTournamentNameFilter
+                    table.adminTable#manageTournamentsTable
+
+                .adminOptionContainer#createTournamentContainer
+                    form#tournamentCreationForm
+                        .form-group
+                            label.adminLabel Name*
+                            input#name.adminInput.form-control(type='text', name="name")
+
+                            //label.adminLabel Summary*
+                            //textarea#summary.adminInput.form-control(rows='5', name="summary")
+
+                            label.adminLabel Matches*
+                                table.adminInput.adminTable#matchesSelectorTable
+                                table.adminInput#selectedMatchesContainer
+
+                            label.adminLabel Start Time*
+                                div.createTournamentStartTimeContainer.adminInput
+                                    label.adminOptionText.createTournamentStartTimeText Date mm/dd/yyyy
+                                    input#startDay.form-control(type='number', name="startDay", placeholder='dd', min='1', max='31')
+                                    input#startMonth.form-control(type='number', name='startMonth', placeholder='mm', min='1', max='12')
+                                    input#startYear.form-control(type='number', name='startYear', placeholder='yyyy', min='1880', max='2050')
+                                    label.adminOptionText.createTournamentStartTimeText Time hh:MM
+                                    input#startHour.form-control(type='number', name="startHour", placeholder='hh', min='0', max='23')
+                                    input#startMinute.form-control(type='number', name="startMinute", placeholder='MM', min='0', max='59')
+
+                            table.adminInput
+                                tr
+                                    td.adminTableOption.adminTextTable
+                                        label.adminLabel Guaranteed Prize
+                                    td.adminTableOption.adminInputTable
+                                        input#guaranteedPrize.form-control(type='number', name="guaranteedPrize", placeholder='0')
+                                    td.adminTableOption.adminTextTable
+                                        label.adminLabel Entry Fee
+                                    td.adminTableOption.adminInputTable
+                                        input#entryFee.form-control(type='number', name="entryFee", placeholder='Free')
+                                tr
+                                    td.adminTableOption.adminTextTable
+                                        label.adminLabel Max Entries
+                                    td.adminTableOption.adminInputTable
+                                        input#maxEntries.form-control(type='number', name="maxEntries")
+                                    td.adminTableOption.adminTextTable
+                                        label.adminLabel Multi entries
+                                    td.adminTableOption.adminInputTable
+                                        input#multiEntries.form-control(type='number', name="multiEntries", placeholder='42')
+
+                            label.adminLabel Contest type*
+                                select#tournamentTypes.adminInput.form-control(style={width: "200px"})
+
+                            label.adminLabel Contest flags
+                                div#tournamentFlagsContainer
+
+                            label.adminLabel Registrations open
+                                input#isOpen.adminInput(type="checkbox", name="isOpen", checked)
+
+                            label.adminLabel Play Modes*
+                            label.adminOptionText Real Money
+                                input#realPlayMode.adminInput(type="checkbox", name="realPlayMode", checked)
+                            label.adminOptionText Free Play
+                                input#freePlayMode.adminInput(type="checkbox", name="freePlayMode", checked)
+
+                            button.submitButton.mainActionButton(type='submit') SUBMIT
+
+                            p.errorMessage#tournamentCreationError
+                            img.centered#loadingProgress(src="/img/progress.gif", style="display:none")
+
+                .adminOptionContainer#programmedTournamentsContainer
+                    p Work in progress... (sort of)
+
+                .adminOptionContainer#manageUsersContainer
+                    div#manageUsersLegend
+                        .manageUsersLegendItem
+                            img(src="/icongraphy/img/tick.png" class="userFlagIcon")
+                            p.adminLabel = ID Verified
+                        .manageUsersLegendItem
+                            img(src="/icongraphy/img/lock.png" class="userFlagIcon")
+                            p.adminLabel = Locked Account
+                        .manageUsersLegendItem
+                            div.userWarning.manageUsersLegendColor
+                            p.adminLabel = Suspended
+                        .manageUsersLegendItem
+                            div.userLaundry.manageUsersLegendColor
+                            p.adminLabel = Possible money laundry
+                    table.adminInput.adminTable#manageUsersTable
+
+
+                .adminOptionContainer#termsAndConditionsContainer
+                    label.adminLabel Version Number
+                    input.adminInput#termsAndConditionsVersion(type='number')
+
+                    label.adminLabel Content
+                    textarea.adminInput#termsAndConditionsContent(rows="25")
+
+                    button#updateTermsAndConditionsButton.submitButton.mainActionButton(type='submit') UPDATE
+
+                .adminOptionContainer#gameRulesContainer
+                    label.adminLabel Version Number
+                    input.adminInput#gameRulesVersion(type='number')
+
+                    label.adminLabel Update Message
+                    textarea.adminInput#gameRulesUpdateMessage(rows="6")
+
+                    label.adminLabel Content
+                    textarea.adminInput#gameRulesContent(rows="15")
+
+                    label.adminLabel Points System
+                    table.adminInput.adminTable#pointsSystemTable
+                        thead
+                            tr
+                                th Action
+                                th ATT
+                                th MID
+                                th DEF
+                                th GK
+                        tbody#pointsSystemTableBody
+
+                    label.adminLabel Definitions
+                    #definitionsContainer
+
+                    button#updateGameRulesButton.submitButton.mainActionButton(type='submit') UPDATE
+
+    #editUserDialog(style='display:none;')
+        .dialogHeader
+            img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+            .dialogHeaderInner
+                span.dialogTitle Edit User
+                button.dialogCloseButton #[span]
+        .alertBody
+            #editUserDialogContainer
+                div.editUserDialogRow
+                    input.checkbox#accountLockedToggle(type="checkbox")
+                    label.checkbox-label#accountLockedLabel Account Locked
+                div.editUserDialogRow
+                    input.checkbox#idVerifiedToggle(type="checkbox")
+                    label.checkbox-label#idVerifiedLabel ID Verified
+            button.dialogButton.lightGrayButton.dialogActionButton#applyEditUserDialog APPLY
+            button.dialogButton.lightGrayButton.dialogActionButton#closeEditUserDialog CLOSE
