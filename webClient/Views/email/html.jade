@@ -1,0 +1,105 @@
+table(class="wrapper", width="100%", cellpadding=0, cellspacing=0, align="center")
+	tbody: tr: td(align="center")
+		table(class="content", width="100%", cellpadding=0, cellspacing=0)
+			tbody
+				//- Header
+				tr: td(align="center")
+					table(width="100%", cellpadding=0, cellspacing=0): tbody
+						tr: td(class="header", align="center")
+							a(href="https://dailychampion.com/", target="_blank")
+								img(class="header-logo", src="https://localhost:8080/icongraphy/img/email/logo.png", alt="Daily Champion")
+						tr: td(class="header-border", align="center")
+							img(src="https://localhost:8080/icongraphy/img/email/header-border.png", style="display: block;")
+				//- Main body
+				tr: td(class="main-body", align="center")
+					table(class="main-body-content", cellpadding=0, cellspacing=0)
+						tbody
+							tr: td(align="center")
+								h1.body-title #{render.subtitle}
+								for msg in render.messages
+									p.body-message= msg
+							if render.buttons
+								tr: td(align="center")
+									table.body-buttons
+										tbody: tr
+											td(align="center")
+												a(target="_blank", href="#{render.buttons.buttonLink}", class="button button-dark") #{render.buttons.buttonTitle}
+							tr(height=30): td
+							if render.learnMoreLink
+								tr: td(align="center")
+									a(target="_blank", href="#{render.learnMoreLink}", class="link") Learn more
+				//- Leagues
+				tr: td(class="leagues", align="center")
+					table(class="leagues-body", cellpadding=0 cellspacing=0): tbody
+						tr: td(align="center")
+							table(class="section-title", cellpadding=0, cellspacing=0): tbody: tr: td(align="center") Leagues
+						tr: td(align="center")
+							table(class="item-leagues", cellpadding=0, cellspacing=0): tbody: tr: td(align="center")
+								img(
+									src="https://dailychampion.com/icongraphy/img/league-icons/English-Premier-League_medium-vertical.png"
+									width=40
+									class="leagues-logo"
+								)
+								img(
+									src="https://dailychampion.com/icongraphy/img/league-icons/Italian-Serie-A_medium-vertical.png"
+									width=41
+									class="leagues-logo"
+								)
+								img(
+									src="https://dailychampion.com/icongraphy/img/league-icons/Spanish-La-Liga_medium-vertical.png"
+									width=41
+									class="leagues-logo"
+								)
+								img(
+									src="https://dailychampion.com/icongraphy/img/league-icons/Champions-League_medium-vertical.png"
+									width=52
+									class="leagues-logo"
+								)
+								img(
+									src="https://dailychampion.com/icongraphy/img/league-icons/German-Bundesliga_medium-vertical.png"
+									width=43
+									class="leagues-logo"
+								)
+								img(
+									src="https://dailychampion.com/icongraphy/img/league-icons/French-Ligue-1_medium-vertical.png"
+									width=42
+									class="leagues-logo"
+								)
+								img(
+									src="https://dailychampion.com/icongraphy/img/league-icons/Dutch-Eredivisie_medium-75px.png"
+									width=72
+									class="leagues-logo"
+								)
+				//- Play Now
+				tr: td(align="center")
+					table(class="play-now", cellpadding=0 cellspacing=0): tbody: tr: td(align="center")
+						table(class="play-now-body", cellpadding=0, cellspacing=0): tbody
+							tr
+								td(align="center")
+									table(cellpadding=0 cellspacing=0): tbody: tr: td
+										img(class="img-head-to-head", src="https://localhost:8080/icongraphy/img/email/head-to-head-rect.png")
+								td(rowspan=2)
+									table(cellpadding=0 cellspacing=0): tbody: tr: td
+										a(href="https://dailychampion.com/contests", target="_blank")
+											img(
+												src="https://localhost:8080/icongraphy/img/email/play-now.png"
+												style="display: block;"
+											)
+							tr: td(align="center"): table(cellpadding=0 cellspacing=0): tbody: tr: td
+								img(class="img-double-up", src="https://localhost:8080/icongraphy/img/email/double-up-rect.png")
+				//- footer root
+				tr: td(align="center")
+					table(class="footer-root", cellpadding=0 cellspacing=0)
+						tbody: tr: td(align="center")
+							table(class="footer-root-body", cellpadding=0 cellspacing=0): tbody
+								tr
+									td(align="center"): a(href="https://dailychampion.com/unsubscribe", target="_blank", class="footer-links") Unsubscribe
+									td(align="center"): a(href="https://dailychampion.com/privacyPolicy", target="_blank", class="footer-links") Privacy Policy
+									td(align="center"): a(href="https://dailychampion.com/contactUs", target="_blank", class="footer-links") Contact Us
+								tr: td(colspan="3", align="center")
+									p.footer-root-content Warning: Morbi tempor cursus nibh, a tempor nunc mollis nec. Etiam vel dui commodo, suscipit mauris ac, venenatis nunc. Sed urna nisl, iaculis et elit in, aliquam sodales augue. Praesent ullamcorper condimentum enim et vestibulum. Sed enim est, mollis sit amet libero vitae, rhoncus malesuada velit. Donec pharetra, est in aliquam dignissim, libero urna iaculis tellus, id fringilla sem neque a massa. Interdum et malesuada fames ac ante ipsum primis in fvel. Maecenas pulvinar lectus in dui porta, ut elementum dolor sodales.
+				//- footer bar
+				tr: td(align="center")
+					table(width="100%", cellpadding=0, cellspacing=0): tbody
+						tr: td: img(src="https://localhost:8080/icongraphy/img/email/footer-border.png", style="display: block;")
+						tr: td(class="footer", align="center") Sed vel arcu laoreet, auctor dui vel, ultrices velit.

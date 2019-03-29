@@ -1,0 +1,21 @@
+extends layout
+
+block head
+    link(rel='stylesheet', href='/css/signIn.css')
+
+block content
+    .fantasy-container#signInBackgroundImage
+        .signInContainer#loginContainer
+            .signInFormContainer
+                if (success)
+                    p.signInTitle.signInTitleShort Registration completed
+                    p.horizontalErrorMessage Welcome to Daily Champion! You can now start creating teams and joining contests.
+                    form(action="/contests", method="get")
+                        button.submitButton.mainActionButton(style="margin-bottom:90px") START PLAYING
+                else if (error || tokenExpired)
+                    p.signInTitle.signInTitleShort Verification failed
+                    p.horizontalErrorMessage #{error}
+                    form(action="/signIn#register", method="get")
+                        button.submitButton.mainActionButton(style="margin-bottom:90px") REGISTER
+
+            img#signInFieldImage(src="icongraphy/img/football-field-perspective.png")

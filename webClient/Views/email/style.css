@@ -1,0 +1,151 @@
+.wrapper {
+    font-family: 'Rubik', Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 100%;
+    max-width: 876px;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+}
+.content {
+    font-family: 'Rubik', Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+}
+.header {
+    font-family: 'Rubik', Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #2D2F49;
+    margin: 0;
+    padding: 25px 0;
+    width: 100%;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+}
+.header-border {
+    margin: 0;
+    padding: 0;
+    background-color: #EFEFEF;
+}
+.header-logo {
+    width: 123px;
+}
+.main-body {
+    background: url(https://localhost:8080/icongraphy/img/email/bg-running-players.png) left no-repeat;
+    background-color: #EFEFEF;
+}
+.main-body-content {
+    padding: 60px 0;
+    max-width: 600px;
+}
+.body-title {
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #2d2f49;
+    margin-top: 0;
+    margin-bottom: 35px;
+}
+.body-message {
+    color: #4f5a65;
+    margin-top: 0;
+    margin-bottom: 25px;
+    line-height: 30px;
+}
+.body-buttons {
+    margin-top: 15px;
+}
+.button {
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #2f6196;
+    color: #fff;
+    display: inline-block;
+    width: 255px;
+    font-style: italic;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+.button.button-dark {
+    color: #C3FF00;
+    background-color: #2d2f49;
+}
+.link {
+    color: #2f6196;
+}
+.leagues-body {
+    width: 100%;
+    padding-top: 80px;
+}
+.section-title {
+    color: #2d2f49;
+    font-size: 24px;
+    margin-bottom: 60px;
+}
+.item-leagues {
+    width: 98%;
+    max-width: 846px;
+    background-color: #f2f2f2;
+    padding: 60px 30px;
+}
+.leagues-logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 28px;
+}
+.play-now {
+    width: 100%;
+    padding-top: 80px;
+}
+.play-now-body {
+    width: 98%;
+    max-width: 846px;
+}
+.img-head-to-head {
+    display: block;
+    margin-bottom: 13px;
+    margin-right: 12px;
+}
+.img-double-up {
+    display: block;
+    margin-right: 12px;
+}
+.footer {
+    box-sizing: border-box;
+    background-color: #1f2133;
+    margin: 0;
+    padding: 20px 0;
+    width: 100%;
+    color: #4f5a65;
+    font-size: 12px;
+    margin-top: 40px;
+}
+.footer-root {
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+.footer-root-body {
+    max-width: 600px;
+}
+.footer-links {
+    color: #2f6196;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 0 8px;
+    margin: 12px;
+    display: block;
+    cursor: pointer;
+}
+.footer-root-content {
+    font-size: 11px;
+    color: #4f5a65;
+}
