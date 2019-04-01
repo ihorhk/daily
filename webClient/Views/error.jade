@@ -1,0 +1,21 @@
+extends layout
+
+block head
+	title Champion League | Error
+	link(rel='stylesheet', href='/css/error.css')
+
+block content
+	script(src="/scripts/helpers/util.js")
+	script(src="/scripts/error.js")
+
+	.fantasy-container#mainContainer
+		if (error.status === 404)
+			div
+				p.errorStatus 4
+				img#imgError(src="/icongraphy/img/error-404.png")
+				p.errorStatus 4
+			h1#errorTitle Page not found.
+		else
+			p.errorStatus #{error.status || 501}
+			h1#errorTitle Internal error.
+		button#goToContests Go to Contests

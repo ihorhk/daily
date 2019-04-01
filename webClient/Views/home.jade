@@ -1,0 +1,128 @@
+extends layout
+
+block head
+    link(rel='stylesheet', href='/css/home.css')
+
+block content
+
+    script(src="/scripts/home.js")
+
+    #freeContestsBanner
+        .home-container
+            h2 Play 5 Beginner contests <span>Free</span>
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            button#freeContestsPlayButton Play Now
+
+    #playOneweekSection
+        img.has-retina#imgRunningPlayers(src="/icongraphy/img/running-players.png" data-rjs="/icongraphy/img/running-players@2x.png")
+        img.has-retina#imgTopContests(src="/icongraphy/img/top-contests-list.png" data-rjs="/icongraphy/img/top-contests-list@2x.png")
+        img.has-retina#imgLobbyScreen(src="/icongraphy/img/contest-lobby-screen.png" data-rjs="/icongraphy/img/contest-lobby-screen@2x.png")
+
+        .home-container
+            h2 Play, watch & win. All in one <span>weekend</span>.
+            #playStepsContainer
+                div
+                    .playStep
+                        span 1
+                        h4 Choose A Contest
+                        p Aliquam interdum lectus ut metus lobortis.
+                    .playStep
+                        span 2
+                        h4 Pick Your Players
+                        p Proin finibus dui et est maximus molestie.
+                    .playStep
+                        span 3
+                        h4 Highest Scores Win
+                        p Sed vel arcu laoreet, auctor dui vel, ultrices velit.
+
+    #liveContestSection
+        #fansBanner
+        #liveContestBanner
+            .home-container
+                #liveContestDesc
+                    img.has-retina#imgWinningPayout(src="/icongraphy/img/winning-payout.png" data-rjs="/icongraphy/img/winning-payout@2x.png")
+                    h3.sectionTitle Nullam consectetur et tellus.
+                    p.sectionDesc.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut aliquet dui, et fermentum dui. Nullam consectetur et tellus ut placera, duis eget enim fermentum.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut aliquet dui, et fermentum dui. Nullam consectetur et tellus ut placera, duis eget enim fermentum.
+                img.has-retina#imgLiveContestScreen(src="/icongraphy/img/live-contest-screen.png" data-rjs="/icongraphy/img/live-contest-screen@2x.png")
+                #leaguesContainer
+                    .leagueIconsRow
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/English-Premier-League_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Spanish-La-Liga_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Italian-Serie-A_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Champions-League_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/German-Bundesliga_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/French-Ligue-1_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Spanish-Copa-del-Rey_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/UEFA_big-200px-vertical.png" alt="")
+
+                    .leagueIconsRow
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/English-League-Cup_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/German-DFB-Pokal_big-200-px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/French-Coupe-de-la-Ligue_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Dutch-Eredivisie_big-200px.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Dutch-Johan-Cruyff-shield_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Coupe-De-France_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/French-Champions-Trophy_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Coppa-Italia_medium-vertical.png" alt="")
+
+                    .leagueIconsRow
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Spanish-Supercopa_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/Dutch-KNVB-cup_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/English-FA-Cup_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/UEFA-under-21_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/German-Super-Cup_big-200px-vertical.png" alt="")
+                        .leagueIconContainer
+                            img.leagueIcon(src="/icongraphy/img/league-icons/English-Community-Shield_medium-vertical.png" alt="")
+
+    #teamDraftSection
+        img.has-retina#imgYourEntries(src="/icongraphy/img/your-entries.png" data-rjs="/icongraphy/img/your-entries@2x.png")
+        .home-container
+            h3.sectionTitle Nullam consectetur et tellus.
+            p.sectionDesc.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut aliquet dui, et fermentum dui. Nullam consectetur et tellus ut placera, duis eget enim fermentum.
+            #tournamentFeatures
+                .tournamentFeature#featuredTournament
+                    img.has-retina.imgTournamentFeature(src="/icongraphy/img/featured-tournament.png" data-rjs="/icongraphy/img/featured-tournament@2x.png")
+                    h4 Featured Tournaments
+                    p Aliquam interdum lectus ut metus lobortis.
+                .tournamentFeature#HeadToHead
+                    img.has-retina.imgTournamentFeature(src="/icongraphy/img/head-to-head.png" data-rjs="/icongraphy/img/head-to-head@2x.png")
+                    h4 Head-to-head
+                    p Proin finibus dui et est maximus molestie.
+                .tournamentFeature#DoubleUp
+                    img.has-retina.imgTournamentFeature(src="/icongraphy/img/double-up.png" data-rjs="/icongraphy/img/double-up@2x.png")
+                    h4 Double Up
+                    p Sed vel arcu laoreet, auctor dui vel, ultrices velit.
+            img.has-retina#imgBottomContests(src="/icongraphy/img/bottom-contests-list.jpg" data-rjs="/icongraphy/img/bottom-contests-list@2x.jpg")
+        img.has-retina#imgTeamDraft(src="/icongraphy/img/team-drafting.jpg" data-rjs="/icongraphy/img/team-drafting@2x.jpg")
+        img.has-retina#imgContestProgressBar(src="/icongraphy/img/contest-progress-bar.png" data-rjs="/icongraphy/img/contest-progress-bar@2x.png")
+
+    #favoriteDeviceSection
+        .home-container
+            #favoriteDeivceDesc
+                h3.sectionTitle On Your Favourite Device
+                p.sectionDesc Nullam consectetur et tellus ut placera, duis eget enim fermentum duis eget enim fermentum.
+                button#favoritePlayNowButton PLAY NOW
+            img.has-retina#imgFavouriteDevices(src="/icongraphy/img/favourite-devices.png" data-rjs="/icongraphy/img/favourite-devices@2x.png")
