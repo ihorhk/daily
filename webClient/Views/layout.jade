@@ -1,0 +1,154 @@
+extends basic
+
+block basicHead
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    script(src="/socket.io/socket.io.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone.min.js")
+    script(src="/scripts/res/stupidtable.min.js")
+    script(src="/scripts/helpers/lodash.js")
+    script(src="/scripts/helpers/util.js")
+    script(src="/scripts/models/User.js")
+    script(src="/scripts/main.js")
+    script(src="/scripts/res/toggle.js")
+    script(src="/scripts/res/retina.min.js")
+
+    script.
+        var isUserLoggedIn = function () { return #{user !== undefined} === true }
+        var getLoggedInUsername = function () { return '#{user ? user.username : ''}' }
+        var getUserBalanceForCurrentPlayMode = function () { return #{user ? (user.playMode === 'free' ? user.freeMoneyBalance : user.balance) : undefined} }
+        var getUserPlayMode = function () { return '#{user ? user.playMode : 'real'}' }
+        moment.tz.add('Europe/Dublin|DMT IST GMT BST IST|p.l -y.D 0 -10 -10|01232323232324242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242|-2ax9y.D Rc0 1fzy.D 14M0 1fc0 1g00 1co0 1dc0 1co0 1oo0 1400 1dc0 19A0 1io0 1io0 WM0 1o00 14o0 1o00 17c0 1io0 17c0 1fA0 1a00 1lc0 17c0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1cM0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1io0 1qM0 Dc0 g5X0 14p0 1wn0 17d0 1io0 11A0 1o00 17c0 1fA0 1a00 1fA0 1cM0 1fA0 1a00 17c0 1fA0 1a00 1io0 17c0 1lc0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1a00 1qM0 WM0 1qM0 11A0 1o00 WM0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1tA0 IM0 90o0 U00 1tA0 U00 1tA0 U00 1tA0 U00 1tA0 WM0 1qM0 WM0 1qM0 WM0 1tA0 U00 1tA0 U00 1tA0 11z0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 14o0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|12e5');
+
+    block head
+
+block basicBody
+
+    - function formatBalance(a){if(!a)return 0;var b=a;if(b=b.toString(),b.indexOf(".")>0){var c=parseFloat(a).toFixed(2);if("00"!==c.substring(c.indexOf(".")+1))return c;b=c.substring(0,c.indexOf("."))}for(var d=/(\d+)(\d{3})/;d.test(b);)b=b.replace(d,"$1,$2");return '€'+b}
+
+    #mainHeader
+        #mainHeaderNavContainer
+            .fantasy-container
+                .mainHeaderCell.logoCell
+                    img#mainLogo(src="/icongraphy/svg/icon-logo1.svg" alt="Daily Champion")
+                .mainHeaderCell.triangleCell
+                    .triangle
+                .mainHeaderCell.navCell
+                    nav.mainHeaderNav
+                        ul.mainHeaderNavItems
+                            li.mainHeaderItem #[a(href="/home").mainHeaderOption#headerHomeOption Home]
+                            li.mainHeaderItem #[a(href="/contests").mainHeaderOption#headerLobbyOption Contests]
+                            li.mainHeaderItem #[a(href="/myContests").mainHeaderOption#headerContestsOption My Contests]
+                            li.mainHeaderItem #[a(href="/account").mainHeaderOption#headerAccountOption Account]
+
+                .mainHeaderCell.userInfoCell
+                    nav#userInfo
+                        svg#mainHeaderUserIcon(width="16.7" height="15.67") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-icon")]
+                        if (!user)
+                            form(action="/signIn#login",method="get")
+                                button.userButton#loginButton Login
+                            span.divider
+                            form(action="/signIn#register",method="get")
+                                button.userButton#registerButton Register
+
+                        else
+                            button.userButton#profileButton #{user.username}
+                            span#balanceMoneyText
+                        button#mainMenuButton 
+                            svg(width="21.55" height="20.64") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu")]
+
+        #mainMobileNavContainer
+            #mainMobileNavInner
+                button#mainMobileNavCloseButton
+                    svg(width="18" height="18") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu-close")]
+
+
+    header#promoBanner
+        .fantasy-container#promoBannerInner
+            #promoContainer
+                #promoRegister
+                    #promoRegisterInner SUPER WEEKEND #[p FREEROLL]
+                    button#promoRegisterButton REGISTER NOW
+                #promoPrize
+                    #promoPrizeInner WIN #[p#promoPrizeText $1,000]
+                    img#promoPrizeImage(src="/icongraphy/svg/icon-promo.svg")
+
+
+    block content
+
+
+    footer#mainFooter
+        #mainFooterBody
+            #mainFooterBanner
+            .fantasy-container#mainFooterContent
+                #mainFooterRectangle
+                    .mainFooterSection#mainFooterHome
+                        p.mainFooterSectionTitle Home
+                        ul
+                            li #[a(href="#") Lobby]
+                            li #[a(href="#") Player Statistics]
+                            li #[a(href="#") Live Match Center]
+                            li #[a(href="#") Football Statistics Center]
+                    .mainFooterSection#mainFooterContests
+                        p.mainFooterSectionTitle Contests
+                        ul
+                            li #[a(href="#") Terms and Conditions]
+                            li #[a(href="#") FAQs]
+                            li #[a(href="#") Live]
+                            li #[a(href="#") Privacy Policy]
+                    .mainFooterSection#mainFooterAbout
+                        p.mainFooterSectionTitle About
+                        ul
+                            li #[a(href="#") About Us]
+                            li #[a(href="/termsAndConditions") Terms and Conditions]
+                            li #[a(href="#") Contact Us]
+                    .mainFooterSection#mainFooterWarning
+                        #[span Warning:] Morbi tempor cursus nibh, a tempor nunc mollis nec. Etiam vel dui commodo, suscipit mauris ac, venenatis nunc. Sed urna nisl, iaculis et elit in, aliquam sodales augue. Praesent ullamcorper condimentum enim et vestibulum. Sed enim est, mollis sit amet libero vitae, rhoncus malesuada velit. Donec pharetra, est in aliquam dignissim, libero urna iaculis tellus, id fringilla sem neque a massa. Interdum et malesuada fames ac ante ipsum primis in fvel. Maecenas pulvinar lectus in dui porta, ut elementum dolor sodales.
+
+        #mainFooterPayments
+            #mainFooterPaymentsInner
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/icon-payment-18+.svg" width="20")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/astropay_card.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/bitcoin.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/discover.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/elv.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/eps.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/giro_pay.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/ideal.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/instant_transfer.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/maestro.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/mastercard.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/neteller.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/paypal.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/paysafe_card.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/poli.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/przelewy24.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/qiwi.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/safety_pay.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/skrill.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/sofort.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/trustpay.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/visa.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/web_money.svg")
+                img.mainFooterPaymentLogo(src="/icongraphy/svg/payment/bw/yandex.svg")
+
+    #mainPopBoxContainer
+        #accountPopBox
+            ul#accountPopBoxInner
+                li 
+                    form(action="/logout",method="get")
+                        button.accountPopBoxItem Logout
+                            svg(width="12.68" height="15") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-logout")]
+                li 
+                    button.accountPopBoxItem(onclick="window.location.pathname = '/account'") Account
+                        svg(width="16.5" height="16.5") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-account")]
+                li
+                    .accountPopBoxItem Real Money Contests
+                        if (user && user.playMode == 'free')
+                            input.tv-toggle#realContestsToggle(type="checkbox")
+                        else 
+                            input.tv-toggle#realContestsToggle(type="checkbox" checked)

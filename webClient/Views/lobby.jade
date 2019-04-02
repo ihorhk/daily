@@ -1,0 +1,181 @@
+extends layout
+
+block head
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.css")
+    link(rel="stylesheet", href="/css/components/ion.rangeSlider.css")
+    link(rel="stylesheet", href="/css/components/checkbox.css")
+    link(rel="stylesheet", href="/css/lobby.css")
+    link(rel="stylesheet", href="/css/lobbyDialog.css")
+
+block content
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.4/js/ion.rangeSlider.min.js")
+    script(src="/scripts/res/cookie.js")
+    script(src="/scripts/res/sortableclusterizetable.min.js")
+    script(src="/scripts/models/Tournament.js")
+    script(src="/scripts/models/Match.js")
+    script(src="/scripts/models/Team.js")
+    script(src="/scripts/models/Timer.js")
+    script(src="/scripts/models/Competition.js")
+    script(src="/scripts/models/User.js")
+    script(src="/scripts/models/Player.js")
+    script(src="/scripts/lobby.js")
+
+
+    .fantasy-container#mainContainer
+
+        #lobbyContainer
+
+            .forceScrollBar#dateSliderContainer
+                #dateSlider
+
+            #filterContainer
+                .filterItem#filterItemName
+                .filterItem#filterItemEntryFee
+                .filterItem#filterItemContest
+                .filterItem#filterItemLeague
+                .hasTooltip#filterResetContainer
+                    button#filterResetButton
+                        img(src="/icongraphy/svg/icon-filter-reset.svg" width="16")
+                    .tooltipBox
+                        span.tooltipInner Reset All Filters
+
+
+
+            #tournamentsContainer
+                .tableHeader#tournamentsHeader
+                    img.tableHeaderLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                    .tableHeaderInner
+                .clusterize#tournamentsTableContainer
+                    .headTableContainer
+                        table.headTable#tournamentsHeadTable
+                    .clusterize-scroll.forceScrollBar#tournamentsScrollArea
+                        table.clusterizeTable#tournamentsTable
+                            thead
+                                tr
+                                    th.tournamentFlags
+                                    th.tournamentName
+                                    th.tournamentEntryFee
+                                    th.tournamentEntries
+                                    th.tournamentPrizes
+                                    th.tournamentMatches
+                                    th.tournamentStartTime
+                                    th.tournamentAction
+                            tbody.clusterize-content#tournamentsTableBody
+                #noTournamentsContainer
+                    #noTournamentsContent
+                        #noTournamentsTitleContainer
+                            img(src="/icongraphy/svg/icon-flying-football.svg" alt="")
+                            span NO MATCHES
+                        p#noTournamentsText
+
+
+        #tournamentDetailsDialog(style='display:none;')
+
+            .dialogHeader
+                img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion")
+                .dialogHeaderInner
+                    span.dialogTitle Contest Details
+                    button.dialogCloseButton#tournamentDialogCloseButton #[span]
+
+            .dialogBody#tournamentDialogBody
+                
+                .dialogContent#tournamentDialogContent
+
+                    #tournamentDialogBanner
+                        #tournamentDialogLogoWrapper
+                            img#tournamentDialogLogo
+                        p#tournamentDialogName
+                        #tournamentDialogInfoContainer
+                            .tournamentDialogInfo
+                                p.tournamentDialogInfoName ENTRY FEE
+                                p.tournamentDialogInfoValue#tournamentDialogEntryFee
+                            .tournamentDialogInfo
+                                p.tournamentDialogInfoName PRIZES
+                                p.tournamentDialogInfoValue#tournamentDialogPrizes
+                            .tournamentDialogInfo
+                                p.tournamentDialogInfoName ENTRIES
+                                p.tournamentDialogInfoValue#tournamentDialogEntries
+                            .tournamentDialogInfo
+                                p.tournamentDialogInfoName MULTI-ENTR.
+                                p.tournamentDialogInfoValue#tournamentDialogMultiEntries
+                            .tournamentDialogInfo
+                                p.tournamentDialogInfoName START TIME
+                                p.tournamentDialogInfoValue#tournamentDialogStartTime
+                            .tournamentDialogInfo
+                                p.tournamentDialogInfoName END TIME
+                                p.tournamentDialogInfoValue#tournamentDialogEndTime
+
+                    #tournamentDialogTablesContainer
+
+                        .tournamentDialogTableContainer#tournamentSummaryTableContainer
+                            .tournamentDialogTableHeader SUMMARY
+                            .clusterize#summaryTableContainer
+                                .clusterize-scroll.forceScrollBar#summaryScrollArea
+                                    table.clusterizeTable#summaryTable
+                                        thead
+                                            tr
+                                                th.summaryTeamNameData
+                                                th.summaryTeamLogoData
+                                                th.summaryTeamVsData
+                                                th.summaryTeamLogoData
+                                                th.summaryTeamNameData
+                                                th.summaryStartTimeData
+                                        tbody.clusterize-content#summaryTableBody
+                        .tournamentDialogTableContainer#tournamentEntrantsTableContainer
+                            .tournamentDialogTableHeader ENTRANTS
+                            .clusterize#entrantsTableContainer
+                                .clusterize-scroll.forceScrollBar#entrantsScrollArea
+                                    table.clusterizeTable#entrantsTable
+                                        tbody.clusterize-content#entrantsTableBody
+                            .noDataContainer#noEntrantsContainer
+                                .noDataContent
+                                    .noDataTitleContainer
+                                        img(src="/icongraphy/svg/icon-flying-football.svg" alt="")
+                                        span No Entries
+                                    .noDataContentInner
+                                        p.noDataText#noEntrantsText As soon as there are registered players they will show up here.
+                        .tournamentDialogTableContainer#tournamentPayoutsTableContainer
+                            .tournamentDialogTableHeader#prizePayoutsHeader
+                                p#prizePayoutsTitle PRIZE PAYOUTS
+                                p#prizePayoutsEntriesNumber
+                            .clusterize#payoutsTableContainer
+                                .clusterize-scroll.forceScrollBar#payoutsScrollArea
+                                    table.clusterizeTable#payoutsTable
+                                        thead
+                                            tr
+                                                th.prizePlaceData
+                                                th.prizePayoutData
+                                        tbody.clusterize-content#payoutsTableBody
+
+                button#draftTeamButton DRAFT TEAM
+
+    #filterPopBoxContainer
+
+        .filterPopBox#filterNamePopBox
+            .popBoxInner
+                .filterPopBoxHeader Filter
+                .filterPopBoxBody
+                    .input-group
+                        input.form-control#filterSearch(type='text' placeholder='By name' aria-label='...')
+                        .input-group-btn
+                            button.btn.btn-default.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                span.caret
+                            ul.dropdown-menu.dropdown-menu-right#filterSearchKeywords
+
+        .filterPopBox#filterEntryFeePopBox
+            .popBoxInner
+                .filterPopBoxHeader Entry Fee
+                .filterPopBoxBody
+                    #filterEntryFeeSliderContainer
+                        input#filterEntryFeeSlider
+
+        .filterPopBox#filterContestPopBox
+            .popBoxInner
+                .filterPopBoxHeader Contest Types
+                .filterPopBoxBody
+
+        .filterPopBox#filterLeaguePopBox
+            .popBoxInner
+                .filterPopBoxHeader Leagues
+                .filterPopBoxBody
