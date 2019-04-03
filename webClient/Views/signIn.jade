@@ -1,0 +1,79 @@
+extends layout
+
+block head
+    link(rel="stylesheet", href="/css/components/checkbox.css")
+    link(rel='stylesheet', href='/css/signIn.css')
+
+block content
+    script(src="/scripts/res/countries.js")
+    script(src="/scripts/signIn.js")
+
+    .fantasy-container#signInBackgroundImage
+        .signInContainer
+            #headerContainer
+                .signInHeaderTab#loginTab(selected)
+                    p.signInHeaderTabText LOGIN
+                .signInHeaderTab#registerTab
+                    p.signInHeaderTabText REGISTER
+
+            .signInFormContainer
+                #loginContainer
+                    p.signInTitle
+                        span#loginTitle Register now and play with your favourite team today!
+
+                    .horizontalErrorMessage#loginError(style="display:none") Invalid username or password
+
+                    form#loginForm(role='form', action="/signIn", method="post")
+                        input#loginUsername.form-control.signInForm(type='text', name="username", placeholder='Username')
+                        input#loginPassword.form-control.signInForm(type='password', name="password", placeholder='Password')
+                        input#loginSubmitButton.submitButton.mainActionButton(type='submit', value="LOGIN")
+
+                    a.centered#forgotLogin Forgot your keys?
+
+                #forgotLoginContainer
+                    p.signInTitle.signInTitleShort Forgot your keys?
+                    .horizontalErrorMessage#forgotLoginError(style="display:none")
+                    .horizontalMessage#forgotLoginSuccess(style="display:none") Almost done! Check your e-mail to set a new password
+                    form#forgotLoginForm(role='form', action="/api/requestPasswordReset", method="post")
+                        input#forgotLoginUsername.form-control.signInForm(type='text', name="username", placeholder='Your account username or e-mail')
+                        input#forgotLoginSubmit.submitButton.mainActionButton(type='submit', value="RESET PASSWORD")
+
+                #registerContainer
+                    p.signInTitle
+                        span Register now and play with your favourite team today!
+
+                    .horizontalMessage#registrationSuccess(style="display:none")
+
+                    form#registrationForm(role='form', action="/api/createUser", method="post")
+                        input#registerUsername.form-control.signInForm(type='text', placeholder='Username')
+                        input#registerPassword.form-control.signInForm.registerPassword(type='password', placeholder='Password')
+                        input#registerConfirmPassword.form-control.signInForm.registerPassword(type='password', placeholder='Confirm Password')
+                        input#registerEmail.form-control.signInForm(type='text', placeholder='E-mail', name="email")
+                        input#registerFirstName.form-control.signInForm(type='text', placeholder='First Name', name="fname")
+                        input#registerLastName.form-control.signInForm(type='text', placeholder='Last Name', name="lname")
+                        p.registrationLabel Birth Date
+                        div
+                            input#birthDay.birthDateForm.form-control.signInForm(type='number', placeholder='DD', min='1', max='31', name="date day")
+                            input#birthMonth.birthDateForm.form-control.signInForm(type='number', placeholder='MM', min='1', max='12', name="month")
+                            input#birthYear.birthDateForm.form-control.signInForm(type='number', placeholder='YYYY', min='1880', max='#{new Date().getFullYear() - 18}', name="year")
+                        p.registrationLabel Residence Address
+                        select(default)#countriesDropdown.form-control.signInForm
+                            option(selected disabled) Country
+                        div
+                            input#city.form-control.signInForm(type='text', placeholder='City', name="city")
+                            input#zipCode.form-control.signInForm(type='text', placeholder='Zip Code', name="zipCode")
+                        div
+                            input#street.form-control.signInForm(type='text', placeholder="Street", name="address")
+                            input#streetNumber.form-control.signInForm(type='text', placeholder="No.", name="streetNumber")
+
+                        #termsAndConditionsContainer
+                            input.checkbox#termsAndConditionsCheckbox(type='checkbox')
+                            label.checkbox-label#termsAndConditionsLabel
+                                p#termsAndConditionsText I am at least 18 years old and I have read and accepted the
+                                a#termsAndConditionsLink Terms and Conditions
+
+                        .horizontalErrorMessage#registrationError(style="display:none")
+
+                        input#registrationSubmitButton.submitButton.mainActionButton(type='submit', value="CREATE ACCOUNT")
+
+            img#signInFieldImage(src="icongraphy/img/football-field-perspective.png")

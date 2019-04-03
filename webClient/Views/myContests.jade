@@ -1,0 +1,70 @@
+extends layout
+
+block head
+    link(rel='stylesheet', href='/css/res/fixedHeaderTable.css')
+    link(rel='stylesheet', href='/css/myContests.css')
+    link(rel='stylesheet', href='/css/myContestsDialog.css')
+
+block content
+    script(src="/scripts/res/cookie.js")
+    script(src="/scripts/res/fixedHeaderTable.js")
+    script(src="/scripts/models/Tournament.js")
+    script(src="/scripts/models/Competition.js")
+    script(src="/scripts/models/Player.js")
+    script(src="/scripts/models/Timer.js")
+    script(src="/scripts/myContests.js")
+
+    .fantasy-container
+        #titleContainer
+            h2.pageTitle My Contests
+            #contestTabContainer
+                button.contestTab#contestTabLive
+                    svg(width="20.5" height="18.6") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-contests-live")]
+                    span LIVE
+                    span.contestTabCount#contestTabLiveCount
+                button.contestTab#contestTabUpcoming
+                    svg(width="18.9" height="18.9") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-contests-upcoming")]
+                    span UPCOMING
+                    span.contestTabCount#contestTabUpcomingCount
+                button.contestTab#contestTabHistory
+                    svg(width="15.5" height="18.9") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-contests-history")]
+                    span HISTORY
+                    span.contestTabCount#contestTabHistoryCount
+            #contestHeaderContainer
+                #contestSummaryContainer
+                    .contestSummaryInfo
+                        svg.fill(width="13.51" height="12.67") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-icon")]
+                        p.name#contestUsername
+                    .contestSummaryInfo
+                        p.name.has-arrow Contests:
+                        p.value#contestSummaryCount 0
+                    .contestSummaryInfo
+                        p.name.has-arrow#contestSummaryMoneyText
+                        p.value#contestSummaryMoneyValue 0
+                #contestGroupByContainer
+                    p.has-arrow ENTRIES:
+                    .groupByContainer
+                        button.groupByTab#groupByTabContest Contest
+                        button.groupByTab#groupByTabEntryFee EntryFee
+                        button.groupByTab#groupByTabLineUp Line Up
+
+        #tournamentsContainer
+            table#tournamentsTable(data-sort='string')
+            #noTournamentsContainer
+                .content
+                    header
+                        img(src="/icongraphy/svg/icon-flying-football.svg" alt="")
+                        span NO MATCHES
+                    p#noTournamentsText
+
+        #deleteEntryDialog(style='display:none;')
+            .dialogHeader
+                img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                .dialogHeaderInner
+                    span.dialogTitle Are you sure?
+                    button.dialogCloseButton#deleteEntryDialogCloseButton #[span]
+            .alertBody#deleteEntryDialogBody
+                p.dialogMessage
+                .buttonContainer
+                    button.dialogButton.grayButton#deleteEntryYesButton YES, UNREGISTER
+                    button.dialogButton.greenButton#deleteEntryNoButton NO, CANCEL

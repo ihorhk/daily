@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Champion League</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/components/toggle.css">
+    <link rel="stylesheet" href="/css/components/dialog.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone.min.js"></script>
+<script src="/scripts/res/stupidtable.min.js"></script>
+<script src="/scripts/helpers/lodash.js"></script>
+<script src="/scripts/helpers/util.js"></script>
+<script src="/scripts/models/User.js"></script>
+<script src="/scripts/main.js"></script>
+<script src="/scripts/res/toggle.js"></script>
+<script src="/scripts/res/retina.min.js"></script>
+<script>
+    var isUserLoggedIn = function () {
+        return false === true
+    }
+    var getLoggedInUsername = function () {
+        return ''
+    }
+    var getUserBalanceForCurrentPlayMode = function () {
+        return
+    }
+    var getUserPlayMode = function () {
+        return 'real'
+    }
+    moment.tz.add(
+        'Europe/Dublin|DMT IST GMT BST IST|p.l -y.D 0 -10 -10|01232323232324242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242|-2ax9y.D Rc0 1fzy.D 14M0 1fc0 1g00 1co0 1dc0 1co0 1oo0 1400 1dc0 19A0 1io0 1io0 WM0 1o00 14o0 1o00 17c0 1io0 17c0 1fA0 1a00 1lc0 17c0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1cM0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1io0 1qM0 Dc0 g5X0 14p0 1wn0 17d0 1io0 11A0 1o00 17c0 1fA0 1a00 1fA0 1cM0 1fA0 1a00 17c0 1fA0 1a00 1io0 17c0 1lc0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1a00 1qM0 WM0 1qM0 11A0 1o00 WM0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1tA0 IM0 90o0 U00 1tA0 U00 1tA0 U00 1tA0 U00 1tA0 WM0 1qM0 WM0 1qM0 WM0 1tA0 U00 1tA0 U00 1tA0 11z0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 14o0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|12e5'
+        );
+</script>
+<link rel="stylesheet" href="/css/components/checkbox.css">
+<link rel="stylesheet" href="/css/signIn.css">
+
+</html>
+
+<body>
+    <div style="display:none;" class="errorDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle">Warning</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button class="dialogButton redButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="warningDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryWarningButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="mainWarningButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="genericDialog">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryGenericDialogButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="genericDialogButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div id="termsAndConditionsDialog" style="display:none;">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle">Terms and Conditions</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <textarea id="termsAndConditionsDialogContent" rows="25" readonly="true"></textarea>
+            <button id="termsAndConditionsDialogDecline"
+                class="dialogButton lightGrayButton dialogActionButton">DECLINE</button>
+            <button id="termsAndConditionsDialogAccept"
+                class="dialogButton lightGrayButton dialogActionButton">ACCEPT</button>
+        </div>
+    </div>
+    <div id="mainHeader">
+        <div id="mainHeaderNavContainer">
+            <div class="fantasy-container">
+                <div class="mainHeaderCell logoCell"><img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg"
+                        alt="Champion League"></div>
+                <div class="mainHeaderCell triangleCell">
+                    <div class="triangle"></div>
+                </div>
+                <div class="mainHeaderCell navCell">
+                    <nav class="mainHeaderNav">
+                        <ul class="mainHeaderNavItems">
+                            <li class="mainHeaderItem"><a href="/home" id="headerHomeOption"
+                                    class="mainHeaderOption">Home</a></li>
+                            <li class="mainHeaderItem"><a href="/contests" id="headerLobbyOption"
+                                    class="mainHeaderOption">Contests</a></li>
+                            <li class="mainHeaderItem"><a href="/myContests" id="headerContestsOption"
+                                    class="mainHeaderOption">My Contests</a></li>
+                            <li class="mainHeaderItem"><a href="/account" id="headerAccountOption"
+                                    class="mainHeaderOption">Account</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mainHeaderCell userInfoCell">
+                    <nav id="userInfo">
+                        <svg id="mainHeaderUserIcon" width="16.7" height="15.67">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-icon"></use>
+                        </svg>
+                        <form action="/signIn#login" method="get">
+                            <button id="loginButton" class="userButton">Login</button>
+                        </form><span class="divider"></span>
+                        <form action="/signIn#register" method="get">
+                            <button id="registerButton" class="userButton">Register</button>
+                        </form>
+                        <button id="mainMenuButton">
+                            <svg width="21.55" height="20.64">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu"></use>
+                            </svg>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="mainMobileNavContainer">
+            <div id="mainMobileNavInner">
+                <button id="mainMobileNavCloseButton">
+                    <svg width="18" height="18">
+                        <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu-close"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <header id="promoBanner">
+        <div id="promoBannerInner" class="fantasy-container">
+            <div id="promoContainer">
+                <div id="promoRegister">
+                    <div id="promoRegisterInner">SUPER WEEKEND
+                        <p>FREEROLL</p>
+                    </div>
+                    <button id="promoRegisterButton">REGISTER NOW</button>
+                </div>
+                <div id="promoPrize">
+                    <div id="promoPrizeInner">WIN
+                        <p id="promoPrizeText">$1,000</p>
+                    </div><img id="promoPrizeImage" src="/icongraphy/svg/icon-promo.svg">
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="/scripts/res/countries.js"></script>
+    <script src="/scripts/signIn.js"></script>
+    <div id="signInBackgroundImage" class="fantasy-container">
+        <div class="signInContainer">
+            <div id="headerContainer">
+                <div id="loginTab" selected class="signInHeaderTab">
+                    <p class="signInHeaderTabText">LOGIN</p>
+                </div>
+                <div id="registerTab" class="signInHeaderTab">
+                    <p class="signInHeaderTabText">REGISTER</p>
+                </div>
+            </div>
+            <div class="signInFormContainer">
+                <div id="loginContainer">
+                    <p class="signInTitle"><span id="loginTitle">Register now and play with your favourite team
+                            today!</span></p>
+                    <div id="loginError" style="display:none" class="horizontalErrorMessage">Invalid username or
+                        password</div>
+                    <form id="loginForm" role="form" action="/signIn" method="post">
+                        <input id="loginUsername" type="text" name="username" placeholder="Username"
+                            class="form-control signInForm">
+                        <input id="loginPassword" type="password" name="password" placeholder="Password"
+                            class="form-control signInForm">
+                        <input id="loginSubmitButton" type="submit" value="LOGIN" class="submitButton mainActionButton">
+                    </form><a id="forgotLogin" class="centered">Forgot your keys?</a>
+                </div>
+                <div id="forgotLoginContainer">
+                    <p class="signInTitle signInTitleShort">Forgot your keys?</p>
+                    <div id="forgotLoginError" style="display:none" class="horizontalErrorMessage"></div>
+                    <div id="forgotLoginSuccess" style="display:none" class="horizontalMessage">Almost done! Check your
+                        e-mail to set a new password</div>
+                    <form id="forgotLoginForm" role="form" action="/api/requestPasswordReset" method="post">
+                        <input id="forgotLoginUsername" type="text" name="username"
+                            placeholder="Your account username or e-mail" class="form-control signInForm">
+                        <input id="forgotLoginSubmit" type="submit" value="RESET PASSWORD"
+                            class="submitButton mainActionButton">
+                    </form>
+                </div>
+                <div id="registerContainer">
+                    <p class="signInTitle"><span>Register now and play with your favourite team today!</span></p>
+                    <div id="registrationSuccess" style="display:none" class="horizontalMessage"></div>
+                    <form id="registrationForm" role="form" action="/api/createUser" method="post">
+                        <input id="registerUsername" type="text" placeholder="Username" class="form-control signInForm">
+                        <input id="registerPassword" type="password" placeholder="Password"
+                            class="form-control signInForm registerPassword">
+                        <input id="registerConfirmPassword" type="password" placeholder="Confirm Password"
+                            class="form-control signInForm registerPassword">
+                        <input id="registerEmail" type="text" placeholder="E-mail" name="email"
+                            class="form-control signInForm">
+                        <input id="registerFirstName" type="text" placeholder="First Name" name="fname"
+                            class="form-control signInForm">
+                        <input id="registerLastName" type="text" placeholder="Last Name" name="lname"
+                            class="form-control signInForm">
+                        <p class="registrationLabel">Birth Date</p>
+                        <div>
+                            <input id="birthDay" type="number" placeholder="DD" min="1" max="31" name="date day"
+                                class="birthDateForm form-control signInForm">
+                            <input id="birthMonth" type="number" placeholder="MM" min="1" max="12" name="month"
+                                class="birthDateForm form-control signInForm">
+                            <input id="birthYear" type="number" placeholder="YYYY" min="1880" max="1999" name="year"
+                                class="birthDateForm form-control signInForm">
+                        </div>
+                        <p class="registrationLabel">Residence Address</p>
+                        <select default id="countriesDropdown" class="form-control signInForm">
+                            <option selected disabled>Country</option>
+                        </select>
+                        <div>
+                            <input id="city" type="text" placeholder="City" name="city" class="form-control signInForm">
+                            <input id="zipCode" type="text" placeholder="Zip Code" name="zipCode"
+                                class="form-control signInForm">
+                        </div>
+                        <input id="street" type="text" placeholder="Street" name="address"
+                            class="form-control signInForm">
+                        <div id="termsAndConditionsContainer">
+                            <input id="termsAndConditionsCheckbox" type="checkbox" class="checkbox">
+                            <label id="termsAndConditionsLabel" class="checkbox-label">
+                                <p id="termsAndConditionsText">I am at least 18 years old and I have read and accepted
+                                    the</p><a id="termsAndConditionsLink">Terms and Conditions</a>
+                            </label>
+                        </div>
+                        <div id="registrationError" style="display:none" class="horizontalErrorMessage"></div>
+                        <input id="registrationSubmitButton" type="submit" value="CREATE ACCOUNT"
+                            class="submitButton mainActionButton">
+                    </form>
+                </div>
+            </div><img id="signInFieldImage" src="icongraphy/img/football-field-perspective.png">
+        </div>
+    </div>
+    <footer id="mainFooter">
+        <div id="mainFooterBody">
+            <div id="mainFooterBanner"></div>
+            <div id="mainFooterContent" class="fantasy-container">
+                <div id="mainFooterRectangle">
+                    <div id="mainFooterHome" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">Home</p>
+                        <ul>
+                            <li><a href="#">Lobby</a></li>
+                            <li><a href="#">Player Statistics</a></li>
+                            <li><a href="#">Live Match Center</a></li>
+                            <li><a href="#">Football Statistics Center</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterContests" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">Contests</p>
+                        <ul>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Live</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterAbout" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">About</p>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterWarning" class="mainFooterSection"><span>Warning:</span> Morbi tempor cursus
+                        nibh, a tempor nunc mollis nec. Etiam vel dui commodo, suscipit mauris ac, venenatis nunc. Sed
+                        urna nisl, iaculis et elit in, aliquam sodales augue. Praesent ullamcorper condimentum enim et
+                        vestibulum. Sed enim est, mollis sit amet libero vitae, rhoncus malesuada velit. Donec pharetra,
+                        est in aliquam dignissim, libero urna iaculis tellus, id fringilla sem neque a massa. Interdum
+                        et malesuada fames ac ante ipsum primis in fvel. Maecenas pulvinar lectus in dui porta, ut
+                        elementum dolor sodales.</div>
+                </div>
+            </div>
+        </div>
+        <div id="mainFooterPayments">
+            <div id="mainFooterPaymentsInner"><img src="/icongraphy/svg/icon-payment-18+.svg" width="20"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/astropay_card.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/bitcoin.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/discover.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/elv.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/eps.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/giro_pay.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/ideal.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/instant_transfer.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/maestro.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/mastercard.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/neteller.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paypal.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paysafe_card.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/poli.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/przelewy24.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/qiwi.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/safety_pay.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/skrill.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/sofort.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/trustpay.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/visa.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/web_money.svg"
+                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/yandex.svg"
+                    class="mainFooterPaymentLogo"></div>
+        </div>
+    </footer>
+    <div id="mainPopBoxContainer">
+        <div id="accountPopBox">
+            <ul id="accountPopBoxInner">
+                <li>
+                    <form action="/logout" method="get">
+                        <button class="accountPopBoxItem">Logout
+                            <svg width="12.68" height="15">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-logout"></use>
+                            </svg>
+                        </button>
+                    </form>
+                </li>
+                <li>
+                    <button onclick="window.location.pathname = '/account'" class="accountPopBoxItem">Account
+                        <svg width="16.5" height="16.5">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-account"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <div class="accountPopBoxItem">Real Money Contests
+                        <input id="realContestsToggle" type="checkbox" checked class="tv-toggle">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
