@@ -1,0 +1,17 @@
+extends ../basic
+
+block basicHead
+    link(rel="stylesheet", href="/css/transaction.css")
+
+block basicBody
+    .transactionContainer
+        .transactionTitle
+            span#svg-icon-transaction-failure 
+            .inline Payment Failed
+        if (message)
+            .transactionResultText #{message}
+        else
+            .transactionResultText
+                | Something went wrong with your request. 
+                br
+                | Please try again or contact the support.

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Champion League</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/components/toggle.css">
+    <link rel="stylesheet" href="/css/components/dialog.css">
+</head>
+
+</html>
+
+<body>
+    <div style="display:none;" class="errorDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle">Warning</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button class="dialogButton redButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="warningDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryWarningButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="mainWarningButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="genericDialog">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryGenericDialogButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="genericDialogButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div id="termsAndConditionsDialog" style="display:none;">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle">Terms and Conditions</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <textarea id="termsAndConditionsDialogContent" rows="25" readonly="true"></textarea>
+            <button id="termsAndConditionsDialogDecline"
+                class="dialogButton lightGrayButton dialogActionButton">DECLINE</button>
+            <button id="termsAndConditionsDialogAccept"
+                class="dialogButton lightGrayButton dialogActionButton">ACCEPT</button>
+        </div>
+    </div>
+    <h1>The transaction request is not valid</h1>
+    <h3 class="transactionResultText">Please try again or contact the support</h3>
+</body>
