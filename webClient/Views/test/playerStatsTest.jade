@@ -1,0 +1,103 @@
+extends ../layout
+
+block content
+    .fantasy-container
+        h1 Create a new Line-up
+        br
+
+        if (error)
+            p #{error}
+
+        table(id='actionsLegend', width='100%')
+            tr
+                td.testFeedsData MP -> Minutes Played
+                td.testFeedsData G -> Goals
+                td.testFeedsData PG -> Penalty Goals
+                td.testFeedsData PM -> Penalties Missed
+                td.testFeedsData ASS -> ASSists
+            tr
+                td.testFeedsData IN -> Shots IN the goal
+                td.testFeedsData OUT -> Shots OUT of the goal
+                td.testFeedsData AP -> Accurate Passes
+                td.testFeedsData IP -> Inaccurate Passes
+                td.testFeedsData PI -> Pass Interceptions
+            tr
+                td.testFeedsData BS -> Blocked Shots
+                td.testFeedsData S -> Saves
+                td.testFeedsData PS -> Penalty Saves
+                td.testFeedsData F -> Fouls
+                td.testFeedsData WT -> Won Tackles
+            tr
+                td.testFeedsData GC -> Goals Conceded
+                td.testFeedsData CS -> Clean Sheets
+                td.testFeedsData SG -> Single Goal matches
+                td.testFeedsData YC -> Yellow Cards
+                td.testFeedsData RC -> Red Cards
+            tr
+                td.testFeedsData OFF -> Offsides
+        br
+        br
+
+        p Average points: #{avg} (calculated with 65% median of all players of all matches) ~  Base salary: 40.000  ~  Average salary: 100.000
+
+        if (players)
+            table(id='statsTestTable')
+                tr
+                    td.testFeedsData ROLE
+                    td.testFeedsData PLAYER
+                    //td.testFeedsData TEAM
+                    td.testFeedsData $$$
+                    td.testFeedsData AVG
+                    td.testFeedsData MP
+                    td.testFeedsData G
+                    td.testFeedsData PG
+                    td.testFeedsData PM
+                    td.testFeedsData ASS
+                    td.testFeedsData IN
+                    td.testFeedsData OUT
+                    td.testFeedsData AP
+                    td.testFeedsData IP
+                    td.testFeedsData PI
+                    td.testFeedsData BS
+                    td.testFeedsData S
+                    td.testFeedsData PS
+                    td.testFeedsData F
+                    td.testFeedsData WT
+                    td.testFeedsData GC
+                    td.testFeedsData CS
+                    td.testFeedsData SG
+                    td.testFeedsData YC
+                    td.testFeedsData RC
+                    td.testFeedsData OFF
+                    td.testFeedsData PTs
+                    td.testFeedsData last PTS
+                tr
+                each player in players
+                    tr
+                        td.testFeedsData #{player.position.charAt(0)}
+                        td.testFeedsData #{player.getName()}
+                        //td.testFeedsData #{player.team.name}
+                        td.testFeedsData #{player.salary}
+                        td.testFeedsData #{Math.round((player.salary - 40000) * avg / 60000)}
+                        td.testFeedsData #{player.getCountForHistoryStat('MP')}=#{player.getPointsForHistoryStat('MP')}
+                        td.testFeedsData #{player.getCountForHistoryStat('G')}=#{player.getPointsForHistoryStat('G')}
+                        td.testFeedsData #{player.getCountForHistoryStat('PG')}=#{player.getPointsForHistoryStat('PG')}
+                        td.testFeedsData #{player.getCountForHistoryStat('PM')}=#{player.getPointsForHistoryStat('PM')}
+                        td.testFeedsData #{player.getCountForHistoryStat('ASS')}=#{player.getPointsForHistoryStat('ASS')}
+                        td.testFeedsData #{player.getCountForHistoryStat('IN')}=#{player.getPointsForHistoryStat('IN')}
+                        td.testFeedsData #{player.getCountForHistoryStat('OUT')}=#{player.getPointsForHistoryStat('OUT')}
+                        td.testFeedsData #{player.getCountForHistoryStat('AP')}=#{player.getPointsForHistoryStat('AP')}
+                        td.testFeedsData #{player.getCountForHistoryStat('IP')}=#{player.getPointsForHistoryStat('IP')}
+                        td.testFeedsData #{player.getCountForHistoryStat('PI')}=#{player.getPointsForHistoryStat('PI')}
+                        td.testFeedsData #{player.getCountForHistoryStat('BS')}=#{player.getPointsForHistoryStat('BS')}
+                        td.testFeedsData #{player.getCountForHistoryStat('S')}=#{player.getPointsForHistoryStat('S')}
+                        td.testFeedsData #{player.getCountForHistoryStat('PS')}=#{player.getPointsForHistoryStat('PS')}
+                        td.testFeedsData #{player.getCountForHistoryStat('F')}=#{player.getPointsForHistoryStat('F')}
+                        td.testFeedsData #{player.getCountForHistoryStat('WT')}=#{player.getPointsForHistoryStat('WT')}
+                        td.testFeedsData #{player.getCountForHistoryStat('GC')}=#{player.getPointsForHistoryStat('GC')}
+                        td.testFeedsData #{player.getCountForHistoryStat('CS')}=#{player.getPointsForHistoryStat('CS')}
+                        td.testFeedsData #{player.getCountForHistoryStat('SG')}=#{player.getPointsForHistoryStat('SG')}
+                        td.testFeedsData #{player.getCountForHistoryStat('YC')}=#{player.getPointsForHistoryStat('YC')}
+                        td.testFeedsData #{player.getCountForHistoryStat('RC')}=#{player.getPointsForHistoryStat('RC')}
+                        td.testFeedsData #{player.getCountForHistoryStat('OFF')}=#{player.getPointsForHistoryStat('OFF')}
+                        td.testFeedsData #{player.pointsOfLastPlayedMatches}

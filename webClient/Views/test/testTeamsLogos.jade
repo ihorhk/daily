@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    div(style="text-align:center")
+        - for (var i = 0; i < competitions.length; ++i) {
+            - var competition = competitions[i];
+            br
+            br
+            h3(style="color:red")= competition.name
+
+            - for (var j = 0; j < competition.teams.length; ++j) {
+                - var team = competition.teams[j];
+                h4(style="color:black")= team.name
+                h4(style="color:black")= team.optasportsId
+                - var imgUrl = 'http://cache.images.core.optasports.com/soccer/teams/150x150/' + team.optasportsId + '.png';
+                img(src="#{imgUrl}", style="width:80px; height:80px")
+
+
+                br
+                br
+            - }
+        - }
