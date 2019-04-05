@@ -1,0 +1,354 @@
+extends layout
+
+block head
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.css")
+    link(rel="stylesheet", href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+    link(rel="stylesheet", href="/css/tournamentLobbyDialog.css")
+    link(rel="stylesheet", href="/css/tournamentLobby.css")
+
+block content
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.js")
+    script(src="/scripts/res/slick.min.js")
+    script(src="/scripts/res/sortableclusterizetable.min.js")
+    script(src="/scripts/res/jquery.loading.js")
+    script(src="/scripts/models/Tournament.js")
+    script(src="/scripts/models/Competition.js")
+    script(src="/scripts/models/Player.js")
+    script(src="/scripts/models/Match.js")
+    script(src="/scripts/models/Team.js")
+    script(src="/scripts/models/Timer.js")
+    script(src="/scripts/res/timer.js")
+    script(src="/scripts/tournamentLobby.js")
+
+    #mainContainer
+        
+        .fantasy-container
+
+            #tournamentHeader
+                
+                #tournamentTitleContainer
+                    img#tournamentFlag
+                    img#tournamentFeatured(src="/icongraphy/svg/icon-star.svg" width="13.5")
+                    h2.pageTitle#tournamentTitle
+                    button#tournamentBackToLobby 
+                        svg(width="12.64" height="11.81") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-back-to-lobby")]
+                        span Back to Contests
+                
+                #tournamentInfoContainer
+                    .tournamentInfo
+                        .tournamentInfoInner
+                            img.tournamentInfoImg(src="/icongraphy/svg/icon-entries.svg" width="16")
+                            p.tournamentInfoLabel Entries:
+                            p.tournamentInfoText#tournamentEntries
+                    .tournamentInfo
+                        .tournamentInfoInner
+                            img.tournamentInfoImg(src="/icongraphy/svg/icon-dollar.svg" width="14")
+                            p.tournamentInfoLabel Entry fee:
+                            p.tournamentInfoText#tournamentEntryFee
+                    .tournamentInfo
+                        .tournamentInfoInner
+                            img.tournamentInfoImg(src="/icongraphy/svg/icon-dollar.svg" width="14")
+                            p.tournamentInfoLabel Prize pool:
+                            p.tournamentInfoText#tournamentPrizePool
+                    button#tournamentPayoutsButton Payouts
+
+                #tournamentResultContainer
+                    #tournamentResultInner
+                        .tournamentResultRectangle#tournamentCurrentPlaceContainer
+                            .tournamentResultTriangle#tournamentCurrentPlaceTriangle
+                            .tournamentResultRectangleInner
+                                .tournamentResultMainInfo#tournamentCurrentPlace
+                                    span#tournamentCurrentPlaceText 0
+                                    sup rd
+                                p.tournamentStartMainDesc Your Current Place
+                        #tournamentCurrentPayoutContainer
+                            #tournamentCurrentPayoutInner
+                                .tournamentResultMainInfo#tournamentCurrentPayout
+                                    sup.payouts €
+                                    span#tournamentCurrentPayoutText 0
+                                p.tournamentStartMainDesc Your Current Payout
+                        .tournamentResultRectangle#tournamentResultPayoutContainer
+                            .tournamentResultTriangle#tournamentResultPayoutTriangle
+                            .tournamentResultRectangleInner
+                                p.tournamentStartMainDesc#tournamentResultPlaceDesc
+                                p.tournamentResultMainInfo#tournamentResultPayout 
+                                    sup.payouts €
+                                    span#tournamentResultPayoutText
+
+                #tournamentStatusContainer
+                    .tournamentStatusContainer#tournamentStatusLiveContainer
+                        p.tournamentStatusMainInfo LIVE:
+                        p#tournamentStatusLiveMatchInfo
+                        .tournamentTimer#nextMatchTimer
+                            p.clock
+                                .hours.timer --
+                                .hoursDivider.timer :
+                                .minutes.timer --
+                                .timer :
+                                .seconds.timer --
+                    .tournamentStatusContainer#tournamentStatusLiveInContainer
+                        p.tournamentStatusMainInfo LIVE IN:
+                        .tournamentTimer#upcomingTimer
+                            p.clock
+                                .hours.timer --
+                                .timer :
+                                .minutes.timer --
+                                .timer :
+                                .seconds.timer --
+                    .tournamentStatusContainer#tournamentStatusFinishContainer
+                        p.tournamentStatusMainInfo#tournamentFinishTitle
+                        p#tournamentFinishTimeText
+
+                #tournamentMatchesContainer
+                    #matchesContainer
+                    button.matchArrowButton#matchArrowLeftButton
+                        svg(width="10.3" height="17.8") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-tour-lobby-arrow-left")]
+                    button.matchArrowButton#matchArrowRightButton
+                        svg(width="10.3" height="17.8") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-tour-lobby-arrow-right")]
+
+            #contentTabContainer
+                .titleContainer
+                    img(src="/icongraphy/svg/icon-flying-football.svg" alt="")
+                    span OVERVIEW
+
+            #overview
+
+                #contestStatusContainer
+                    #contestProgressContainer
+                        span.contestProgressPercentage#contestProgressPercentage0 0%
+                        span.contestProgressPercentage#contestProgressPercentage50 50%
+                        span.contestProgressPercentage#contestProgressPercentage100 100%
+                        #contestProgressBar
+
+                    img#tournamentStadium(src="/icongraphy/img/tour-lobby-stadium.jpg" data-rjs="/icongraphy/img/tour-lobby-stadium@2x.jpg")
+
+                #userEntries
+                    #entriesSlider.forceScrollBar
+                        #entriesContainer
+                    button#addNewEntryButton(disabled) ADD NEW ENTRY
+
+                #firstColumn
+                    .overviewContainer#rankingContainer
+                        .tableHeader#rankingHeader
+                            img.tableHeaderLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                            .tableHeaderInner
+                        .clusterize#rankingTableContainer
+                            .headTableContainer
+                                table.headTable#rankingHeadTable
+                            .clusterize-scroll.forceScrollBar#rankingScrollArea
+                                table.clusterizeTable#rankingTable
+                                    thead
+                                        tr
+                                            th.rankingUser
+                                            th.rankingPoints
+                                            th.rankingPrize
+                                            th.rankingProgress
+                                            th.rankingProj
+                                    tbody.clusterize-content#rankingTableBody
+
+                        .noDataContainer#noUsersContainer
+                            .noDataContent
+                                .titleContainer
+                                    img(src="/icongraphy/svg/icon-flying-football.svg" alt="")
+                                    span USER TEAMS
+                                .noDataContentInner
+                                    p.noDataText All the teams that are entering the contest are going to be displayed here.
+
+                    .overviewContainer#playersContainer
+                        .tableHeader#playersHeader
+                            img.tableHeaderLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                            .tableHeaderInner
+                        .clusterize#playersTableContainer
+                            .headTableContainer
+                                table.headTable#playersHeadTable
+                            .clusterize-scroll.forceScrollBar#playersScrollArea
+                                table.clusterizeTable#playersTable
+                                    thead
+                                        tr
+                                            th.playerName
+                                            th.playerPoints
+                                            th.playerPosition
+                                            th.playerTeam
+                                            th.playerPercentage
+                                    tbody.clusterize-content#playersTableBody
+
+                        .noDataContainer#noPlayersContainer
+                            .noDataContent
+                                .titleContainer
+                                    img(src="/icongraphy/svg/icon-flying-football.svg" alt="")
+                                    span PLAYERS
+                                .noDataContentInner
+                                    p.noDataText No Players found for the current selection.
+
+                        .sectionFilter#playersFilter
+                            .filterContainer#yourPlayersFilterContainer
+                                button.filterButton.filterYourPlayersButton#playerYourPlayersButton Your Players
+                                button.filterButton.filterYourPlayersButton#playerAllPlayersButton All Players
+                            .filterContainer#nowPlayingFilterContainer
+                                button.filterButton.filterNowPlayingButton#playerNowPlayingButton Now Playing
+                                button.filterButton.filterNowPlayingButton#playerAllPlayingButton Entire Contest
+
+                #secondColumn
+                    .overviewContainer#eventsContainer
+                        .tableHeader#eventsHeader
+                            img.tableHeaderLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                            .tableHeaderInner Events
+                                img#playerActionsProgress.preloader-sm(src="/icongraphy/img/preloader-sm.gif", style="display:none")
+                                button#eventsDescriptionButton
+                                    svg(width="19.9" height="19.9") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-modal-info")]
+                        .clusterize#eventsTableContainer
+                            .clusterize-scroll.forceScrollBar#eventsScrollArea
+                                table.clusterizeTable#eventsTable
+                                    thead
+                                        tr
+                                            th.eventPlayer
+                                            th.eventIcon
+                                            th.eventAction
+                                            th.eventMatch
+                                            th.eventPoints
+                                    tbody.clusterize-content#eventsTableBody
+                        .noDataContainer#noEventsContainer
+                            .noDataContent
+                                .titleContainer
+                                    img(src="/icongraphy/svg/icon-flying-football.svg" alt="")
+                                    span PLAYER EVENTS
+                                .noDataContentInner
+                                    p.noDataText#noEventsText
+
+                        .sectionFilter#eventsFilter
+                            .filterContainer#yourEventsFilterContainer
+                                button.filterButton.filterYourEventsButton#eventYourPlayersButton Your Players
+                                button.filterButton.filterYourEventsButton#eventAllPlayersButton All Players
+                            .filterContainer#majorEventsFilterContainer
+                                button.filterButton.filterMajorEventsButton#eventMajorEventButton Major Events
+                                button.filterButton.filterMajorEventsButton#eventAllEventButton All Events
+
+                    .overviewContainer#chatContainer
+                        .tableHeader#chatHeader
+                            img.tableHeaderLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                            .tableHeaderInner Chat Room
+                        .clusterize#chatTableContainer
+                            .clusterize-scroll.forceScrollBar#chatScrollArea
+                                table.clusterizeTable#chatTable
+                                    tbody.clusterize-content#chatTableBody
+                        #chatInputContainer
+                            input(type='text', placeholder='Write a message', autocomplete='off')#chatInput
+
+
+            #entryDetailsDialog(style='display:none;')
+
+                .dialogHeader
+                    img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                    .dialogHeaderInner
+                        span.dialogTitle User Details
+                        button.dialogCloseButton#entryDialogCloseButton #[span]
+
+                .dialogBody.tournamentLobbyDialogBody#entryDialogBody
+                    .dialogContent.tournamentLobbyDialogContent#entryDialogContent
+                        svg#entryDialogUserIcon(width="13.51" height="12.67") #[use(xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-icon")]
+                        p#entryDialogUsername
+                        p#entryDialogPoints
+
+                        #entryDialogLineupContainer
+                            #entryDialogSquadContainer
+
+                        #entryDialogFormationContainer
+                            .entryDialogFormationCell#entryDialogFormationImgContainer
+                                img#entryDialogFormationImg
+                            .entryDialogFormationCell#entryDialogFormationTextContainer
+                                span Formation:
+                                span#entryDialogFormationText
+
+
+            #playerSummaryDialog(style='display:none;')
+
+                .dialogHeader
+                    img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                    .dialogHeaderInner
+                        span.dialogTitle Player Summary
+                        button.dialogCloseButton#playerDialogCloseButton #[span]
+
+                .dialogBody.tournamentLobbyDialogBody#playerDialogBody
+                    .dialogContent.tournamentLobbyDialogContent#playerDialogContent
+                        #playerDialogAvatarWrapper
+
+                        #playerDialogUserInfo
+                            .left
+                                p#playerDialogPosition
+                                p.singleLineText#playerDialogName 
+                                P#playerDialogSalary
+                            .right
+                                #playerDialogTeamInfo
+                                    .teamLogoWrapper#playerDialogTeamLogoWrapper
+                                    p#playerDialogTeamName
+                                div
+                                    p#playerDialogPoints
+
+                        .has-stadium#playerDialogEventsContainer
+                            .forceScrollBar#playerDialogTableContainer
+                                table#playerDialogEventsTable
+                                    tbody#playerDialogEventsBody
+                            #playerDialogNoActionContainer
+                                p#playerDialogNoActionText
+
+
+            #prizePayoutsDialog(style='display:none;')
+
+                .dialogHeader
+                    img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                    .dialogHeaderInner
+                        span.dialogTitle Prize Payouts
+                        span.dialogTitle#payoutsEntriesNumber
+                        button.dialogCloseButton#payoutsDialogCloseButton #[span]
+
+                .dialogBody.tournamentLobbyDialogBody#payoutsDialogBody
+                    .dialogContent.tournamentLobbyDialogContent#payoutsDialogContent
+                        #payoutsDialogBanner
+                            p.singleLineText#payoutsDialogTournamentName
+                            #payoutsDialogTotalPrize
+                                p.payoutsDialogInfoName TOTAL PRIZE
+                                p.payoutsDialogInfoValue#payoutsTotalPrizeText
+                            #payoutsDialogPlayers
+                                p.payoutsDialogInfoName PLAYERS
+                                p.payoutsDialogInfoValue#payoutsPlayersText
+                            #payoutDialogTournamentLogoWrapper
+                                img#payoutTournamentDialogLogo
+                        .has-stadium#payoutsDialogPrizeContainer
+                            #payoutsDialogTableContainer
+                                .clusterize#payoutsTableContainer
+                                    .clusterize-scroll.forceScrollBar#payoutsScrollArea
+                                        table.clusterizeTable#payoutsTable
+                                            thead
+                                                tr
+                                                    th.prizePlaceData
+                                                    th.prizePayoutData
+                                            tbody.clusterize-content#payoutsTableBody
+
+
+            #eventsPointsDialog(style='display:none;')
+
+                .dialogHeader
+                    img.dialogLogo(src="/icongraphy/svg/icon-logo2.svg" alt="Champion League")
+                    .dialogHeaderInner
+                        span.dialogTitle Events Points
+                        button.dialogCloseButton#pointsDialogCloseButton #[span]
+
+                .dialogBody.tournamentLobbyDialogBody#pointsDialogBody
+                    .dialogContent.tournamentLobbyDialogContent#pointsDialogContent
+                        img#dcTeamAvatar(src="/icongraphy/img/daily-champion-avatar.jpg" data-rjs="/icongraphy/img/daily-champion-avatar@2x.jpg" alt="Avatar")
+                        #dcTeamLogoWrapper
+                            img#dcTeamLogo(src="/icongraphy/svg/icon-logo3.svg" alt="Champion League")
+                        p Players will accumulate points by performing the following actions in real life:
+
+                        .has-stadium#pointsContainer
+                            #pointsTableHeader
+                                p ACTION
+                                p POINTS
+                            .forceScrollBar#pointsTableContainer
+                                table#pointsTable
+                                    thead
+                                        tr
+                                            th.pointsNameData
+                                            th.pointsValueData
+                                    tbody#pointsTableBody
+                                #definitionsContainer

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Champion League</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/components/toggle.css">
+    <link rel="stylesheet" href="/css/components/dialog.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone.min.js"></script>
+<script src="/scripts/res/stupidtable.min.js"></script>
+<script src="/scripts/helpers/lodash.js"></script>
+<script src="/scripts/helpers/util.js"></script>
+<script src="/scripts/models/User.js"></script>
+<script src="/scripts/main.js"></script>
+<script src="/scripts/res/toggle.js"></script>
+<script src="/scripts/res/retina.min.js"></script>
+<script>
+    var isUserLoggedIn = function() {
+        return false === true
+    }
+    var getLoggedInUsername = function() {
+        return ''
+    }
+    var getUserBalanceForCurrentPlayMode = function() {
+        return
+    }
+    var getUserPlayMode = function() {
+        return 'real'
+    }
+    moment.tz.add('Europe/Dublin|DMT IST GMT BST IST|p.l -y.D 0 -10 -10|01232323232324242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242|-2ax9y.D Rc0 1fzy.D 14M0 1fc0 1g00 1co0 1dc0 1co0 1oo0 1400 1dc0 19A0 1io0 1io0 WM0 1o00 14o0 1o00 17c0 1io0 17c0 1fA0 1a00 1lc0 17c0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1cM0 1io0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1io0 1qM0 Dc0 g5X0 14p0 1wn0 17d0 1io0 11A0 1o00 17c0 1fA0 1a00 1fA0 1cM0 1fA0 1a00 17c0 1fA0 1a00 1io0 17c0 1lc0 17c0 1fA0 1a00 1io0 17c0 1io0 17c0 1fA0 1a00 1a00 1qM0 WM0 1qM0 11A0 1o00 WM0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1tA0 IM0 90o0 U00 1tA0 U00 1tA0 U00 1tA0 U00 1tA0 WM0 1qM0 WM0 1qM0 WM0 1tA0 U00 1tA0 U00 1tA0 11z0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1o00 14o0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00|12e5');
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+<link rel="stylesheet" href="/css/tournamentLobbyDialog.css">
+<link rel="stylesheet" href="/css/tournamentLobby.css">
+
+</html>
+
+<body>
+    <div style="display:none;" class="errorDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle">Warning</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button class="dialogButton redButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="warningDialog">
+        <div class="dialogHeader">
+            <svg width="26.8" height="23.1" class="dialogLogo">
+                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
+            </svg>
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryWarningButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="mainWarningButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div style="display:none;" class="genericDialog">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <button id="secondaryGenericDialogButton" class="dialogButton lightGrayButton dialogActionButton"></button>
+            <button id="genericDialogButton" class="dialogButton lightGrayButton dialogActionButton">CLOSE</button>
+        </div>
+    </div>
+    <div id="termsAndConditionsDialog" style="display:none;">
+        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner"><span class="dialogTitle">Terms and Conditions</span>
+                <button class="dialogCloseButton"><span></span></button>
+            </div>
+        </div>
+        <div class="alertBody">
+            <p class="dialogMessage"></p>
+            <textarea id="termsAndConditionsDialogContent" rows="25" readonly="true"></textarea>
+            <button id="termsAndConditionsDialogDecline" class="dialogButton lightGrayButton dialogActionButton">DECLINE</button>
+            <button id="termsAndConditionsDialogAccept" class="dialogButton lightGrayButton dialogActionButton">ACCEPT</button>
+        </div>
+    </div>
+    <div id="mainHeader">
+        <div id="mainHeaderNavContainer">
+            <div class="fantasy-container">
+                <div class="mainHeaderCell logoCell"><img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg" alt="Champion League"></div>
+                <div class="mainHeaderCell triangleCell">
+                    <div class="triangle"></div>
+                </div>
+                <div class="mainHeaderCell navCell">
+                    <nav class="mainHeaderNav">
+                        <ul class="mainHeaderNavItems">
+                            <li class="mainHeaderItem"><a href="/home" id="headerHomeOption" class="mainHeaderOption">Home</a></li>
+                            <li class="mainHeaderItem"><a href="/contests" id="headerLobbyOption" class="mainHeaderOption">Contests</a></li>
+                            <li class="mainHeaderItem"><a href="/myContests" id="headerContestsOption" class="mainHeaderOption">My Contests</a></li>
+                            <li class="mainHeaderItem"><a href="/account" id="headerAccountOption" class="mainHeaderOption">Account</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mainHeaderCell userInfoCell">
+                    <nav id="userInfo">
+                        <svg id="mainHeaderUserIcon" width="16.7" height="15.67">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-icon"></use>
+                        </svg>
+                        <form action="/signIn#login" method="get">
+                            <button id="loginButton" class="userButton">Login</button>
+                        </form><span class="divider"></span>
+                        <form action="/signIn#register" method="get">
+                            <button id="registerButton" class="userButton">Register</button>
+                        </form>
+                        <button id="mainMenuButton">
+                            <svg width="21.55" height="20.64">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu"></use>
+                            </svg>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="mainMobileNavContainer">
+            <div id="mainMobileNavInner">
+                <button id="mainMobileNavCloseButton">
+                    <svg width="18" height="18">
+                        <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-main-menu-close"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <header id="promoBanner">
+        <div id="promoBannerInner" class="fantasy-container">
+            <div id="promoContainer">
+                <div id="promoRegister">
+                    <div id="promoRegisterInner">SUPER WEEKEND
+                        <p>FREEROLL</p>
+                    </div>
+                    <button id="promoRegisterButton">REGISTER NOW</button>
+                </div>
+                <div id="promoPrize">
+                    <div id="promoPrizeInner">WIN
+                        <p id="promoPrizeText">$1,000</p>
+                    </div><img id="promoPrizeImage" src="/icongraphy/svg/icon-promo.svg"></div>
+            </div>
+        </div>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.17.6/clusterize.min.js"></script>
+    <script src="/scripts/res/slick.min.js"></script>
+    <script src="/scripts/res/sortableclusterizetable.min.js"></script>
+    <script src="/scripts/models/Tournament.js"></script>
+    <script src="/scripts/models/Competition.js"></script>
+    <script src="/scripts/models/Player.js"></script>
+    <script src="/scripts/models/Match.js"></script>
+    <script src="/scripts/models/Team.js"></script>
+    <script src="/scripts/models/Timer.js"></script>
+    <script src="/scripts/res/timer.js"></script>
+    <script src="/scripts/tournamentLobby.js"></script>
+    <div id="mainContainer">
+        <div class="fantasy-container">
+            <div id="tournamentHeader">
+                <div id="tournamentTitleContainer"><img id="tournamentFlag"><img id="tournamentFeatured" src="/icongraphy/svg/icon-star.svg" width="13.5">
+                    <h2 id="tournamentTitle" class="pageTitle"></h2>
+                    <button id="tournamentBackToLobby">
+                        <svg width="12.64" height="11.81">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-back-to-lobby"></use>
+                        </svg><span>Back to Contests</span></button>
+                </div>
+                <div id="tournamentInfoContainer">
+                    <div class="tournamentInfo">
+                        <div class="tournamentInfoInner"><img src="/icongraphy/svg/icon-entries.svg" width="16" class="tournamentInfoImg">
+                            <p class="tournamentInfoLabel">Entries:</p>
+                            <p id="tournamentEntries" class="tournamentInfoText"></p>
+                        </div>
+                    </div>
+                    <div class="tournamentInfo">
+                        <div class="tournamentInfoInner"><img src="/icongraphy/svg/icon-dollar.svg" width="14" class="tournamentInfoImg">
+                            <p class="tournamentInfoLabel">Entry fee:</p>
+                            <p id="tournamentEntryFee" class="tournamentInfoText"></p>
+                        </div>
+                    </div>
+                    <div class="tournamentInfo">
+                        <div class="tournamentInfoInner"><img src="/icongraphy/svg/icon-dollar.svg" width="14" class="tournamentInfoImg">
+                            <p class="tournamentInfoLabel">Prize pool:</p>
+                            <p id="tournamentPrizePool" class="tournamentInfoText"></p>
+                        </div>
+                    </div>
+                    <button id="tournamentPayoutsButton">Payouts</button>
+                </div>
+                <div id="tournamentResultContainer">
+                    <div id="tournamentResultInner">
+                        <div id="tournamentCurrentPlaceContainer" class="tournamentResultRectangle">
+                            <div id="tournamentCurrentPlaceTriangle" class="tournamentResultTriangle"></div>
+                            <div class="tournamentResultRectangleInner">
+                                <div id="tournamentCurrentPlace" class="tournamentResultMainInfo"><span id="tournamentCurrentPlaceText">0</span><sup>rd</sup></div>
+                                <p class="tournamentStartMainDesc">Your Current Place</p>
+                            </div>
+                        </div>
+                        <div id="tournamentCurrentPayoutContainer">
+                            <div id="tournamentCurrentPayoutInner">
+                                <div id="tournamentCurrentPayout" class="tournamentResultMainInfo"><sup class="payouts">€</sup><span id="tournamentCurrentPayoutText">0</span></div>
+                                <p class="tournamentStartMainDesc">Your Current Payout</p>
+                            </div>
+                        </div>
+                        <div id="tournamentResultPayoutContainer" class="tournamentResultRectangle">
+                            <div id="tournamentResultPayoutTriangle" class="tournamentResultTriangle"></div>
+                            <div class="tournamentResultRectangleInner">
+                                <p id="tournamentResultPlaceDesc" class="tournamentStartMainDesc"></p>
+                                <p id="tournamentResultPayout" class="tournamentResultMainInfo"> <sup class="payouts">€</sup><span id="tournamentResultPayoutText"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tournamentStatusContainer">
+                    <div id="tournamentStatusLiveContainer" class="tournamentStatusContainer">
+                        <p class="tournamentStatusMainInfo">LIVE:</p>
+                        <p id="tournamentStatusLiveMatchInfo"></p>
+                        <div id="nextMatchTimer" class="tournamentTimer">
+                            <p class="clock">
+                                <div class="hours timer">--</div>
+                                <div class="hoursDivider timer">:</div>
+                                <div class="minutes timer">--</div>
+                                <div class="timer">:</div>
+                                <div class="seconds timer">--</div>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="tournamentStatusLiveInContainer" class="tournamentStatusContainer">
+                        <p class="tournamentStatusMainInfo">LIVE IN:</p>
+                        <div id="upcomingTimer" class="tournamentTimer">
+                            <p class="clock">
+                                <div class="hours timer">--</div>
+                                <div class="timer">:</div>
+                                <div class="minutes timer">--</div>
+                                <div class="timer">:</div>
+                                <div class="seconds timer">--</div>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="tournamentStatusFinishContainer" class="tournamentStatusContainer">
+                        <p id="tournamentFinishTitle" class="tournamentStatusMainInfo"></p>
+                        <p id="tournamentFinishTimeText"></p>
+                    </div>
+                </div>
+                <div id="tournamentMatchesContainer">
+                    <div id="matchesContainer"></div>
+                    <button id="matchArrowLeftButton" class="matchArrowButton">
+                        <svg width="10.3" height="17.8">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-tour-lobby-arrow-left"></use>
+                        </svg>
+                    </button>
+                    <button id="matchArrowRightButton" class="matchArrowButton">
+                        <svg width="10.3" height="17.8">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-tour-lobby-arrow-right"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="contentTabContainer">
+                <div class="titleContainer"><img src="/icongraphy/svg/icon-flying-football.svg" alt=""><span>OVERVIEW</span></div>
+            </div>
+            <div id="overview">
+                <div id="contestStatusContainer">
+                    <div id="contestProgressContainer"><span id="contestProgressPercentage0" class="contestProgressPercentage">0%</span><span id="contestProgressPercentage50" class="contestProgressPercentage">50%</span><span id="contestProgressPercentage100" class="contestProgressPercentage">100%</span>
+                        <div id="contestProgressBar"></div>
+                    </div><img id="tournamentStadium" src="/icongraphy/img/tour-lobby-stadium.jpg" data-rjs="/icongraphy/img/tour-lobby-stadium@2x.jpg"></div>
+                <div id="userEntries">
+                    <div id="entriesSlider" class="forceScrollBar">
+                        <div id="entriesContainer"></div>
+                    </div>
+                    <button id="addNewEntryButton" disabled>ADD NEW ENTRY</button>
+                </div>
+                <div id="firstColumn">
+                    <div id="rankingContainer" class="overviewContainer">
+                        <div id="rankingHeader" class="tableHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="tableHeaderLogo">
+                            <div class="tableHeaderInner"></div>
+                        </div>
+                        <div id="rankingTableContainer" class="clusterize">
+                            <div class="headTableContainer">
+                                <table id="rankingHeadTable" class="headTable"></table>
+                            </div>
+                            <div id="rankingScrollArea" class="clusterize-scroll forceScrollBar">
+                                <table id="rankingTable" class="clusterizeTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="rankingUser"></th>
+                                            <th class="rankingPoints"></th>
+                                            <th class="rankingPrize"></th>
+                                            <th class="rankingProgress"></th>
+                                            <th class="rankingProj"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rankingTableBody" class="clusterize-content"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="noUsersContainer" class="noDataContainer">
+                            <div class="noDataContent">
+                                <div class="titleContainer"><img src="/icongraphy/svg/icon-flying-football.svg" alt=""><span>USER TEAMS</span></div>
+                                <div class="noDataContentInner">
+                                    <p class="noDataText">All the teams that are entering the contest are going to be displayed here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="playersContainer" class="overviewContainer">
+                        <div id="playersHeader" class="tableHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="tableHeaderLogo">
+                            <div class="tableHeaderInner"></div>
+                        </div>
+                        <div id="playersTableContainer" class="clusterize">
+                            <div class="headTableContainer">
+                                <table id="playersHeadTable" class="headTable"></table>
+                            </div>
+                            <div id="playersScrollArea" class="clusterize-scroll forceScrollBar">
+                                <table id="playersTable" class="clusterizeTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="playerName"></th>
+                                            <th class="playerPoints"></th>
+                                            <th class="playerPosition"></th>
+                                            <th class="playerTeam"></th>
+                                            <th class="playerPercentage"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="playersTableBody" class="clusterize-content"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="noPlayersContainer" class="noDataContainer">
+                            <div class="noDataContent">
+                                <div class="titleContainer"><img src="/icongraphy/svg/icon-flying-football.svg" alt=""><span>PLAYERS</span></div>
+                                <div class="noDataContentInner">
+                                    <p class="noDataText">No Players found for the current selection.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="playersFilter" class="sectionFilter">
+                            <div id="yourPlayersFilterContainer" class="filterContainer">
+                                <button id="playerYourPlayersButton" class="filterButton filterYourPlayersButton">Your Players</button>
+                                <button id="playerAllPlayersButton" class="filterButton filterYourPlayersButton">All Players</button>
+                            </div>
+                            <div id="nowPlayingFilterContainer" class="filterContainer">
+                                <button id="playerNowPlayingButton" class="filterButton filterNowPlayingButton">Now Playing</button>
+                                <button id="playerAllPlayingButton" class="filterButton filterNowPlayingButton">Entire Contest</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="secondColumn">
+                    <div id="eventsContainer" class="overviewContainer">
+                        <div id="eventsHeader" class="tableHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="tableHeaderLogo">
+                            <div class="tableHeaderInner">Events
+                                <button id="eventsDescriptionButton">
+                                    <svg width="19.9" height="19.9">
+                                        <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-modal-info"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="eventsTableContainer" class="clusterize">
+                            <div id="eventsScrollArea" class="clusterize-scroll forceScrollBar">
+                                <table id="eventsTable" class="clusterizeTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="eventPlayer"></th>
+                                            <th class="eventIcon"></th>
+                                            <th class="eventAction"></th>
+                                            <th class="eventMatch"></th>
+                                            <th class="eventPoints"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="eventsTableBody" class="clusterize-content"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="noEventsContainer" class="noDataContainer">
+                            <div class="noDataContent">
+                                <div class="titleContainer"><img src="/icongraphy/svg/icon-flying-football.svg" alt=""><span>PLAYER EVENTS</span></div>
+                                <div class="noDataContentInner">
+                                    <p id="noEventsText" class="noDataText"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="eventsFilter" class="sectionFilter">
+                            <div id="yourEventsFilterContainer" class="filterContainer">
+                                <button id="eventYourPlayersButton" class="filterButton filterYourEventsButton">Your Players</button>
+                                <button id="eventAllPlayersButton" class="filterButton filterYourEventsButton">All Players</button>
+                            </div>
+                            <div id="majorEventsFilterContainer" class="filterContainer">
+                                <button id="eventMajorEventButton" class="filterButton filterMajorEventsButton">Major Events</button>
+                                <button id="eventAllEventButton" class="filterButton filterMajorEventsButton">All Events</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="chatContainer" class="overviewContainer">
+                        <div id="chatHeader" class="tableHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="tableHeaderLogo">
+                            <div class="tableHeaderInner">Chat Room</div>
+                        </div>
+                        <div id="chatTableContainer" class="clusterize">
+                            <div id="chatScrollArea" class="clusterize-scroll forceScrollBar">
+                                <table id="chatTable" class="clusterizeTable">
+                                    <tbody id="chatTableBody" class="clusterize-content"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="chatInputContainer">
+                            <input type="text" placeholder="Write a message" autocomplete="off" id="chatInput">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="entryDetailsDialog" style="display:none;">
+                <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+                    <div class="dialogHeaderInner"><span class="dialogTitle">User Details</span>
+                        <button id="entryDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                    </div>
+                </div>
+                <div id="entryDialogBody" class="dialogBody tournamentLobbyDialogBody">
+                    <div id="entryDialogContent" class="dialogContent tournamentLobbyDialogContent">
+                        <svg id="entryDialogUserIcon" width="13.51" height="12.67">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-icon"></use>
+                        </svg>
+                        <p id="entryDialogUsername"></p>
+                        <p id="entryDialogPoints"></p>
+                        <div id="entryDialogLineupContainer">
+                            <div id="entryDialogSquadContainer"></div>
+                        </div>
+                        <div id="entryDialogFormationContainer">
+                            <div id="entryDialogFormationImgContainer" class="entryDialogFormationCell"><img id="entryDialogFormationImg"></div>
+                            <div id="entryDialogFormationTextContainer" class="entryDialogFormationCell"><span>Formation:</span><span id="entryDialogFormationText"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="playerSummaryDialog" style="display:none;">
+                <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+                    <div class="dialogHeaderInner"><span class="dialogTitle">Player Summary</span>
+                        <button id="playerDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                    </div>
+                </div>
+                <div id="playerDialogBody" class="dialogBody tournamentLobbyDialogBody">
+                    <div id="playerDialogContent" class="dialogContent tournamentLobbyDialogContent">
+                        <div id="playerDialogAvatarWrapper"></div>
+                        <div id="playerDialogUserInfo">
+                            <div class="left">
+                                <p id="playerDialogPosition"></p>
+                                <p id="playerDialogName" class="singleLineText"> </p>
+                                <P id="playerDialogSalary"></P>
+                            </div>
+                            <div class="right">
+                                <div id="playerDialogTeamInfo">
+                                    <div id="playerDialogTeamLogoWrapper" class="teamLogoWrapper"></div>
+                                    <p id="playerDialogTeamName"></p>
+                                </div>
+                                <div>
+                                    <p id="playerDialogPoints"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="playerDialogEventsContainer" class="has-stadium">
+                            <div id="playerDialogTableContainer" class="forceScrollBar">
+                                <table id="playerDialogEventsTable">
+                                    <tbody id="playerDialogEventsBody"></tbody>
+                                </table>
+                            </div>
+                            <div id="playerDialogNoActionContainer">
+                                <p id="playerDialogNoActionText"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="prizePayoutsDialog" style="display:none;">
+                <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+                    <div class="dialogHeaderInner"><span class="dialogTitle">Prize Payouts</span><span id="payoutsEntriesNumber" class="dialogTitle"></span>
+                        <button id="payoutsDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                    </div>
+                </div>
+                <div id="payoutsDialogBody" class="dialogBody tournamentLobbyDialogBody">
+                    <div id="payoutsDialogContent" class="dialogContent tournamentLobbyDialogContent">
+                        <div id="payoutsDialogBanner">
+                            <p id="payoutsDialogTournamentName" class="singleLineText"></p>
+                            <div id="payoutsDialogTotalPrize">
+                                <p class="payoutsDialogInfoName">TOTAL PRIZE</p>
+                                <p id="payoutsTotalPrizeText" class="payoutsDialogInfoValue"></p>
+                            </div>
+                            <div id="payoutsDialogPlayers">
+                                <p class="payoutsDialogInfoName">PLAYERS</p>
+                                <p id="payoutsPlayersText" class="payoutsDialogInfoValue"></p>
+                            </div>
+                            <div id="payoutDialogTournamentLogoWrapper"><img id="payoutTournamentDialogLogo"></div>
+                        </div>
+                        <div id="payoutsDialogPrizeContainer" class="has-stadium">
+                            <div id="payoutsDialogTableContainer">
+                                <div id="payoutsTableContainer" class="clusterize">
+                                    <div id="payoutsScrollArea" class="clusterize-scroll forceScrollBar">
+                                        <table id="payoutsTable" class="clusterizeTable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="prizePlaceData"></th>
+                                                    <th class="prizePayoutData"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="payoutsTableBody" class="clusterize-content"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="eventsPointsDialog" style="display:none;">
+                <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+                    <div class="dialogHeaderInner"><span class="dialogTitle">Events Points</span>
+                        <button id="pointsDialogCloseButton" class="dialogCloseButton"><span></span></button>
+                    </div>
+                </div>
+                <div id="pointsDialogBody" class="dialogBody tournamentLobbyDialogBody">
+                    <div id="pointsDialogContent" class="dialogContent tournamentLobbyDialogContent"><img id="dcTeamAvatar" src="/icongraphy/img/daily-champion-avatar.jpg" data-rjs="/icongraphy/img/daily-champion-avatar@2x.jpg" alt="Avatar">
+                        <div id="dcTeamLogoWrapper"><img id="dcTeamLogo" src="/icongraphy/svg/icon-logo3.svg" alt="Champion League"></div>
+                        <p>Players will accumulate points by performing the following actions in real life:</p>
+                        <div id="pointsContainer" class="has-stadium">
+                            <div id="pointsTableHeader">
+                                <p>ACTION</p>
+                                <p>POINTS</p>
+                            </div>
+                            <div id="pointsTableContainer" class="forceScrollBar">
+                                <table id="pointsTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="pointsNameData"></th>
+                                            <th class="pointsValueData"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pointsTableBody"></tbody>
+                                </table>
+                                <div id="definitionsContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="mainFooter">
+        <div id="mainFooterBody">
+            <div id="mainFooterBanner"></div>
+            <div id="mainFooterContent" class="fantasy-container">
+                <div id="mainFooterRectangle">
+                    <div id="mainFooterHome" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">Home</p>
+                        <ul>
+                            <li><a href="#">Lobby</a></li>
+                            <li><a href="#">Player Statistics</a></li>
+                            <li><a href="#">Live Match Center</a></li>
+                            <li><a href="#">Football Statistics Center</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterContests" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">Contests</p>
+                        <ul>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Live</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterAbout" class="mainFooterSection">
+                        <p class="mainFooterSectionTitle">About</p>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainFooterWarning" class="mainFooterSection"><span>Warning:</span> Morbi tempor cursus nibh, a tempor nunc mollis nec. Etiam vel dui commodo, suscipit mauris ac, venenatis nunc. Sed urna nisl, iaculis et elit in, aliquam sodales augue. Praesent ullamcorper condimentum enim et vestibulum. Sed enim est, mollis sit amet libero vitae, rhoncus malesuada velit. Donec pharetra, est in aliquam dignissim, libero urna iaculis tellus, id fringilla sem neque a massa. Interdum et malesuada fames ac ante ipsum primis in fvel. Maecenas pulvinar lectus in dui porta, ut elementum dolor sodales.</div>
+                </div>
+            </div>
+        </div>
+        <div id="mainFooterPayments">
+            <div id="mainFooterPaymentsInner"><img src="/icongraphy/svg/icon-payment-18+.svg" width="20" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/astropay_card.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/bitcoin.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/discover.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/elv.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/eps.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/giro_pay.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/ideal.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/instant_transfer.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/maestro.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/mastercard.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/neteller.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paypal.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paysafe_card.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/poli.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/przelewy24.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/qiwi.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/safety_pay.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/skrill.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/sofort.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/trustpay.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/visa.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/web_money.svg" class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/yandex.svg" class="mainFooterPaymentLogo"></div>
+        </div>
+    </footer>
+    <div id="mainPopBoxContainer">
+        <div id="accountPopBox">
+            <ul id="accountPopBoxInner">
+                <li>
+                    <form action="/logout" method="get">
+                        <button class="accountPopBoxItem">Logout
+                            <svg width="12.68" height="15">
+                                <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-logout"></use>
+                            </svg>
+                        </button>
+                    </form>
+                </li>
+                <li>
+                    <button onclick="window.location.pathname = '/account'" class="accountPopBoxItem">Account
+                        <svg width="16.5" height="16.5">
+                            <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-user-popbox-account"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <div class="accountPopBoxItem">Real Money Contests
+                        <input id="realContestsToggle" type="checkbox" checked class="tv-toggle">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
