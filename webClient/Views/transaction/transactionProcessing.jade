@@ -1,0 +1,16 @@
+extends ../basic
+
+block basicHead
+    link(rel="stylesheet", href="/css/transaction.css")
+
+block basicBody
+    .transactionContainer
+        .transactionTitle
+            span#svg-icon-transaction-processing 
+            .inline Processing Payment
+        .transactionResultText 
+            | The transaction will be completed shortly. 
+            br
+            | We are working as fast as possible to move
+            br
+            | your money to the right place.
