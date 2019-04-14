@@ -1,0 +1,293 @@
+#mainContainer {
+    height: 750px;
+    margin-top: 32px;
+}
+
+#panelContainer {
+    width: 80%;
+    height: 100%;
+    background-color: #f1f1f1;
+    float: right;
+    overflow-y: auto;
+}
+
+#adminOptions {
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: #333;
+}
+
+.adminOption {
+    color: #c5c5c5;
+    padding: 8px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px dotted #888;
+}
+
+.adminOption[selected], .adminOption[selected]:hover {
+    color: #FBC00B;
+    background-color: #444;
+}
+
+.adminOption:hover {
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+}
+
+.adminOptionContainer {
+    display: none;
+}
+
+.adminLabel {
+    color: #333;
+    font-weight: 500;
+    margin-right: 8px;
+    display: block;
+    vertical-align: middle;
+}
+
+.adminInfoLabel {
+    float: left;
+    width: 13%;
+    margin-top: 7px;
+    font-size: 95%;
+    font-weight: bold;
+    color: #009C2C;
+}
+
+.adminInfoText {
+    float: left;
+    margin-top: 5px;
+    min-width: 25%;
+    color: #333;
+}
+
+.adminInfoAction {
+    height: 28px;
+    width: 18%;
+    float: left;
+    background-color: #009C2C;
+    color: #fff;
+    border: none;
+    font-size: 90%;
+    font-weight: bold;
+
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.adminInfoAction:hover {
+    background-color: #00C337;
+}
+
+.adminInfoRow {
+    display: list-item;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#manageTournamentsContainer, #createTournamentContainer, #programmedTournamentsContainer {
+    padding-left: 32px;
+}
+
+#termsAndConditionsContainer, #gameRulesContainer {
+    padding-left: 16px;
+}
+
+.title {
+    color: #333;
+}
+
+.adminInput {
+    margin-bottom: 22px !important;
+    margin-left: 8px !important;
+}
+
+.submitButton {
+    display: block;
+}
+
+.adminOptionText {
+    color: #555;
+    font-weight: normal;
+    margin-left: 16px;
+}
+
+.adminInlineOptions{
+    display: flex;
+}
+
+.adminInputTable {
+    width: 20%;
+}
+
+.adminTextTable {
+    width: 30%;
+}
+
+.adminTableOption {
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.createTournamentStartTimeContainer {
+    display: flex;
+}
+
+.createTournamentStartTimeText {
+    margin-top: 6px;
+    margin-right: 6px;
+    font-size: 85%;
+}
+
+.errorMessage {
+    color: red;
+    margin-top: 15px;
+}
+
+.createTournamentStartTimeContainer input {
+    width: 10%;
+}
+
+.adminTable {
+    overflow-y: auto;
+    display: block;
+}
+
+#matchesSelectorTable {
+    height: 250px;
+}
+
+#matchesSelectorTable td {
+    cursor: pointer;
+}
+
+.adminTable tr[selected] {
+    background-color: #FBC00B;
+}
+
+.adminTable thead {
+    background-color: #666;
+    color: #f1f1f1;
+}
+
+.adminTable th {
+    font-weight: normal;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.adminTable .even {
+    background-color: #e5e5e5;
+}
+
+.adminTableCell {
+    padding: 5px 15px;
+    color: #333;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+#manageTournamentNameFilter {
+    width: 100%;
+    color: #000;
+    margin-bottom: 12px;
+    box-shadow: inset 0px 1px 2px #CCC;
+    border: 1px solid #91abac;
+    padding: 3px 5px;
+    background-color: #f1f1f1;
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#termsAndConditionsVersion, #gameRulesVersion {
+    width: 80px;
+}
+
+#termsAndConditionsContent, #gameRulesContent, #gameRulesUpdateMessage {
+    width: 100%;
+}
+
+#manageUsersTable {
+    display: table;
+}
+
+.actionDefinitionTitle {
+    font-size: 95%;
+    font-style: italic;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.actionDefinition {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#mainLogo {
+    cursor: pointer;
+}
+
+.userFlagsContainer {
+    display: flex;
+    cursor: pointer;
+}
+
+tr:hover .editUserCell {
+    cursor: pointer;
+    background: url(/icongraphy/img/edit.png) center no-repeat;
+}
+
+.userWarning {
+    background-color: orange;
+}
+
+.userLaundry {
+    background-color: #FA7474;
+}
+
+.userFlagIcon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+}
+
+#manageUsersLegend {
+    margin-bottom: 14px;
+    margin-left: 8px;
+    display: flex;
+}
+
+.manageUsersLegendItem {
+    margin-right: 13px;
+    display: flex;
+}
+
+.manageUsersLegendColor {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+}
+
+.numbersCell {
+    text-align: right;
+}
+
+#editUserDialogContainer {
+    padding: 32px;
+}
+
+#editUserDialog .alertBody {
+    padding-bottom: 8px;
+}
+
+.editUserDialogRow {
+    margin-bottom: 6px;
+}

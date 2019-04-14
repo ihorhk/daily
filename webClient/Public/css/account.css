@@ -1,0 +1,712 @@
+p, input {
+    color: #535D68;
+}
+
+.pageTitle {
+    margin: 44px 0;
+}
+
+.fantasy-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#mainContainer {
+    margin-top: 32px;
+}
+
+#accountOptions {
+    float: left;
+    width: 272px;
+    height: 343px;
+    background-color: #FFF;
+    padding: 10px 9px 0 7px;
+}
+
+.accountOption {
+    height: 44px;
+    color: #999;
+    text-align: left;
+    margin: 0 0 5px;
+    padding: 12px 12px 12px 64px;
+    position: relative;
+
+    -webkit-transition: background-color 0.1s;
+    -moz-transition: background-color 0.1s;
+    -ms-transition: background-color 0.1s;
+    -o-transition: background-color 0.1s;
+    transition: background-color 0.1s;
+}
+
+.accountOption:hover {
+    color: #4F5A65;
+    background-color: #F2F7F6;
+    cursor: pointer;
+}
+
+.accountOption:hover:before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #2F6196;
+}
+
+.accountOption[selected] {
+    color: #222221;
+    background-color: #F2F2F2;
+}
+
+.accountOption[selected]:after {
+    content: "";
+    position: absolute;
+    background-color: #FFF;
+    top: 50%;
+    margin-top: -5px;
+    right: -16px;
+    width: 11.31371px;
+    height: 11.31371px;
+
+    -webkit-transform: rotate(315.00001deg) skew(0.00002deg);
+    -moz-transform: rotate(315.00001deg) skew(0.00002deg);
+    -ms-transform: rotate(315.00001deg) skew(0.00002deg);
+    -o-transform: rotate(315.00001deg) skew(0.00002deg);
+    transform: rotate(315.00001deg) skew(0.00002deg);
+}
+
+.accountOption svg {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    fill: #999;
+
+    -webkit-transition: fill 0.1s;
+    -moz-transition: fill 0.1s;
+    -ms-transition: fill 0.1s;
+    -o-transition: fill 0.1s;
+    transition: fill 0.1s;
+}
+
+#accountInfoOption svg {
+    margin-top: -12px;
+}
+
+#depositOption svg {
+    margin-top: -13px;
+}
+
+#withdrawOption svg {
+    margin-top: -9px;
+}
+
+#transactionHistoryOption svg {
+    margin-top: -13px;
+}
+
+#balanceHistoryOption svg {
+    margin-top: -11px;
+}
+
+#settingsOption svg {
+    margin-top: -11px;
+}
+
+.accountOption:hover svg {
+    fill: #4F5A65;
+}
+
+.accountOption[selected] svg {
+    fill: #222221;
+}
+
+#panelContainer {
+    float: right;
+    width: 828px;
+    height: 100%;
+    background-color: #F1F1F1;
+}
+
+.panelHeader {
+    width: 100%;
+    height: 48px;
+    position: relative;
+    background-color: #C3FF00;
+    text-align: left;
+    z-index: 2;
+}
+
+.panelLogo {
+    position: absolute;
+    width: 26px;
+    top: 7px;
+    left: 18px;
+}
+
+.panelHeaderInner {
+    position: absolute;
+    top: 0;
+    left: 72px;
+    right: 0;
+    bottom: 5px;
+    padding-left: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFF;
+    line-height: 45px;
+    background-color: #2D2F49;
+}
+
+.panelHeaderInner:before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    top: 0;
+    left: -7px;
+    background-color: #2D2F49;
+    
+    -webkit-transform: skew(-19deg);
+    -moz-transform: skew(-19deg);
+    -ms-transform: skew(-19deg);
+    -o-transform: skew(-19deg);
+    transform: skew(-19deg);
+}
+
+.accountOptionContainer {
+    display: none;
+    background-color: #FFF;
+}
+
+.accountText {
+    color: #333;
+}
+
+.accountInfoLabel {
+    float: left;
+    width: 13%;
+    margin-top: 7px;
+    font-size: 95%;
+    font-weight: bold;
+    color: #009C2C;
+}
+
+.accountInfoText {
+    float: left;
+    margin-top: 5px;
+    min-width: 25%;
+    color: #333;
+}
+
+.accountInfoAction {
+    height: 28px;
+    width: 18%;
+    float: left;
+    background-color: #009C2C;
+    color: #fff;
+    border: none;
+    font-size: 90%;
+    font-weight: bold;
+
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.accountInfoAction:hover {
+    background-color: #00C337;
+}
+
+.accountInfoRow {
+    display: list-item;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.paymentContainer {
+    padding: 2px 80px 95px;
+}
+
+.paymentContainer[provider] {
+    padding: 10px 14px 70px;
+    min-height: 485px;
+}
+
+.extraPaymentStepsContainer {
+    display: none;
+}
+
+.transactionFrame {
+    width: 800px;
+    height: 600px;
+    border: 0 none;
+    background-color: #fff;
+}
+
+.playModeToggleText {
+    color: #000;
+    font-weight: normal;
+    margin: 5px;
+}
+
+.paymentsMethodsList {
+    padding: 0;
+}
+
+.paymentOption {
+    width: 25%;
+    height: 100px;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+.paymentOption[selected] {
+    background-color: #F2F2F2;
+}
+
+.paymentOption:hover:not([selected]) {
+    background-color: #F2F7F6;
+}
+
+.paymentOption > img {
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.paymentOptionsContainer {
+    margin-top: 18px;
+}
+
+.transactionStepText {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 18px;
+    margin-top: 50px;
+}
+
+.paymentButton {
+    margin-top: 14px;
+    width: 150px;
+    height: 36px;
+    background-color: #336194;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.paymentNextButton {
+    float: right;
+}
+
+.paymentPreviousButton {
+    float: left;
+    display: none;
+}
+
+.paymentButtonArrow {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    vertical-align: -1px;
+}
+
+.paymentNextButton > .paymentButtonArrow {
+    margin-left: 7px;
+}
+
+.paymentPreviousButton > .paymentButtonArrow {
+    margin-right: 7px;
+}
+
+.paymentConfirmationContainer {
+    display: none;
+}
+
+.transactionResultText {
+    padding: 10px;
+    color: #888;
+    font-weight: normal;
+}
+
+.transactionInput {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #E8E8E8;
+    padding-left: 18px;
+    padding-bottom: 0px;
+    font-size: 14px;
+
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.transactionInputContainer {
+    height: 45px;
+    width: 240px;
+    margin-bottom: 10px;
+}
+
+.transactionInputContainer::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 45px;
+    background-color: #2F6196;
+}
+
+.transactionLabel {
+    color: #000;
+    font-size: 150%;
+    padding-right: 10px;
+}
+
+.thirdOptionContainer {
+    display: none;
+}
+
+tr[selected] {
+    background-color: #FBC00B;
+}
+
+.rowIndicator {
+    background-color: #F2F2F2;
+}
+
+.tableRow {
+    cursor: auto;
+}
+
+.tableRow:hover .hoverIndicator {
+    display: block;
+}
+
+thead {
+    background-color: #666;
+    color: #f1f1f1;
+}
+
+.headTable th {
+    height: 37px;
+    background-color: #2F6196;
+    padding: 11px 0 6px;
+}
+
+table .even {
+    background-color: #ddd;
+}
+
+td {
+    padding: 5px 20px;
+    color: #4F5A65;
+}
+
+.tableRow:first-child .tableData {
+    height: 60px;
+    padding-top: 16px;
+}
+
+.tableData:after {
+    background-color: #F2F2F2;
+}
+
+#transactionHistoryContainer,
+#balanceHistoryContainer {
+    height: 485px;
+    padding: 29px 18px 34px;
+}
+
+#transactionHistoryTableContainer,
+#balanceHistoryTableContainer {
+    background-color: #2F6196;
+}
+
+#transactionHistoryScrollArea,
+#balanceHistoryScrollArea {
+    max-height: 385px;
+}
+
+.transactionData {
+    text-align: center;
+}
+
+td.transactionAmount {
+    width: 18%;
+    text-align: left;
+    color: #2F6196;
+    padding-left: 57px;
+}
+
+.transactionMethod {
+    width: 25%;
+}
+
+.transactionMethodLogo {
+    max-height: 28px;
+    margin-top: -1px;
+}
+
+.transactionId {
+    width: 24%;
+    color: #2F6196;
+}
+
+.transactionDate {
+    width: 18%;
+}
+
+.transactionStatus {
+    width: 15%;
+}
+
+td.transactionAmount:before {
+    content: "";
+    display: inline;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    left: 37px;
+    bottom: 18px;
+    background-image: url(../icongraphy/svg/icon-dollar.svg);
+}
+
+.tableRow:first-child .transactionAmount:before {
+    bottom: 20px;
+}
+
+.transactionStatus:hover .tooltipBox {
+    display: block;
+    bottom: 37px;
+    left: 50%;
+    z-index: 1;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.transactionStatus .tooltipText {
+    font-size: 12px;
+    color: #2D2F49;
+}
+
+.balanceHeaderText {
+    text-align: center;
+}
+
+.balanceData {
+    text-align: center;
+}
+
+td.balanceIncoming {
+    width: 10%;
+    text-align: left;
+    color: #2F6196;
+    padding-left: 54px;
+}
+
+td.balanceIncoming:before {
+    content: "";
+    display: inline;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    left: 34px;
+    bottom: 18px;
+    background-image: url(../icongraphy/svg/icon-dollar.svg);
+}
+
+.balanceReason:hover .tooltipBox {
+    display: block;
+    bottom: 37px;
+    left: 50%;
+    z-index: 1;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.tableRow:first-child .balanceIncoming:before {
+    bottom: 20px;
+}
+
+.balanceReason {
+    width: 5%;
+}
+
+.balanceTime {
+    width: 25%;
+}
+
+.balanceInfo {
+    text-align: left;
+    width: 34%;
+    padding-right: 10px;
+}
+
+.balanceRefId {
+    width: 12%;
+    color: #2F6196;
+}
+
+.balanceAmount {
+    width: 15%;
+}
+
+#settingsContainer {
+    padding: 50px 80px 80px;
+}
+
+.settingInfoRow {
+    padding: 8px 0;
+    height: 42px;
+}
+
+.settingsSubtitle {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4F5A65;
+    white-space: nowrap;
+    margin-left: -18px;
+    margin-bottom: 14px;
+}
+
+.settingInfoRow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.settingInfoRow span {
+    float: left;
+    color: #535D68;
+    line-height: 25px;
+    margin-right: 10px;
+}
+
+.settingInfoLabel {
+    float: left;
+    width: 45%;
+    line-height: 25px;
+}
+
+.settingInfoInput {
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+    padding: 0px 0 0 13px;
+    height: 30px;
+    border: 1px solid #c0c0c0;
+    color: #505A65;
+
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.forceScrollBar::-webkit-scrollbar {
+    background-color: #F2F2F2;
+}
+
+#applySettings {
+    margin-top: 24px;
+}
+
+#allowRealMoneyToggle {
+    margin-top: 5px;
+}
+
+.balanceRefTooltipContainer {
+    left: -49px;
+    top: -13px;
+    position: absolute;
+    z-index: 100;
+}
+
+tr:first-child .balanceRefTooltipContainer {
+    left: -49px;
+    top: 3px;
+    position: absolute;
+    z-index: 100;
+}
+
+#accountInfoContainer{
+    background-color: transparent;
+}
+
+.accountInfoSection{
+    padding: 45px 55px 30px;
+    margin-bottom: 5px;
+    background-color: white;
+}
+
+.accountInfoSubsection{
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 8px;
+}
+
+#playModeFilterContainer{
+    float: right;
+}
+
+.paymentNextButton.accountInfoButton{
+    float: none;
+    display: inline-block;
+    margin: 20px 8px 0 auto;
+}
+
+.accountButtonContainer {
+    margin-left: 170px;
+}
+
+.accountInfoLine {
+    margin-bottom: 15px;
+}
+
+.accountInfoLine p{
+    display: inline-block;
+}
+
+.accountInfoLine p:nth-child(1){
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.accountInfoLine.fixedLabelWidth p:nth-child(1){
+    margin-right: 0px;
+    width: 170px;
+}
+
+.accountInfoLine p:nth-child(1):before{
+    content: "";
+    display: block;
+    float: left;
+    margin-top: 4px;
+    margin-right: 12px;
+    border-width: 5px 0 5px 4px;
+    border-style: solid;
+    border-color: transparent #FF931E;
+}
+
+.accountInfoLine:last-child{
+    margin-bottom: 8px;
+}
+
+#playModeProgress {
+    float: right;
+    margin-right: 23px;
+    margin-top: 5px;
+}
