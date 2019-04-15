@@ -1,0 +1,52 @@
+body {
+	font-family: 'Rubik', Arial, sans-serif;
+  background-color: #F2F2F2;
+  color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fantasy-container {
+  width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.desktop-only {
+	@include desktop{
+		display: block;
+	}
+
+	@include mobile-and-tablet{
+		display: none;
+	}
+}
+
+.tablet-only {
+	@include tablet{
+		display: block;
+	}
+
+	@include not-tablet{
+		display: none;
+	}
+}
+
+.mobile-only{
+	@include mobile{
+		display: block;
+	}
+
+	@include not-mobile{
+		display: none;
+	}
+}
+
+.tablet-desktop-only{
+	@include mobile{
+		display: none;
+	}
+
+	@include not-mobile{
+		display: block;
+	}
+}

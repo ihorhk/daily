@@ -1,0 +1,134 @@
+
+.tvt-wrap {
+	display: inline-block;
+	direction: ltr;
+	height: 16px;
+    vertical-align: middle;
+}
+
+.tvt-wrap input {
+	display: none;
+}
+
+.tvt-switch {
+	display: inline-block;
+	position: relative;
+	width: 33px;
+	height: 16px;
+	border-radius: 16px;
+	background: #ddd;
+	overflow: hidden;
+	cursor: pointer;
+	
+	-webkit-transition: all .2s ease-in-out;
+	-ms-transition: 	all .2s ease-in-out;
+	transition: 		all .2s ease-in-out;
+}
+
+.tvt-cursor {
+	display: inline-block;
+	position: absolute;
+	top: 2px;	
+	width: 12px;
+	height: 12px;
+	border-radius: 100%;
+	background: #fff;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+	z-index: 10;
+	
+	-webkit-transition: all .2s linear;
+	-ms-transition: 	all .2s linear;
+	transition: 		all .2s linear;
+}
+
+.tvt-cursor svg {
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.tvt-cursor svg.tvt-cursor-on path {
+	fill: #00AC93;
+}
+
+.tvt-cursor svg.tvt-cursor-off path {
+	stroke: #D0021B;
+}
+
+.tvt-label {
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 16px;
+	color: #fff;
+	font-weight: 900;
+	position: absolute;
+	width: 20px;
+	overflow: hidden;
+	text-align: center;
+	
+	-webkit-transition: all .2s ease-in-out .1s;
+	-ms-transition: 	all .2s ease-in-out .1s;
+	transition: 		all .2s ease-in-out .1s;
+}
+
+.tvt-label.tvt-label-on {
+	left: -20px;
+	z-index: 6;
+}
+
+.tvt-label.tvt-label-off {
+	right: -20px;
+	z-index: 5;
+}
+
+/* on */
+.tvt-switch.tvt-on {
+	background: #00AC93;
+}
+
+.tvt-switch.tvt-on .tvt-cursor {
+	left: 19px;
+}
+
+.tvt-switch.tvt-on .tvt-cursor .tvt-cursor-on {
+	visibility: visible;
+}
+
+.tvt-switch.tvt-on .tvt-cursor .tvt-cursor-off {
+	visibility: hidden;
+}
+
+.tvt-switch.tvt-on .tvt-label-on {
+	left: 1px;
+}
+
+/* off */
+.tvt-switch.tvt-off {
+	background: #626378;
+}
+
+.tvt-switch.tvt-off .tvt-cursor {
+	left: 2px;
+}
+
+.tvt-switch.tvt-off .tvt-cursor .tvt-cursor-on {
+	visibility: hidden;
+}
+
+.tvt-switch.tvt-off .tvt-cursor .tvt-cursor-off {
+	visibility: visible;
+}
+
+.tvt-switch.tvt-off .tvt-label-off {
+	right: 0;
+	opacity: 1;
+}
+
+
+/* disabled */
+.tvt-switch.tvt-disabled {
+	opacity: 0.65;
+	filter: alpha(opacity=65);
+	cursor: default;
+}

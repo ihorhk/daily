@@ -1,0 +1,132 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$desktop-wide-width: 1300px;
+
+
+// Mixins
+@mixin svg-color($SvgColor){
+    &.stroke{
+        stroke: $SvgColor;
+    }
+    &.fill{
+        fill: $SvgColor;
+    }
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin border-radius($BorderRadius...) {
+    -moz-border-radius: $BorderRadius;
+    -webkit-border-radius: $BorderRadius;
+    border-radius: $BorderRadius;
+}
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin transform($args...) {
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+    transform: $args;
+}
+
+@mixin placeholder($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+
+@mixin mobile {
+    @media (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin mobile-and-tablet {
+    @media (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop-wide {
+    @media (min-width: #{$desktop-wide-width}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+
+
+@mixin not-mobile {
+    @media (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+@mixin not-tablet {
+    @media (max-width: #{$tablet-width - 1px}), (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin not-mobile-and-tablet {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin not-desktop-wide {
+    @media (max-width: #{$desktop-wide-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin retina {
+    @media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+}
