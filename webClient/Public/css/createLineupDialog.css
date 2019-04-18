@@ -1,0 +1,648 @@
+#playerDetailsDialog {
+    width: 693px !important;
+}
+
+#playerDialogBody {
+    position: static;
+    padding: 28px 44px;
+}
+
+#playerDialogContent {
+    padding: 11px;
+}
+
+#playerDialogProfile {
+    position: relative;
+    width: 100%;
+    height: 131px;
+    padding-top: 22px;
+    padding-left: 224px;
+    margin-bottom: 18px;
+    background-color: #2D2F49;
+    overflow: hidden;
+}
+
+#playerDialogProfile:before {
+    content: "";
+    position: absolute;
+    width: 182px;
+    height: 100%;
+    top: 0;
+    left: -91px;
+    background-color: #2F6196;
+    
+    -webkit-transform: skew(54deg);
+    -moz-transform: skew(54deg);
+    -ms-transform: skew(54deg);
+    -o-transform: skew(54deg);
+    transform: skew(54deg);
+}
+
+#playerDialogProfile:after {
+    content: "";
+    position: absolute;
+    width: 153px;
+    height: 111px;
+    top: 0;
+    right: -76px;
+    background-color: #C3FF00;
+    z-index: 1;
+
+    -webkit-transform: skew(54deg);
+    -moz-transform: skew(54deg);
+    -ms-transform: skew(54deg);
+    -o-transform: skew(54deg);
+    transform: skew(54deg);
+}
+
+#playerDialogAvatarContainer {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    top: 50%;
+    margin-top: -48px;
+    left: 44px;
+    padding: 3px;
+    background-color: #2D2F49;
+
+    -moz-border-radius: 48px;
+    -webkit-border-radius: 48px;
+    border-radius: 48px;
+}
+
+#playerDialogAvatar {
+    width: 90px;
+    height: 90px;
+    background-color: #FFF;
+
+    -moz-border-radius: 45px;
+    -webkit-border-radius: 45px;
+    border-radius: 45px;
+}
+
+#playerDialogTeamLogoContainer {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    top: 26px;
+    left: 174px;
+    padding: 5px;
+    background-color: #FFF;
+
+    -moz-border-radius: 19px;
+    -webkit-border-radius: 19px;
+    border-radius: 19px;
+}
+
+#playerDialogTeamLogo {
+    width: 28px;
+    height: 28px;
+    
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+#playerDialogName {
+    display: table-cell;
+    width: 250px;
+    height: 48px;
+    font-size: 21px;
+    color: #FFF;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+#playerDialogProfileInfo {
+    padding-top: 5px;
+}
+
+.playerDialogProfileData {
+    float: left;
+    min-width: 85px;
+}
+
+.playerDialogProfileInfoLabel {
+    font-size: 13px;
+    font-weight: 500;
+    color: #FFF;
+}
+
+.playerDialogProfileInfoData {
+    font-size: 14px;
+    color: #9697A4;
+}
+
+#playerDialogJerseyNumber {
+    position: absolute;
+    font-size: 45px;
+    font-weight: 900;
+    color: #2D2F49;
+    top: 0px;
+    right: 20px;
+    z-index: 2;
+}
+
+#playerDialogTabContainer {
+    width: 45px;
+    float: left;
+}
+
+.profileDialogTab {
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: #788795;
+    fill: #FFF;
+}
+
+.profileDialogTab:hover {
+    background-color: #626377;
+}
+
+.profileDialogTab.selected {
+    background-color: #FFF;
+    fill: #2F6196;
+}
+
+.profileDialogTabIcon {
+    vertical-align: middle;
+}
+
+.playerDialogTabContent {
+    display: none;
+    margin-left: 45px;
+    padding: 12px 11px;
+    background-color: #FFF;
+}
+
+.playerDialogTabContent.selected {
+    display: block;
+}
+
+.playerDialogTabContentHeader {
+    width: 100%;
+    height: 31px;
+    overflow: hidden;
+    background-color: #2F6196;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.playerDialogSubTab {
+    padding: 0 16px;
+    font-weight: 500;
+    color: #FFF;
+    line-height: 35px;
+    position: relative;
+    float: left;
+}
+
+.playerDialogSubTab:first-child {
+    margin-left: 5px;
+}
+
+.playerDialogSubTabText {
+    position: relative;
+}
+
+.playerDialogSubTab:hover {
+    color: #C5DFE2;
+}
+
+.playerDialogSubTab.selected {
+    color: #2F6196;
+    line-height: 40px;
+}
+
+.playerDialogSubTab.selected:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 8px;
+    left: 0;
+    background-color: #FFF;
+    
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.playerDialogTabContentBody:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#playerDialogOverviewContentBody {
+    min-height: 214px;
+    padding: 20px 15px 10px;
+}
+
+#playerDialogOverviewTableContainer {
+    width: 100%;
+    display: inline-block;
+}
+
+.playerDialogStatsTable {
+    width: 44%;
+    table-layout: fixed;
+}
+
+#playerDialogActionsStatsTable1 {
+    float: left;
+}
+
+#playerDialogActionsStatsTable2 {
+    float: right;
+    margin-top: 22px;
+}
+
+#playerDialogMatchStatsTableHead {
+    background-color: #2F6196;
+}
+
+td.statsData {
+    font-size: 12px;
+    color: #4F5A65;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #FFF;
+}
+
+td.playerStatsName,
+td.playerStatsValue {
+    width: 50%;
+}
+
+td.playerStatsName {
+    color: #2F6196;
+}
+
+td.overviewStatsCount {
+    width: 15%;
+}
+
+td.overviewStatsPoint {
+    width: 30%;
+}
+
+td.overviewStatsName {
+    width: 55%;
+    color: #2F6196;
+}
+
+td.overviewStatsName,
+td.playerStatsName {
+    padding-left: 12px;
+    position: relative;
+    white-space: nowrap;
+}
+
+td.overviewStatsName:before,
+td.playerStatsName:before,
+td.matchStatsDate:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -5.5px;
+    border-width: 5px 0 5px 4px;
+    border-style: solid;
+    border-color: transparent #FF931E transparent #FF931E;
+}
+
+tr.statsRow.invalidAction td.overviewStatsName {
+    color: #CCC;
+}
+
+tr.statsRow.invalidAction td.overviewStatsName:before {
+    border-color: transparent #CCC transparent #CCC;
+}
+
+#playerDialogMatchStatsTable {
+    width: 100%;
+    table-layout: fixed;
+}
+
+#matchStatsHeadTableContainer {
+    width: auto !important;
+    overflow: hidden;
+    background-color: #2F6196;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#matchStatsHeadTable {
+    position: relative;
+}
+
+#matchStatsHeadTable th {
+    height: 31px;
+    padding-top: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #FFF;
+}
+
+#matchStatsScrollArea {
+    height: 404px;
+    max-height: 404px;
+    margin-top: 20px;
+}
+
+#matchStatsTableHead th {
+    font-size: 0;
+    overflow: hidden;
+}
+
+#matchStatsTableBody .statsRow {
+    height: 22px;
+}
+
+.matchStatsDate {
+    padding-left: 25px;
+    text-align: left;
+}
+
+.matchStatsOptTeam {
+    text-align: left;
+}
+
+th.matchStatsDate {
+    width: 100px;
+}
+
+th.matchStatsPoints {
+    width: 60px;
+}
+
+th.matchStatsSalary {
+    width: 70px;
+}
+
+th.matchStatsOptTeam {
+    width: 80px;
+}
+
+th.matchStatsData {
+    width: 45px;
+}
+
+td.matchStatsDate {
+    position: relative;
+    color: #2F6196;
+}
+
+td.matchStatsDate:before {
+    left: 12px;
+}
+
+#playerDialogChartsContentBody,
+#playerDialogChartContainer {
+    height: 148px;
+}
+
+/* tooltip */
+.ui-tooltip, .arrow:after {
+    background: #333333;
+}
+
+.ui-tooltip {
+    padding: 3px 10px;
+    color: white;
+    font: normal 12px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    border-color: transparent;
+
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -14px;
+}
+
+.arrow.top {
+    top: -16px;
+    bottom: auto;
+}
+
+.arrow.left {
+    left: 20%;
+}
+
+.arrow:after {
+    content: "";
+    position: absolute;
+    left: 23px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+
+    -webkit-box-shadow: 6px 5px 9px -9px black;
+    -moz-box-shadow: 6px 5px 9px -9px black;
+    box-shadow: 6px 5px 9px -9px black;
+    
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.arrow.top:after {
+    bottom: -20px;
+    top: auto;
+}
+
+/* Back to lobby dialog */
+#backToLobbyDialog {
+    width: 455px !important;
+    height: auto !important;
+}
+
+#backToLobbyDialogBody {
+    padding: 32px 0 24px;
+}
+
+#backToLobbyTeamAvatar {
+    position: absolute;
+    width: 68px;
+    height: 68px;
+    top: 23px;
+    left: 64px;
+    border: 2px solid #C3FF00;
+    
+    -moz-border-radius: 34px;
+    -webkit-border-radius: 34px;
+    border-radius: 34px;
+}
+
+#backToLobbyTeamLogoWrapper {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    top: 64px;
+    left: 110px;
+    border: 1px solid #2D2F49;
+    background-color: #FFF;
+
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+}
+
+#backToLobbyTeamLogo {
+    position: absolute;
+    width: 20px;
+    top: 2px;
+    left: 50%;
+    margin-left: -10px;
+}
+
+#backToLobbyDialogBody .dialogMessage {
+    padding: 0 65px 0 169px;
+}
+
+#backToLobbyDialogBody .buttonContainer {
+    text-align: center;
+    margin: 23px 0 0;
+}
+
+#backToLobbyNoButton {
+    margin-left: 13px;
+}
+
+/* Team ready dialog */
+#teamReadyDialog {
+    width: 455px !important;
+    height: auto !important;
+}
+
+#teamReadyDialogBody {
+    padding: 29px 35px 40px 192px;
+}
+
+#teamReadyDialogBody:before {
+    content: "";
+    position: absolute;
+    width: 344px;
+    height: 207px;
+    left: 0;
+    bottom: 0;
+    background: url(../icongraphy/img/dialog-player.png) no-repeat;
+    background-size: cover;
+}
+
+#teamReadyDialogBody .buttonContainer {
+    padding: 22px 0 0;
+    position: relative;
+}
+
+#teamReadyNoButton {
+    margin-left: 30px;
+}
+
+/* Contest entered dialog */
+#contestEnteredDialog {
+    width: 455px !important;
+    height: auto !important;
+}
+
+#contestEnteredDialogBody {
+    padding: 29px 65px 28px;
+}
+
+#contestEnteredDialogBody .buttonContainer {
+    margin: 18px 0 0;
+}
+
+#backToAllContestsButton {
+    font-size: 14px;
+}
+
+#backToAllContestsButton svg {
+    fill: #2F6196;
+    vertical-align: -1px;
+}
+
+#backToAllContestsButton span {
+    margin-left: 6px;
+    color: #2F6196;
+    position: relative;
+}
+
+#backToAllContestsButton span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #2F6196;
+    left: 0;
+    bottom: 2px;
+}
+
+#backToAllContestsButton:hover svg {
+    fill: #FBC00B;
+}
+
+#backToAllContestsButton:hover span {
+    color: #FBC00B;
+}
+
+#backToAllContestsButton:hover span:after {
+    background-color: #FBC00B;
+}
+
+/* Clear lineup dialog */
+#clearLineupDialog {
+    width: 455px !important;
+    height: auto !important;
+}
+
+#clearLineupDialogBody {
+    padding: 43px 0 24px;
+}
+
+#clearLineupDialogBody:before {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 73px;
+    top: 24px;
+    left: 79px;
+    background-image: url(../icongraphy/svg/icon-clear-lineup.svg);
+}
+
+#clearLineupDialogBody .dialogMessage {
+    padding: 0 70px 0 170px;
+}
+
+#clearLineupDialogBody .buttonContainer {
+    padding: 33px 0 0;
+    position: relative;
+    text-align: center;
+}
+
+#clearLineupNoButton {
+    margin-left: 13px;
+}
+
+
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+    #teamReadyDialogBody:before {
+        background-image: url(../icongraphy/img/dialog-player@2x.png);
+    }
+}
