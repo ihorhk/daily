@@ -1,0 +1,49 @@
+#mainContainer {
+  text-align: center;
+  margin-top: 160px;
+}
+
+#imgError {
+    vertical-align: baseline;
+}
+
+.errorStatus {
+    font-size: 400px;
+    line-height: 390px;
+    font-weight: 100;
+    color: #CDCCCC;
+    display: inline-block;
+}
+
+#errorTitle {
+    font-size: 40px;
+    font-weight: 400;
+    color: #4F5A65;
+    margin: 45px 0 0;
+}
+
+#goToContests {
+    width: 202px;
+    height: 52px;
+    font-size: 16.7px;
+    font-weight: bold;
+    font-style: italic;
+    color: #C3FF00;
+    text-transform: uppercase;
+    background-color: #1F2133;
+    margin: 56px 0 0;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    
+    -webkit-transition: color 0.1s;
+    -moz-transition: color 0.1s;
+    -ms-transition: color 0.1s;
+    -o-transition: color 0.1s;
+    transition: color 0.1s;
+}
+
+#goToContests:hover {
+    color: #FBC00B;
+}
