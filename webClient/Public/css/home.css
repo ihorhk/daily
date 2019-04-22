@@ -1,0 +1,386 @@
+.home-container {
+    padding: 0 200px;
+}
+
+@media (min-width: 1440px) {
+    .home-container {
+        padding: 0 238px;
+    }
+}
+
+h3.sectionTitle {
+    font-size: 36px;
+    font-weight: 300;
+    color: #2D2F49;
+    margin: 90px 0 45px;
+}
+
+p.sectionDesc {
+    font-size: 16px;
+    line-height: 27px;
+    color: #4F5A65;
+}
+
+#freeContestsBanner {
+    width: 100%;
+    height: 688px;
+    background-image: url(../../icongraphy/img/banner-free-contests.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-color: #FFF;
+    padding: 144px 0 0;
+}
+
+#freeContestsBanner .home-container {
+    width: 850px;
+}
+
+#freeContestsBanner h2 {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 60px;
+    position: relative;
+}
+
+#freeContestsBanner h2 span {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#freeContestsBanner h2:before {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: -42px;
+    border-width: 14px 0 14px 12px;
+    border-style: solid;
+    border-color: transparent transparent transparent #C3FF00;
+}
+
+#freeContestsBanner p {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 36px 0 0;
+}
+
+#freeContestsPlayButton {
+    width: 362px;
+    height: 66px;
+    font-size: 23px;
+    font-weight: 700;
+    font-style: italic;
+    color: #C3FF00;
+    text-transform: uppercase;
+    background-color: #2D2F49;
+    border: 3px solid #C3FF00;
+    margin: 60px 0 0;
+    
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+}
+
+#freeContestsPlayButton:hover {
+    color: #FBC00B;
+}
+
+#playOneweekSection {
+    position: relative;
+    background-color: #FFF;
+    overflow: hidden;
+    padding: 87px 0 0;
+}
+
+#playOneweekSection h2 {
+    position: relative;
+    max-width: 400px;
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #4F5A65;
+}
+
+#playOneweekSection h2 span {
+    font-weight: 500;
+}
+
+#playOneweekSection h2:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -118px;
+    width: 78px;
+    height: 78px;
+    background: url(../../icongraphy/img/play-one-week.png) no-repeat;
+    background-size: 78px;
+}
+
+#imgRunningPlayers {
+    position: absolute;
+    top: 190px;
+    left: 0;
+}
+
+#imgTopContests {
+    position: absolute;
+    top: 265px;
+    left: 16.4%;
+}
+
+#imgLobbyScreen {
+    position: absolute;
+    top: 45px;
+    left: 38.6%;
+}
+
+#playStepsContainer {
+    margin: 468px -82px 0;
+}
+
+#playStepsContainer > div {
+    display: table;
+    width: 100%;
+    padding: 55px 0 50px;
+}
+
+#playStepsContainer .playStep {
+    display: table-cell;
+    text-align: left;
+    position: relative;
+    padding: 0 15px 0 82px;
+}
+
+#playStepsContainer .playStep span {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    top: -12px;
+    left: 0;
+    background-color: #2F6196;
+    font-size: 28px;
+    font-weight: 700;
+    color: #FFF;
+    line-height: 54px;
+    text-align: center;
+
+    -moz-border-radius: 27px;
+    -webkit-border-radius: 27px;
+    border-radius: 27px;
+}
+
+#playStepsContainer .playStep h4 {
+    font-size: 28px;
+    font-weight: 400;
+    color: #2F6196;
+
+}
+
+#playStepsContainer .playStep p {
+    font-size: 16px;
+    color: #707D84;
+    margin: 14px 0 0;
+}
+
+#liveContestSection {
+    position: relative;
+    overflow: hidden;
+    background-color: #F8F8F8;
+}
+
+#fansBanner {
+    position: absolute;
+    width: 100%;
+    height: 482px;
+    background-image: url(../../icongraphy/img/banner-fans.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#liveContestBanner:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#liveContestDesc {
+    float: left;
+    width: 50%;
+    position: relative;
+    margin: 370px 0 0;
+}
+
+#imgLiveContestScreen {
+    position: absolute;
+    top: 0;
+    left: 53%;
+}
+
+#leaguesContainer {
+    display: table;
+    width: 100%;
+    padding: 142px 0 156px;
+}
+
+.leagueIconContainer {
+    display: table-cell;
+    text-align: center;
+    width: 16.25%;
+    height: 90px;
+}
+
+.leagueIcon {
+    height: auto;
+    width: auto;
+    margin: 40px;
+    max-width: 89px;
+    max-height: 97px;
+}
+
+#teamDraftSection {
+    text-align: center;
+    background-color: #FFF;
+    padding: 108px 0 152px;
+    position: relative;
+}
+
+#imgYourEntries {
+    width: 80%;
+    margin: -200px auto 0;
+    max-width: 1243px;
+}
+
+#teamDraftSection .sectionDesc {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+#tournamentFeatures {
+    margin: 90px 0 105px;
+}
+
+#tournamentFeatures:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tournamentFeature {
+    float: left;
+    width: 33.33%;
+}
+
+.tournamentFeature h4 {
+    font-size: 28px;
+    font-weight: 400;
+    color: #2F6196;
+    white-space: nowrap;
+    margin: 33px 0 18px;
+}
+
+.tournamentFeature p {
+    max-width: 300px;
+    font-size: 16px;
+    color: #707D84;
+    margin: 0 auto;
+}
+
+#imgBottomContests {
+    width: 100%;
+    margin: 0 0 45px;
+}
+
+#imgTeamDraft {
+    width: 100%;
+}
+
+#imgContestProgressBar {
+    width: 75%;
+    margin: 3px 0 0;
+}
+
+#favoriteDeviceSection {
+    padding: 36px 0;
+    background-image: -ms-linear-gradient(top, #F1F5F4 0%, #FFFFFF 100%);
+    background-image: -moz-linear-gradient(top, #F1F5F4 0%, #FFFFFF 100%);
+    background-image: -o-linear-gradient(top, #F1F5F4 0%, #FFFFFF 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F1F5F4), color-stop(100, #FFFFFF));
+    background-image: -webkit-linear-gradient(top, #F1F5F4 0%, #FFFFFF 100%);
+    background-image: linear-gradient(to bottom, #F1F5F4 0%, #FFFFFF 100%);
+}
+
+#favoriteDeviceSection:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#favoriteDeviceSection .home-container {
+    position: relative;
+    overflow: hidden;
+}
+
+#favoriteDeivceDesc {
+    float: left;
+    width: 450px;
+}
+
+#favoriteDeivceDesc .sectionTitle {
+    margin: 90px 0 24px;
+}
+
+#imgFavouriteDevices {
+    position: absolute;
+    top: 40px;
+    left: 47.6%;
+}
+
+#favoritePlayNowButton {
+    width: 250px;
+    height: 50px;
+    background-color: #F84906;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 50px;
+    color: #FFF;
+    margin: 48px 0 66px;
+    
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+}
+
+#favoritePlayNowButton:hover {
+    color: #FBC00B;
+}
+
+#mainFooter {
+    padding: 0;
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+    #freeContestsBanner {
+        background-image: url(../../icongraphy/img/banner-free-contests@2x.png);
+    }
+
+    #playOneweekSection h2:before {
+        background-image: url(../../icongraphy/img/play-one-week@2x.png);
+    }
+
+    #fansBanner {
+        background-image: url(../../icongraphy/img/banner-fans@2x.png);
+    }   
+}
