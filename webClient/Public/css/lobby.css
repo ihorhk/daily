@@ -1,0 +1,775 @@
+#promoBanner {
+    display: block;
+}
+
+/* layout */
+#mainContainer {
+    position: relative;
+    z-index: 1;
+}
+
+#lobbyContainer {
+    width: 100%;
+    margin: 36px 0 64px;
+}
+
+#lobbyContainer:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#filterContainer {
+    width: 47px;
+    float: left;
+    background-color: #555;
+    border: 1px solid #E6E6E6;
+    position: relative;
+    z-index: 2;
+}
+
+#tournamentsContainer {
+    float: right;
+    width: calc(100% - 78px);
+    position: relative;
+}
+
+#filterPopBoxContainer {
+    position: static;
+    top: 0;
+    left: 0;
+}
+
+#filterPopBoxContainer.active {
+    z-index: 10;
+}
+
+/* table styling */
+
+button.tournamentDataText:focus {
+    outline: none;
+}
+
+.tournamentHeader {
+    border: 0;
+    font-size: 90%;
+}
+
+.tournamentDataHeader {
+    background: none;
+    border: none;
+    color: #FFF;
+    text-align: center;
+}
+
+/* table body */
+#tournamentsHeader {
+    position: absolute;
+}
+
+#tournamentsScrollArea {
+    padding: 0;
+    height: 564px;
+    max-height: 564px;
+    background-color: #fff;
+}
+
+.tournamentRow[full] .tournamentDataText, .tournamentRow[full] .tournamentData {
+    color: #999 !important;
+    font-weight: normal;
+}
+
+.tournamentRow[full] .tournamentDataStartTime.highlighted {
+    background-color: #f2f2f2;
+}
+
+.tournamentRow:first-child .tournamentData {
+    height: 56px;
+    padding-top: 12px;
+}
+
+.tournamentFlags {
+    width: 9.8%;
+}
+
+.tournamentName {
+    width: 27.2%;
+}
+
+.tournamentEntryFee {
+    width: 10.8%;
+    text-align: center;
+}
+
+.tournamentPrizes {
+    width: 12.5%;
+    text-align: center;
+    color: #2F6196;
+}
+
+.tournamentRow[featured] >.tournamentPrizes > p {
+    padding-left: 17px;
+    display: inline;
+}
+
+.tournamentRow[featured] > .tournamentPrizes:before {
+    content: '';
+    display: inline;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    bottom: 18px;
+    background-image: url(../icongraphy/svg/icon-dollar.svg);
+}
+
+.tournamentEntries {
+    width: 9%;
+    text-align: center;
+}
+
+.tournamentMatches {
+    width: 8.7%;
+    text-align: center;
+}
+
+.tournamentStartTime {
+    width: 11%;
+    text-align: center;
+}
+
+.tournamentAction {
+    width: 11%;
+    text-align: center;
+}
+
+.tournamentRow:hover .hoverIndicator {
+    display: block;
+}
+
+.tournamentRow:first-child:hover .tournamentFlags:before {
+    top: 0;
+}
+
+.tournamentIcon {
+    max-width: 22px;
+    margin-left: 16%;
+    vertical-align: text-top;
+}
+
+.tournamentFeatured {
+    width: 14px;
+    height: 14px;
+    margin-left: 16px;
+    vertical-align: text-top;
+}
+
+.tournamentRow:first-child td.tournamentPrizes:before {
+    bottom: 21px;
+}
+
+.tournamentRow:first-child td.tournamentEntries:before {
+    bottom: 14px;
+}
+
+.tournamentDataEntries {
+    width: 50%;
+    margin-left: 50%;
+    text-align: left;
+}
+
+.tournamentDataStartTime.tournamentTimer:not(.past):not(.highlighted) {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.tournamentDataStartTime.tournamentTimer:not(.past):not(.highlighted):before {
+    content: "IN ";
+}
+
+.tournamentDataStartTime.highlighted {
+    width: 60px;
+    height: 35px;
+    font-size: 8px;
+    font-weight: 500;
+    color: #FFFFFF;
+    background-color: #F74906;
+    line-height: 12px;
+    margin-top: -4px;
+    padding-top: 5px;
+    display: inline-block;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.tournamentDataStartTime.highlighted span {
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.tournamentActionButton {
+    width: 63px;
+    height: 29px;
+    font-size: 11px;
+    font-weight: bold;
+    font-style: italic;
+    color: #C3FF00;
+    background-color: #1F2133;
+    margin-top: -4px;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.tournamentActionButton:hover {
+    color: #FBC00B;
+}
+
+.tournamentActionButton[disabled] {
+    color: #999;
+}
+
+.tournamentActionButton:hover[disabled] {
+    background-color: #333;
+    color: #999;
+    cursor: default;
+}
+
+.tournamentLobbyButton {
+    color: #FFF;
+    background-color: #2F6196;
+}
+
+.tournamentLiveButton {
+    border: 2px solid #FF1D25;
+    background-color: transparent;
+    color: #FF1D25;
+}
+
+.tournamentLiveButton:hover {
+    border-color: #FBC00B;
+    color: #FBC00B;
+}
+
+.tournamentHistoryButton {
+    background-color: #788D97;
+    color: #FFF;
+}
+
+.tournamentRow[selected_entry="true"] {
+    font-weight: 500;
+    background-color: #D6EAF8;
+}
+
+.tournamentRow[selected_entry="true"]:hover {
+    background-color: #F2F7F6;
+}
+
+.tournamentRow[selected_entry="true"] > .tournamentName, .tournamentRow[selected_entry="true"] > .tournamentPrizes {
+    color: #2F6196;
+}
+
+/*.tournamentRow[featured]:not([selected_entry="true"]) {
+    background-color: #FCF3BE;
+}
+
+.tournamentRow[featured]:hover {
+    background-color: #F2F7F6;
+}*/
+
+.tournamentRow[featured] > td {
+    font-weight: 500;
+}
+
+.tournamentRow[featured]:not([selected_entry="true"]):not([history]) > .tournamentData {
+    color: peru;
+}
+
+.leagueHeadingRow{
+    width: 531px;
+}
+
+.leagueHeadingRow > div{
+    background-color: #F2F7F6;
+    height: 30px;
+    margin-top: 3px;
+    text-align: center;
+}
+
+.leagueHeadingRow img{
+    height: 18px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.leagueHeadingRow span{
+    line-height: 30px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#noTournamentsContainer {
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    height: 335px;
+    background-color: #FFF;
+}
+
+#noTournamentsContent {
+    position: absolute;
+    width: 354px;
+    height: 106px;
+    top: 82px;
+    left: 50%;
+    text-align: center;
+    background-color: #FFF;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+#noTournamentsContent:before {
+    content: "";
+    position: absolute;
+    width: 12.04159px;
+    height: 11.95855px;
+    left: 50%;
+    top: -6px;
+    background-color: #FFF;
+    z-index: 1;
+
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.1);
+
+    -webkit-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    -moz-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    -ms-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    -o-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+}
+
+#noTournamentsTitleContainer {
+    position: relative;
+    background-color: #FFF;
+    padding: 26px 0 0;
+    z-index: 2;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#noTournamentsTitleContainer img {
+    vertical-align: text-bottom;
+}
+
+#noTournamentsTitleContainer span {
+    font-size: 14.74px;
+    font-weight: 500;
+    color: #2F6196;
+    margin-left: 15px;
+    vertical-align: 2px;
+    text-transform: uppercase;
+}
+
+#noTournamentsText {
+    font-size: 14px;
+    color: #626377;
+    margin: 10px 0 0;
+}
+
+/*************************************/
+/************ Dates Slider ***********/
+/*************************************/
+
+#dateSliderContainer {
+    margin-bottom: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#dateSlider {
+    display: table;
+    width: 100%;
+}
+
+.dateView {
+    display: table-cell;
+    min-width: 140px;
+    height: 74px;
+    color: #444;
+    text-align: center;
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.dateView:not(:first-child) {
+    border-left: 3px solid #F2F2F2;
+}
+
+.dateViewInner {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    cursor: pointer;
+}
+
+.dateTimeView {
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    padding: 2px 5px 0;
+    color: #2D2F49;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+.dateMatchesView {
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4F5A65;
+    background-color: #F8F8F8;
+    padding: 7px 0;
+}
+
+.dateMatchesView span {
+    position: relative;
+}
+
+.dateMatchesView span:before {
+    content: "";
+    position: absolute;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #FF931E;
+    border-style: solid;
+    top: 50%;
+    margin-top: -5px;
+    left: -10px;
+}
+
+.dateTimeView.liveContest {
+    height: 100%;
+    line-height: 74px;
+    padding: 0 !important;
+}
+
+.dateView:hover .dateViewInner,
+.dateView:hover .dateMatchesView {
+    background-color: #F2F7F6;
+}
+
+.dateView[selected],
+.dateView[selected] .dateTimeView,
+.dateView[selected] .dateMatchesView {
+    color: #FFF;
+    background-color: #2D2F49;
+}
+
+.dateView:hover .dateTimeView,
+.dateView[selected] .dateTimeView {
+    padding: 10px 0;
+}
+
+.dateViewInner svg {
+    margin-right: 10px;
+    vertical-align: -1px;
+}
+
+.dateViewInner svg {
+    fill: #2D2F49;
+}
+
+.dateView[selected] svg {
+    fill: #FFFFFF;
+}
+
+/*************************************/
+/************ Filter Bar *************/
+/*************************************/
+
+.filterItem {
+    width: 100%;
+    height: 59px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    background-image: url(../icongraphy/svg/icon-filter-name.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.filterItem:nth-child(2n) {
+    background-color: #E6E6E6;
+}
+
+.filterItem:hover {
+    background-color: #F2F7F6;
+}
+
+.filterItem.selected {
+    background-color: #E6E6E6;
+}
+
+#filterItemName {
+    background-image: url(../icongraphy/svg/icon-filter-name.svg);
+    background-size: 21px 22px;
+}
+
+#filterItemEntryFee {
+    background-image: url(../icongraphy/svg/icon-filter-entry-fee.svg);
+    background-size: 26px 23.5px;
+}
+
+#filterItemContest {
+    background-image: url(../icongraphy/svg/icon-filter-contest.svg);
+    background-size: 20px 21px;
+}
+
+#filterItemLeague {
+    height: 72px;
+    background-image: url(../icongraphy/svg/icon-filter-league.svg);
+    background-size: 19.3px 19.4px;
+    background-position: center 20px;
+}
+
+#filterResetContainer {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 50%;
+    margin-left: -17px;
+    bottom: -17px;
+    background-color: #F2F2F2;
+
+    -moz-border-radius: 17px;
+    -webkit-border-radius: 17px;
+    border-radius: 17px;
+}
+
+#filterResetButton {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 50%;
+    margin-left: -13px;
+    top: 50%;
+    margin-top: -13px;
+    background-color: #626377;
+    
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    border-radius: 13px;
+}
+
+#filterResetButton:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+#filterResetContainer .tooltipBox {
+    top: 35px;
+    left: 50%;
+
+    -webkit-box-shadow: 0px 3px 8px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 8px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 8px 1px rgba(0,0,0,0.2);
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+#filterResetContainer .tooltipBox:before {
+    top: -6px;
+
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+}
+
+#filterResetContainer .tooltipInner {
+    font-size: 12px;
+    color: #2D2F49;
+    padding: 5px 18px;
+}
+
+/*************************************/
+/*********** Filter Popups ***********/
+/*************************************/
+
+.filterPopBox {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 295px;
+    left: 315px;
+    background-color: transparent;
+    z-index: 0;
+
+    -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+.popBoxInner {
+    position: relative;
+    width: 290px;
+    padding: 22px 24px 5px;
+    background-color: #FFF;
+    z-index: 4;
+}
+
+.filterPopBox:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: white;
+    top: 25px;
+    left: -6px;
+    z-index: 2;
+    width: 13.45362404707371px;
+    height: 13.379299299441142px;
+
+    -webkit-box-shadow: -2px 0px 5px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: -2px 0px 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: -2px 0px 5px 0 rgba(0, 0, 0, 0.3);
+    
+    -webkit-transform: rotate(318.01278750418334deg) skew(6.025575008366673deg);
+    -moz-transform: rotate(318.01278750418334deg) skew(6.025575008366673deg);
+    -ms-transform: rotate(318.01278750418334deg) skew(6.025575008366673deg);
+    -o-transform: rotate(318.01278750418334deg) skew(6.025575008366673deg);
+    transform: rotate(318.01278750418334deg) skew(6.025575008366673deg);
+}
+
+.filterPopBoxHeader {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2D2F49;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2F6196;
+}
+
+.filterPopBoxBody {
+    padding: 30px 0;
+}
+
+.filterPopBoxBody .input-group,
+.filterPopBoxBody .btn-group {
+    border: 1px solid #CCC;
+}
+
+#filterSearch {
+    border: none;
+    height: 32px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #2D2F49;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#filterNamePopBox .dropdown-toggle {
+    border: none;
+    padding: 5px;
+    background-color: #FFF;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.filterPopBoxBody .caret {
+    width: 22px;
+    height: 22px;
+    background-color: #999;
+    border: none;
+    position: relative;
+}
+
+.filterPopBoxBody .caret:hover {
+    background-color: #666;
+}
+
+.filterPopBoxBody .caret:after {
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 6px;
+    top: 8px;
+    left: 7px;
+    background: url(../icongraphy/svg/icon-down-arrow.svg) no-repeat center center;
+}
+
+#filterNamePopBox ul {
+    min-width: 242px;
+    right: -1px;
+    padding: 0;
+}
+
+#filterNamePopBox ul.empty {
+    display: none;
+}
+
+.filterPopBoxBody li {
+    font-size: 14px;
+    font-weight: normal;
+    color: #2D2F49;
+    padding: 5px 13px;
+    cursor: pointer;
+}
+
+.filterPopBoxBody li:hover {
+    background-color: #F2F7F6;
+}
+
+#filterEntryFeeSliderContainer {
+    padding: 0 16px;
+    border: 1px solid #CCC;
+}
+
+.filterPopBoxBody .checkbox-label:not(:nth-of-type(1)) {
+    margin-top: 10px;
+}
+
+.filterLeagueLogo {
+    max-width: 15px;
+    margin-right: 10px;
+    margin-top: -2px;
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+    #lobbyHeaderBanner {
+        background-image: url(../icongraphy/img/banner-main-header@2x.jpg);
+    }
+}

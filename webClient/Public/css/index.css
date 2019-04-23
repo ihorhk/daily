@@ -1,0 +1,61 @@
+/* TODO remove file */
+
+
+#myTournamentsButton {
+    width: 160px;
+    margin-left: 150px;
+    margin-top: 40px;
+    background-color: #0C9548;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+
+#myTournamentsButton:hover {
+    background-color: #0DAE54;
+    transform: scale(1.05);
+}
+
+#homeHeader {
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+}
+
+#headerBalanceContainer {
+    display: inline-block;
+    margin-left: 80px;
+    background-color: #3a3a3a;
+    padding: 10px;
+    border: 2px solid #888;
+    border-radius: 20px;
+}
+
+#balanceLabel {
+    font-size: 95%;
+    color: #ddd;
+}
+
+/*#balanceMoneyText {
+    margin-left: 5px;
+    color: #8AC53F;
+    font-weight: bold;
+}*/
+
+#moneyTest {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    transition-duration: 2s;
+    transition-timing-function: ease-in;
+}
+
+#moneyTest:hover {
+    transform: rotate(3600deg) scale(1.5);
+}
+
+#balanceContainer {
+    display: inline-block;
+    margin-top: 12px;
+}
