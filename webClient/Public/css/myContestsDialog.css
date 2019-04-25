@@ -1,0 +1,32 @@
+#deleteEntryDialog {
+    width: 456px !important;
+    height: auto !important;
+}
+
+#deleteEntryDialogBody {
+    background-color: #F8F8F8;
+    padding: 31px 60px 24px;
+}
+
+#deleteEntryDialogBody .dialogButton {
+    padding: 0 32px;
+}
+
+.buttonContainer {
+    margin: 24px 0 0;
+    text-align: center;
+}
+
+.buttonContainer:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#deleteEntryYesButton {
+    float: left;
+}
+
+#deleteEntryNoButton {
+    float: right;
+}
