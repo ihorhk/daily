@@ -1,0 +1,221 @@
+#mainFooterBanner {
+    display: none;
+}
+
+#mainFooter {
+    padding-top: 0px;
+}
+
+.signInContainer {
+    width: 378px;
+    margin: 122px auto;
+}
+
+.signInFormContainer {
+    background-color: #F2F2F2;
+    padding: 24px 36px 0;
+}
+
+.signInTitle {
+    color: #505A65;
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 32px;
+    margin-top: 16px;
+    margin-bottom: 28px;
+}
+
+.signInTitleShort {
+    font-size: 28px;
+}
+
+.signInSubtitle {
+
+}
+
+#loginContainer {
+    padding-bottom: 90px;
+}
+
+#forgotLoginContainer {
+    display: none;
+    padding-bottom: 100px;
+}
+
+#registerContainer {
+    padding-bottom: 90px;
+}
+
+.signInForm {
+    padding: 0 0 0 20px;
+    height: 42px;
+    margin-bottom: 14px;
+    border: 1px solid #c0c0c0;
+    color: #505A65;
+
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.signInForm:hover, .signInForm:focus {
+    cursor: pointer;
+    border: 1px solid #c0c0c0;
+
+    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+.signInForm[error] {
+    border-color: #D53D47;
+}
+
+.submitButton {
+    width: 100%;
+    margin-top: 6px;
+}
+
+#forgotLogin {
+    font-size: 90%;
+    margin-top: 30px;
+    display: block;
+    color: #336194;
+    font-weight: 400;
+    text-decoration: underline;
+    position: relative;
+}
+
+#forgotLogin:hover, #forgotLogin:focus {
+    text-decoration: none;
+}
+
+#headerContainer {
+    width: 100%;
+    height: 39px;
+}
+
+.signInHeaderTab {
+    width: 184px;
+    height: 100%;
+    background-color: #336194;
+    color: #fff;
+    cursor: pointer;
+
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.signInHeaderTab[selected] {
+    background-color: #F2F2F2;
+    color: #336194;
+}
+
+.signInHeaderTabText {
+    font-weight: 500;
+    text-align: center;
+    line-height: 43px;
+    font-size: 14px
+}
+
+#loginTab {
+    float: left;
+}
+
+#registerTab {
+    float: right;
+}
+
+#signInBackgroundImage {
+    width: 100%;
+    height: 735px;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    background-image: url(../icongraphy/img/players-celebration.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#signInBackgroundImage::-webkit-scrollbar {
+    display: none;
+}
+
+#signInFieldImage {
+    width: 526px;
+    margin-left: -74px;
+    margin-top: -46px;
+}
+
+.registrationLabel {
+    color: #999999;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.birthDateForm {
+    width: 94px;
+    margin-right: 12px;
+    margin-bottom: 22px;
+    float: left;
+}
+
+#birthYear {
+    margin-right: 0;
+}
+
+#countriesDropdown {
+    padding-left: 16px;
+}
+
+#countriesDropdown[default] {
+    color: #999;
+}
+
+#countriesDropdown > option[disabled] {
+    color: #999999;
+}
+
+#countriesDropdown > option {
+    color: #555;
+}
+
+#city {
+    float: left;
+    width: 174px;
+    margin-right: 12px;
+}
+
+#zipCode {
+    float: left;
+    width: 120px;
+}
+
+#street {
+    float: left;
+    width: 220px;
+    margin-right: 12px;
+}
+
+#streetNumber {
+    float: left;
+    width: 70px;
+}
+
+#termsAndConditionsContainer {
+    margin-top: 25px;
+    margin-bottom: 17px;
+}
+
+#termsAndConditionsText {
+    display: inline;
+    margin-right: 4px;
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+    #signInBackgroundImage {
+        background-image: url(../icongraphy/img/players-celebration@2x.jpg);
+    }
+}

@@ -1,0 +1,32 @@
+.fht_scrollHead {
+	overflow: hidden;
+}
+
+.fht_scrollHead table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.fht_scrollHead table thead button {
+	padding: 0;
+}
+
+.fht_scrollHeadInner {
+	position: relative;
+}
+
+.fht_scrollBody {
+	height: auto;
+	overflow: auto;
+}
+
+.fht_scrollBody table {
+	display: table !important;
+	table-layout: fixed;
+	width: 100%;
+	height: auto !important;
+}
+
+.fht_scrollBody table thead tr {
+	height: 0px;
+}
