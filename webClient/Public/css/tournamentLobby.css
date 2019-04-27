@@ -1,0 +1,2050 @@
+@keyframes blink {
+    0% {
+        color: rgb(46, 96, 150);
+        font-weight: bold;
+    }
+    40% {
+        color: white;
+        font-weight: bold;
+    }
+    80% {
+        color: rgb(46, 96, 150);
+        font-weight: bold;
+    }
+}
+@-webkit-keyframes blink {
+    0% {
+        color: rgb(46, 96, 150);
+        font-weight: bold;
+    }
+    40% {
+        color: white;
+        font-weight: bold;
+    }
+    80% {
+        color: rgb(46, 96, 150);
+        font-weight: bold;
+    }
+}
+
+#mainContainer {
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+#mainContainer[notLive] {
+    background-image: url(../../icongraphy/img/banner-tournament-lobby-prematch.jpg);
+    background-size: auto 841px;
+}
+
+#mainContainer[live] {
+    background-image: url(../../icongraphy/img/banner-tournament-lobby.jpg);
+    background-size: auto 840px;
+}
+
+#tournamentHeader {
+    width: 100%;
+    margin: 0 0 16px;
+}
+
+#tournamentTitleContainer {
+    padding: 45px 0 28px;
+}
+
+#tournamentTitleContainer > * {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+#tournamentFlag {
+    height: 33px;
+}
+
+#tournamentFeatured {
+    margin-left: 8px;
+    display: none;
+}
+
+#tournamentTitle {
+    margin-left: 12px;
+}
+
+#tournamentBackToLobby {
+    margin-left: 35px;
+    padding-top: 6px;
+}
+
+#tournamentBackToLobby svg {
+    fill: #2F6196;
+    vertical-align: -1px;
+}
+
+#tournamentBackToLobby span {
+    margin-left: 6px;
+    color: #2F6196;
+    position: relative;
+}
+
+#tournamentBackToLobby span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #2F6196;
+    left: 0;
+    bottom: 2px;
+}
+
+#tournamentBackToLobby:hover svg {
+    fill: #FBC00B;
+}
+
+#tournamentBackToLobby:hover span {
+    color: #FBC00B;
+}
+
+#tournamentBackToLobby:hover span:after {
+    background-color: #FBC00B;
+}
+
+#tournamentInfoContainer:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tournamentInfo {
+    position: relative;
+    height: 33px;
+    padding: 0 10px;
+    margin-right: 19px;
+    background-color: #2D2F49;
+    float: left;
+    font-size: 14px;
+    color: #FFF;
+    text-align: center;
+}
+
+.tournamentInfo:first-child {
+    margin-left: 14px;
+}
+
+.tournamentInfo:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -7px;
+    right: -7px;
+    height: 100%;
+    background-color: #2D2F49;
+    z-index: 0;
+
+    -webkit-transform: skew(-17deg);
+    -moz-transform: skew(-17deg);
+    -ms-transform: skew(-17deg);
+    -o-transform: skew(-17deg);
+    transform: skew(-17deg);
+}
+
+.tournamentInfoInner {
+    padding-top: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.tournamentInfoInner > * {
+    display: inline-block;
+    line-height: 31px;
+    vertical-align: middle;
+}
+
+.tournamentInfoImg {
+    margin-right: 8px;
+}
+
+.tournamentInfoLabel {
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.tournamentInfoText {
+    position: relative;
+}
+
+.tournamentInfoText:before {
+    content: "";
+    position: absolute;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #FF931E;
+    border-style: solid;
+    top: 50%;
+    margin-top: -6px;
+    left: -10px;
+}
+
+#tournamentPayoutsButton {
+    width: 106px;
+    height: 33px;
+    font-size: 12.79px;
+    font-weight: 500;
+    color: #2D2F49;
+    background-color: #C3FF00;
+    margin-left: 12px;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+#tournamentPayoutsButton:hover {
+    color: #FBC00B;
+}
+
+#tournamentResultContainer {
+    display: none;
+    margin-top: 42px;
+    text-align: center;
+}
+
+#tournamentResultInner {
+    display: inline-block;
+    width: 430px;
+    height: 98px;
+    background-color: #1F2133;
+    position: relative;
+    padding: 8px;
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#tournamentResultInner.tournamentFinished {
+    width: 400px;
+}
+
+#tournamentResultInner:after {
+    content: "";
+    position: absolute;
+    width: 98.6px;
+    height: 132px;
+    top: -30px;
+    right: -40px;
+    background: url(../../icongraphy/svg/icon-logo3.svg);
+    z-index: 2;
+}
+
+.tournamentResultRectangle {
+    display: none;
+    height: 82px;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+
+.tournamentResultTriangle {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: -14px;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.tournamentResultTriangle:before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    top: 0;
+    right: 7px;
+    bottom: 0;
+    z-index: 0;
+
+    -webkit-transform: skew(-10deg);
+    -moz-transform: skew(-10deg);
+    -ms-transform: skew(-10deg);
+    -o-transform: skew(-10deg);
+    transform: skew(-10deg);
+}
+
+.tournamentResultRectangle,
+.tournamentResultTriangle:before {
+    background-color: #2D2F49;
+
+    -webkit-box-shadow: inset 0px 0px 6px #000;
+    -moz-box-shadow: inset 0px 0px 6px #000;
+    box-shadow: inset 0px 0px 6px #000;
+}
+
+#tournamentCurrentPlaceContainer {
+    width: 172px;
+}
+
+#tournamentResultPayoutContainer {
+    width: 332px;
+}
+
+#tournamentResultPayoutContainer.tournamentResultRectangle,
+#tournamentResultPayoutContainer .tournamentResultTriangle:before {
+    background-color: #2F6196;
+}
+
+.tournamentResultRectangleInner {
+    position: relative;
+}
+
+#tournamentCurrentPayoutContainer {
+    display: none;
+    width: 50%;
+    height: 82px;
+    float: right;
+    padding-right: 60px;
+}
+
+.tournamentResultMainInfo {
+    display: inline-block;
+    position: relative;
+    font-size: 48px;
+    font-weight: 700;
+    color: #C3FF00;
+    line-height: 62px;
+}
+
+.tournamentResultMainInfo.freePlay {
+    font-size: 42px;
+}
+
+.tournamentResultMainInfo sup {
+    position: absolute;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.tournamentResultMainInfo.freePlay sup {
+    font-size: 18px;
+}
+
+#tournamentCurrentPlace sup {
+    top: 18px;
+    right: -25px;
+}
+
+#tournamentCurrentPayout sup {
+    top: 20px;
+    left: -22px;
+}
+
+.tournamentStartMainDesc {
+    font-size: 14px;
+    margin-top: -6px;
+}
+
+#tournamentResultPlaceDesc {
+    margin-top: 20px;
+}
+
+#tournamentResultPlaceDesc.won {
+    margin-top: 10px;
+}
+
+#tournamentResultPlaceDesc span {
+    font-weight: bold;
+    color: #C3FF00;
+}
+
+#tournamentResultPayout {
+    line-height: 45px;
+    margin-left: 15px;
+}
+
+#tournamentResultPayout sup {
+    top: 12px;
+    left: -22px;
+}
+
+#tournamentCurrentPayout.freePlay sup,
+#tournamentResultPayout.freePlay sup {
+    left: -38px;
+}
+
+#tournamentStatusContainer {
+    text-align: center;
+    margin: 21px 0 41px;
+}
+
+.tournamentStatusContainer {
+    display: none;
+    height: 48px;
+    margin: 0 auto;
+    padding: 21px 0 0 34px;
+}
+
+#tournamentStatusLiveContainer {
+    padding-left: 30px;
+}
+
+.tournamentStatusContainer > * {
+    float: left;
+}
+
+#tournamentStatusLiveContainer {
+    width: 211px;
+    background: url(/icongraphy/svg/icon-tour-live.svg) center no-repeat;
+}
+
+#tournamentStatusLiveContainer[next-match] {
+    width: 246px;
+    background: url(/icongraphy/svg/icon-tour-live-nextmatch.svg) center no-repeat;
+}
+
+#tournamentStatusLiveInContainer {
+    width: 176px;
+    background: url(/icongraphy/svg/icon-tour-live-in.svg) center no-repeat;
+}
+
+#tournamentStatusFinishContainer {
+    width: 260px;
+    background: url(/icongraphy/svg/icon-tour-finished.svg) center no-repeat;
+}
+
+.tournamentStatusMainInfo {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+}
+
+#tournamentStatusLiveMatchInfo {
+    margin-left: 8px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+#tournamentStatusLiveContainer .tournamentStatusMainInfo {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.tournamentTimer,
+#tournamentFinishTimeText {
+    margin-left: 5px;
+}
+
+#nextMatchTimer {
+    margin-top: 1px;
+}
+
+.tournamentTimer .timer,
+#tournamentFinishTimeText {
+    font-size: 15px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.tournamentTimer#nextMatchTimer .timer {
+    font-size: 14px;
+    font-style: normal;
+    margin-top: 1px;
+}
+
+#tournamentMatchesContainer {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+#contentTabContainer {
+    width: 186px;
+    height: 33px;
+    padding-top: 15px;
+    text-align: center;
+    background-color: #FFF;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.titleContainer {
+    display: inline-block;
+}
+
+.titleContainer img {
+    vertical-align: text-bottom;
+}
+
+.titleContainer span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #2F6196;
+    margin-left: 12px;
+}
+
+#overview {
+    height: 100%;
+    background-color: #FFF;
+    overflow: hidden;
+    padding: 18px 23px 5px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.overviewContainer {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: #F2F2F2;
+    position: relative;
+}
+
+.noDataContainer {
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F2F2F2;
+    z-index: 10;
+}
+
+.noDataContent {
+    position: absolute;
+    width: 358px;
+    height: auto;
+    left: 50%;
+    top: 43%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.noDataContentInner {
+    margin-top: 18px;
+    position: relative;
+
+    -webkit-box-shadow: 0px 2px 4px 3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 2px 4px 3px rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 4px 3px rgba(0,0,0,0.1);
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.noDataContentInner:before {
+    content: "";
+    position: absolute;
+    width: 12.04159px;
+    height: 11.95855px;
+    left: 50%;
+    top: -6px;
+    background-color: #FFF;
+    z-index: 1;
+
+    -webkit-box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.1);
+
+    -webkit-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    -moz-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    -ms-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    -o-transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+    transform: translateX(-50%) rotate(41.63351deg) skew(-6.73298deg);
+}
+
+.noDataText {
+    padding: 25px 30px;
+    font-size: 12px;
+    color: #788896;
+    background-color: #FFF;
+    position: relative;
+    z-index: 2;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/*************************************/
+/************* Match View ************/
+/*************************************/
+
+.matchArrowButton {
+    display: none;
+    position: absolute;
+    width: 43px;
+    height: 43px;
+    top: 62px;
+    background-color: #F2F2F2;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.matchArrowButton svg {
+    fill: #4F5A65;
+    stroke: #4F5A65;
+    stroke-width: 2px;
+    stroke-miterlimit:10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -5px;
+
+    -webkit-transition: stroke 0.1s;
+    -moz-transition: stroke 0.1s;
+    -ms-transition: stroke 0.1s;
+    -o-transition: stroke 0.1s;
+    transition: stroke 0.1s;
+}
+
+.matchArrowButton:hover svg {
+    stroke: #CCC;
+}
+
+#matchArrowLeftButton {
+    left: 0;
+}
+
+#matchArrowRightButton {
+    right: 0;
+}
+
+.matchView {
+    display: inline-block;
+    vertical-align: top;
+    width: 233px;
+    height: 82px;
+    margin: 0 9px 15px;
+    text-align: center;
+    color: #2D2F49;
+    position: relative;
+}
+
+.matchViewHeader {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+}
+
+.matchTourLogoWrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    height: 100%;
+    background-color: #F8F8F8;
+}
+
+.matchTourLogoWrapper:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 6px;
+    background-color: #F8F8F8;
+
+    -webkit-transform: skew(-28deg);
+    -moz-transform: skew(-28deg);
+    -ms-transform: skew(-28deg);
+    -o-transform: skew(-28deg);
+    transform: skew(-28deg);
+}
+
+.matchTourLogo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 3px;
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.matchStatusText {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 12px 0 18px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.matchStatusText span {
+    font-weight: 700;
+}
+
+.matchHeaderArrow {
+    display: none;
+    position: absolute;
+    width: 8.48528px;
+    height: 8.48528px;
+    top: 20px;
+    left: 50%;
+    margin-left: -4px;
+    z-index: 3;
+
+    -webkit-transform: rotate(224.99999deg) skew(-0.00002deg);
+    -moz-transform: rotate(224.99999deg) skew(-0.00002deg);
+    -ms-transform: rotate(224.99999deg) skew(-0.00002deg);
+    -o-transform: rotate(224.99999deg) skew(-0.00002deg);
+    transform: rotate(224.99999deg) skew(-0.00002deg);
+}
+
+.matchViewBody {
+    position: relative;
+    z-index: 2;
+
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
+}
+
+.matchViewTeams {
+    padding: 0 5px;
+    background-color: #FFF;
+}
+
+.tourPreMatch .matchViewTeams {
+    background-color: #F8F8F8;
+}
+
+.matchViewInner {
+    position: relative;
+    height: 53px;
+}
+
+.teamView {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    display: table;
+    table-layout: fixed;
+}
+
+.teamView > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.teamName {
+    width: 21%;
+    text-transform: uppercase;
+}
+
+.teamLogo {
+    width: 15%;
+}
+
+.teamLogoWrapper {
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    display: inline-block;
+    border: 1px solid #2D2F49;
+    vertical-align: 22%;
+    background-color: #FFF;
+    box-sizing: content-box;
+
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.tourPreMatch .teamLogoWrapper {
+    border-color: #989898;
+}
+
+.matchTeamsLogo {
+    display: inline !important;
+    width: 22px;
+    padding-top: 3px;
+}
+
+.matchScoreContainer {
+    width: 28%;
+}
+
+.matchTeamsText {
+    margin-top: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #2D2F49;
+    text-transform: uppercase;
+}
+
+.matchTeamsTextWinner {
+    color: #00C858 !important;
+}
+
+.matchStartTimeText {
+    display: inline-block;
+    width: 56px;
+    height: 36px;
+    font-size: 11px;
+    line-height: 13px;
+    padding: 5px 0;
+    color: #FFF;
+    background-color: #2F6196;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.matchStartTimeText span {
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.matchStartTimeText.matchTimer {
+    position: relative;
+    padding: 18px 0 0;
+}
+
+.matchStartTimeText.matchTimer:before {
+    content: "Starts In";
+    position: absolute;
+    font-size: 11px;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+    top: 5px;
+    left: 0;
+}
+
+.matchStartTimeText.highlighted {
+    width: 50px;
+    height: 30px;
+    font-size: 7px;
+    font-weight: 500;
+    color: #FFFFFF;
+    background-color: #FF1D25;
+    line-height: 12px;
+    padding-top: 3px;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.matchStartTimeText.highlighted:before {
+    content: none;
+}
+
+.matchStartTimeText.highlighted span {
+    font-size: 12px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.matchScoreText {
+    display: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFF;
+    background-color: #FF1D25;
+    padding: 3px 7px 2px;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.matchProgressContainer {
+    position: relative;
+    height: 5px;
+    background-color: #E6E6E6;
+    overflow: hidden;
+}
+
+.matchProgressBar {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #FF1D25;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.matchStarted .matchHeaderArrow {
+    display: block;
+}
+
+.matchStarted .matchStartTimeText,
+.matchFinished .matchStartTimeText,
+.matchCancelled .matchStartTimeText {
+    display: none;
+}
+
+.matchStarted .matchScoreText,
+.matchFinished .matchScoreText,
+.matchCancelled .matchScoreText {
+    display: inline-block;
+}
+
+.matchFinished .matchViewTeams,
+.matchCancelled .matchViewTeams {
+    background-color: #DDD;
+}
+
+.matchFinished .matchViewInner {
+    height: 58px;;
+}
+
+.matchFinished .matchScoreText {
+    background-color: #4F5A65;
+}
+
+.matchFinished .matchProgressContainer {
+    display: none;
+}
+
+/*************************************/
+/********* Match Progress Bar ********/
+/*************************************/
+
+#contestStatusContainer {
+    position: relative;
+    width: 100%;
+    height: 145px;
+    text-align: center;
+    overflow: hidden;
+    background-image: -ms-linear-gradient(top, #F2F7F6 0%, #FFFFFF 50%);
+    background-image: -moz-linear-gradient(top, #F2F7F6 0%, #FFFFFF 50%);
+    background-image: -o-linear-gradient(top, #F2F7F6 0%, #FFFFFF 50%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F2F7F6), color-stop(50, #FFFFFF));
+    background-image: -webkit-linear-gradient(top, #F2F7F6 0%, #FFFFFF 50%);
+    background-image: linear-gradient(to bottom, #F2F7F6 0%, #FFFFFF 50%);
+}
+
+#tournamentStadium {
+    width: 569px;
+    margin: 65px 0 0;
+}
+
+#contestProgressContainer {
+    position: absolute;
+    top: 40px;
+    left: 31px;
+    right: 35px;
+    height: 9px;
+    background-color: #E6E6E6;
+}
+
+#contestProgressBar {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #FF1D25;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.contestProgressPercentage {
+    position: absolute;
+    top: -21px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #2D2F49;
+}
+
+.contestProgressPercentage:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 6px;
+    left: 50%;
+    margin-left: -1px;
+    bottom: -6px;
+    background-color: #E6E6E6;
+}
+
+.contestProgressPercentage.overPercentage:after {
+    background-color: #FF1D25;
+}
+
+#contestProgressPercentage0 {
+    left: -7px;
+}
+
+#contestProgressPercentage0:after {
+    height: 21px;
+    bottom: -21px;
+}
+
+#contestProgressPercentage50 {
+    left: 50%;
+    margin-left: -11px;
+}
+
+#contestProgressPercentage100 {
+    right: -14px;
+}
+
+/*************************************/
+/************ Entries View ***********/
+/*************************************/
+
+#userEntries {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#userEntries:before {
+    content: "Your Entries";
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    top: -35px;
+    left: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2F6196;
+    text-align: center;
+    line-height: 36px;
+    background-color: #F8F8F8;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#userEntries.noEntries:before {
+    content: none;
+}
+
+#entriesSlider {
+    overflow: auto;
+    overflow-x: scroll;
+}
+
+#entriesContainer {
+    display: table;
+    width: 100%;
+    background-color: #F8F8F8;
+}
+
+#entriesContainer.doubleEntry {
+    table-layout: fixed;
+}
+
+.entryView {
+    display: table-cell;
+    min-width: 364px;
+    height: 100%;
+    padding: 12px 18px 7px;
+    font-size: 14px;
+    color: #B3B3B3;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.entryView:not(:first-child) {
+    margin-left: 9px;
+}
+
+.entryView:hover {
+    color: #999;
+}
+
+.entryView[selected] {
+    color: #4F5A65;
+}
+
+.entryFormation {
+    margin-bottom: 4px;
+}
+
+.entryFormationText {
+    display: inline-block;
+    margin-left: 20px;
+    position: relative;
+}
+
+.entryLineupContainer {
+    position: relative;
+    padding: 13px 15px 13px 56px;
+    margin-bottom: 8px;
+    background-color: #FFF;
+}
+
+.entryView:hover .entryLineupContainer,
+.entryView[selected] .entryLineupContainer {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.entryView.singleEntry .entryLineupContainer {
+    padding-left: 124px;
+}
+
+.entryView.doubleEntry .entryLineupContainer {
+    padding-left: 15%;
+}
+
+.entryView.singleEntry .entryLineupContainer:before {
+    content: "";
+    position: absolute;
+    width: 93px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #E6E6E6;
+}
+
+.entryLineupImage {
+    position: absolute;
+    top: 13px;
+    left: 15px;
+}
+
+.entryView.singleEntry .entryLineupImage {
+    left: 32px;
+}
+
+.entryView:not([selected]) .entryLineupImage {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+.entryView:hover:not([selected]) .entryLineupImage {
+    opacity: 0.6;
+}
+
+.entryLineupText {
+    position: relative;
+    min-height: 45px;
+    line-height: 16px;
+}
+
+.entryLineupText span {
+    display: inline-block;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.entryLineupPlayers {
+    display: table;
+    min-height: 45px;
+    width: 100%;
+    height: 100%;
+}
+
+.entryLineupPlayer {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+}
+
+.entryView.singleEntry .entryLineupPlayer {
+    padding-left: 55px;
+    line-height: 15px;
+}
+
+.entryView.doubleEntry .entryLineupPlayer {
+    line-height: 19px;
+}
+
+.entryPlayerAvatar {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    top: 50%;
+    margin-top: -17px;
+    left: 12px;
+    border: 1px solid #2D2F49;
+
+    -moz-border-radius: 17px;
+    -webkit-border-radius: 17px;
+    border-radius: 17px;
+}
+
+.entryTeamLogoWrapper {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 2px;
+    left: 0;
+    background-color: #FFF;
+    border: 1px solid #2D2F49;
+
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.entryTeamLogo {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.entryPlayerPosition {
+    font-size: 12px;
+    font-weight: 500;
+    color: #CCC;
+}
+
+.entryPoints {
+    float: left;
+    margin-left: 20px;
+    position: relative;
+}
+
+.entryFormationText:before,
+.entryPoints:before {
+    content: "";
+    position: absolute;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #B3B3B3;
+    border-style: solid;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.entryFormationText:before {
+    left: -10px;
+}
+
+.entryPoints:before {
+    left: -12px;
+}
+
+.entryView:hover .entryFormationText:before,
+.entryView:hover .entryPoints:before {
+    border-color: transparent transparent transparent #999;
+}
+
+.entryView[selected] .entryFormationText:before,
+.entryView[selected] .entryPoints:before {
+    border-color: transparent transparent transparent #FF931E;
+}
+
+.entryPayout {
+    float: left;
+    margin-left: 30px;
+}
+
+.entryView[selected] .entryPayout {
+    color: #2F6196;
+}
+
+#addNewEntryButton {
+    position: absolute;
+    width: 118px;
+    height: 31px;
+    top: -48px;
+    right: 0;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: italic;
+    color: #C3FF00;
+    line-height: 34px;
+    background-color: #1F2133;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#addNewEntryButton:hover {
+    color: #FBC00B;
+}
+
+#addNewEntryButton:disabled {
+    color: #FFF !important;
+    background-color: #E6E6E6;
+}
+
+/*************************************/
+/************ Ranking Table **********/
+/*************************************/
+
+#firstColumn {
+    width: 48.5%;
+    float: left;
+}
+
+#secondColumn {
+    width: 48.5%;
+    float: right;
+}
+
+#playersTable thead tr,
+#statsTable thead tr {
+    background-color: #555;
+}
+
+.tableHead {
+    border: 0;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.headTable .tableHead:first-child {
+    padding-left: 80px;
+}
+
+.headTable .tableHead.tourPreMatch:first-child {
+    padding-left: 90px;
+}
+
+.tableData:after {
+    background-color: #F2F2F2;
+}
+
+.tableRow:first-child .tableData {
+    height: 57px;
+    padding-top: 16px;
+}
+
+.rowIndicator {
+    background-color: #F2F2F2;
+}
+
+#rankingContainer {
+    padding-bottom: 8px;
+}
+
+#rankingHeader {
+    position: absolute;
+}
+
+#rankingScrollArea {
+    height: 565px;
+    max-height: 565px;
+}
+
+.rankingRow[selected_entry] {
+    font-weight: 500;
+    background-color: #D6EAF8;
+}
+
+.rankingRow.tourPreMatch:not([selected_entry]) {
+    cursor: default;
+}
+
+.rankingRow[selected_entry] .tableData:first-child {
+    color: #2F6196;
+}
+
+.rankingRow:hover .hoverIndicator {
+    display: block;
+}
+
+.rankingUser {
+    width: 26.45%;
+    text-align: left;
+    padding-left: 32px;
+}
+
+.rankingNumber {
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.rankingUser div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rankingPoints {
+    width: 15%;
+}
+
+.rankingPointsText {
+    width: 60%;
+    margin-left: 40%;
+    text-align: left;
+}
+
+.rankingPrize {
+    width: 15%;
+    text-align: center;
+}
+
+td.rankingPrize {
+    color: #2F6196;
+}
+
+.rankingProgress {
+    width: 19%;
+}
+
+.rankingProgressContainer {
+    position: relative;
+    width: 100px;
+    height: 5px;
+    margin: 0 auto;
+    background-color: #E6E6E6;
+    z-index: 1;
+}
+
+.rankingRow[selected_entry] .rankingProgressContainer {
+    background-color: #A2CCEC;
+}
+
+.rankingProgressBar {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #FF1D25;
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.rankingTooltipContainer {
+    top: -28px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.rankingTooltipText {
+    width: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 22px;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.rankingProj {
+    width: 16.96%;
+}
+
+.rankingProjText {
+    width: 66%;
+    margin-left: 34%;
+    text-align: left;
+}
+
+td.rankingArrow:before {
+    content: "";
+    position: absolute;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #FF931E;
+    border-style: solid;
+    bottom: 19px;
+}
+
+.tableRow:first-child td.rankingArrow:before {
+    bottom: 20px;
+}
+
+td.rankingPoints:before {
+    left: 25%;
+}
+
+td.rankingProj:before {
+    left: 20%;
+}
+
+/*************************************/
+/************ Player Table ***********/
+/*************************************/
+
+.playerRow[selected_entry] .hoverIndicator {
+    display: block;
+}
+
+.playerRow:first-child[selected_entry] .tableData:first-child:before {
+    top: 0;
+}
+
+.playerRow:first-child .playerAvatar {
+    bottom: 8px;
+}
+
+#playersHeader {
+    position: absolute;
+}
+
+#playersScrollArea {
+    height: 392px;
+    max-height: 392px;
+}
+
+.playerData {
+    overflow: hidden;
+}
+
+.playerName {
+    width: 49%;
+    text-align: left;
+    padding-left: 77px;
+}
+
+.playerName label{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 13px;
+    margin-left: -3px;
+    margin-top: 2px;
+    vertical-align: middle;
+}
+
+.playerName span, .eventPlayer span {
+    margin: 0 5px 0 0;
+    font-weight: 500;
+}
+
+.playerPoints {
+    width: 15%;
+    text-align: center;
+}
+
+.playerPointsChanged{
+    -moz-transition:all 1s;
+    -webkit-transition:all 1s;
+    -o-transition:all 1s;
+    -ms-transition:all 1s;
+    transition:all 1s;
+
+    -moz-animation:blink 3s;
+    -webkit-animation:blink 3s;
+    -ms-animation:blink 3s;
+    animation:blink 3s;
+}
+
+.playerPosition {
+    width: 13%;
+    font-weight: 500;
+    text-align: center;
+}
+
+.playerTeam {
+    width: 12.46%;
+    text-align: center;
+}
+
+.playerPercentage {
+    width: 12%;
+    text-align: center;
+}
+
+.playerName.tourPreMatch {
+    width: 45.6%;
+    padding-left: 90px;
+}
+
+.playerPoints.tourPreMatch {
+    width: 20%;
+}
+
+.playerPosition.tourPreMatch {
+    width: 18.94%;
+}
+
+.playerTeam.tourPreMatch {
+    width: 15.46%;
+}
+
+.playerPercentage.tourPreMatch {
+    width: 0%;
+    overflow: hidden;
+}
+
+.playerPointsText {
+    width: 66%;
+    margin-left: 34%;
+    text-align: left;
+}
+
+.playerPointsText:before {
+    content: "";
+    position: absolute;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #FF931E;
+    border-style: solid;
+    left: -13%;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.playerAvatar {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 26px;
+    bottom: 7px;
+    border: 1px solid #2D2F49;
+
+    -moz-border-radius: 17px;
+    -webkit-border-radius: 17px;
+    border-radius: 17px;
+}
+
+.playerName.tourPreMatch .playerAvatar {
+    left: 35px;
+}
+
+.entryPlayerName span,
+.entryLineupPlayer p span,
+.entryLineupText span span{
+    margin-right: 5px;
+    font-weight: 500;
+    margin-left: 0px;
+}
+
+/*************************************/
+/************ Events Table ***********/
+/*************************************/
+
+.sectionFilter {
+    width: 100%;
+    height: 52px;
+    display: table;
+    table-layout: fixed;
+    padding: 0 15px;
+    background-color: #F2F2F2;
+    position: relative;
+    z-index: 20;
+}
+
+#eventsDescriptionButton {
+    float: right;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 3px 25px 0 0;
+}
+
+#eventsDescriptionButton svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    fill: #C3FF00;
+    
+    -webkit-transition: fill 0.1s;
+    -moz-transition: fill 0.1s;
+    -ms-transition: fill 0.1s;
+    -o-transition: fill 0.1s;
+    transition: fill 0.1s;
+}
+
+#eventsDescriptionButton:hover svg {
+    fill: #FBC00B;
+}
+
+#eventsTableContainer {
+    height: 520px;
+    overflow-y: auto;
+}
+
+#eventsTable {
+    background-color: #f1f1f1;
+}
+
+#eventsScrollArea {
+    max-height: 520px;
+}
+
+.hugeEventRow,
+.majorEventRow {
+    background-color: #F8F8F8;
+}
+
+.correctionEventRow {
+    background-color: #F4E6E8;
+}
+
+.correctionEventRow .tableData:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #D83945;
+    z-index: 5;
+}
+
+.correctionEventRow:first-child .tableData:before {
+    top: 57%;
+}
+
+.correctionEventRow .tableData:first-child:before {
+    left: 25px;
+}
+
+.correctionEventRow .tableData:last-child:before {
+    right: 12px;
+}
+
+.correctionEventRow .tableData,
+.correctionEventRow .eventTimeText {
+    color: #D83945;
+}
+
+.eventRow[new_entry="true"] {
+    background-color: #D6E9F8;
+}
+
+.eventRow.highlighted,
+.eventRow.highlighted *,
+.eventRow.highlighted .tableData:after
+ {
+    -webkit-transition: all 5.0s;
+    -moz-transition: all 5.0s;
+    -ms-transition: all 5.0s;
+    -o-transition: all 5.0s;
+    transition: all 5.0s;
+}
+
+.eventRow:hover .hoverIndicator {
+    display: block;
+}
+
+.eventPlayer {
+    width: 40%;
+    padding-left: 36px;
+    padding-right: 8px;
+}
+
+.eventIcon {
+    width: 8%;
+    font-size: 11px;
+    font-weight: 500;
+    color: #FFF;
+}
+
+.eventAction {
+    width: 33%;
+}
+
+.eventMatch {
+    width: 5%;
+}
+
+.eventPoints {
+    width: 14%;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.eventTimeText {
+    margin-right: 5px;
+    font-weight: 500;
+    color: #2D2F49;
+}
+
+.eventActionIconWrapper {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 3px;
+    bottom: 10px;
+
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    border-radius: 13px;
+}
+
+.eventActionIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.eventPointsIcon {
+    position: absolute;
+    left: 50%;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.eventPointsIcon.positive {
+    bottom: 20px;
+    border-style: solid;
+    border-width: 0px 6px 6px;
+    border-color: transparent transparent #53A51E;
+}
+
+.eventPointsIcon.negative {
+    bottom: 20px;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #FF1D25 transparent transparent;
+}
+
+.eventRow:first-child .eventActionIconWrapper {
+    bottom: 12px;
+}
+
+.eventRow:first-child .eventPointsIcon.positive,
+.eventRow:first-child .eventPointsIcon.negative {
+    bottom: 21px;
+}
+
+.hugeEventRow .eventPlayer:before {
+    content: "";
+    position: absolute;
+    width: 13.5px;
+    height: 12.84px;
+    left: 16px;
+    bottom: 18px;
+    background: url(/icongraphy/svg/icon-star.svg) center no-repeat;
+}
+
+.hugeEventRow:first-child .eventPlayer:before {
+    bottom: 18px;
+}
+
+/*************************************/
+/************* Chat Table ************/
+/*************************************/
+
+#chatContainer {
+    padding-bottom: 14px;
+}
+
+#chatTextContainer {
+    width: 100%;
+    height: 380px;
+    padding: 0 32px;
+    font-size: 12px;
+    overflow-y: auto;
+}
+
+#chatScrollArea {
+    height: 380px;
+    max-height: 380px;
+}
+
+.chatRow td {
+    padding: 18px 30px 0;
+}
+
+.chatRow:last-child td {
+    padding-bottom: 14px;
+}
+
+.chatUsername {
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #B3B3B3;
+}
+
+.chatMessageContainer {
+    position: relative;
+
+    -webkit-box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.2);
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.chatMessageContainer:before {    
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 24px;
+    width: 12.72792px;
+    height: 12.72792px;
+    background-color: #FFF;
+    z-index: 1;
+
+    -webkit-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+
+    -webkit-transform: rotate(314.99999deg) skew(-0.00002deg);
+    -moz-transform: rotate(314.99999deg) skew(-0.00002deg);
+    -ms-transform: rotate(314.99999deg) skew(-0.00002deg);
+    -o-transform: rotate(314.99999deg) skew(-0.00002deg);
+    transform: rotate(314.99999deg) skew(-0.00002deg);
+}
+
+.chatMessageBox {
+    position: relative;
+    padding: 12px 30px 10px;
+    background-color: #FFF;
+    z-index: 2;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.chatMessage {
+    color: #4F5A65;
+    font-size: 14px;
+}
+
+#chatInputContainer {
+    width: 100%;
+    height: 43px;
+    padding: 0 42px;
+    margin-top: 8px;
+    position: relative;
+    background-color: #FFF;
+}
+
+#chatInputContainer:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 43px;
+    top: 0;
+    left: 0;
+    background-color: #2F6196;
+}
+
+#chatInput {
+    width: 100%;
+    padding: 0;
+    line-height: 43px;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+#chatInputContainer[blocked] > #chatInput {
+    color: #888;
+}
+
+#chatInputContainer[blocked] {
+    background-color: #fafafa;
+}
+
+
+
+
+.statsHeader {
+    width: 3%;
+}
+
+.statsPointsHeader {
+    width: 5%;
+}
+
+.statsNameHeader {
+    width: 24%;
+}
+
+.statsPosHeader {
+    width: 5%;
+}
+
+.statsData {
+    font-size: 90%;
+    text-align: center;
+}
+
+.statsName {
+    min-width: 200px;
+}
+
+.oddColumn {
+    background-color: #444;
+}
+
+.evenColumn {
+    background-color: #555;
+}
+
+.mainColumn {
+    font-size: 100%;
+    color: #fff;
+}
+
+#stats {
+    height: 100%;
+}
+
+#statsBody {
+    font-size: 90%;
+}
+
+#playerActionsProgress {
+    margin-left: 12px;
+    margin-bottom: 4px;
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+    #mainContainer[notLive] {
+        background-image: url(../../icongraphy/img/banner-tournament-lobby-prematch@2x.jpg);
+    }
+
+    #mainContainer[live] {
+        background-image: url(../../icongraphy/img/banner-tournament-lobby@2x.jpg);
+    }
+}

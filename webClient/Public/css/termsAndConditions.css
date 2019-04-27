@@ -1,0 +1,19 @@
+.pageTitle {
+    font-size: 36px;
+    margin: 90px 0 25px;
+}
+
+.pageSubtitle {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #4F5A65;
+    font-weight: 400;
+}
+
+.pageContent {
+    font-size: 16px;
+    line-height: 27px;
+    color: #4F5A65;
+	white-space: pre-wrap;
+    word-wrap: break-word;
+}
