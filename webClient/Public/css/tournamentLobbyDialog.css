@@ -1,0 +1,860 @@
+.tournamentLobbyDialogContent {
+    position: absolute;
+    top: 36px;
+    left: 54px;
+    right: 54px;
+    bottom: 57px;
+    padding: 25px 30px;
+    color: #4F5A65;
+    background-color: #F8F8F8;
+}
+
+#entryDetailsDialog {
+    width: 582px !important;
+    height: 976px !important;
+}
+
+#entryDialogUserIcon {
+    float: left;
+    margin-top: 4px;
+    margin-right: 10px;
+    fill: #A3A9AE;
+}
+
+#entryDialogUsername {
+    float: left;
+}
+
+#entryDialogPoints {
+    float: right;
+}
+
+#entryDialogFormationContainer {
+    position: absolute;
+    width: 270px;
+    height: 70px;
+    top: 60px;
+    left: 50%;
+    margin-left: -135px;
+    background-color: #FFF;
+
+    -webkit-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.2);
+}
+
+#entryDialogFormationContainer {
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+}
+
+.entryDialogFormationCell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#entryDialogFormationImgContainer {
+    width: 77px;
+    background-color: #E6E6E6;
+}
+
+#entryDialogFormationTextContainer span {
+    font-size: 14px;
+    color: #2D2F49;
+}
+
+#entryDialogFormationText {
+    margin-left: 20px;
+    position: relative;
+}
+
+#entryDialogFormationText:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    left: -10px;
+    border-style: solid;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #FF931E;
+}
+
+#entryDialogLineupContainer {
+    position: absolute;
+    top: 105px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2D2F49;
+}
+
+#entryDialogSquadContainer {
+    position: absolute;
+    width: 439px;
+    height: 676px;
+    top: 35px;
+    left: 50%;
+    background-image: url(../../icongraphy/img/football-field-large.jpg);
+    background-size: 100%;
+    
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.lineupPlayerContainer {
+    position: absolute;
+    top: 10px;
+
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.lineupPlayerContainer.playerHasIndicator .lineupPlayerPoints{
+    margin-left: 13px;
+}
+
+.lineupPlayerAvatarContainer {    
+    width: 58px;
+    height: 58px;
+    border: 2px solid #C3FF00;
+    background-image: url(../../icongraphy/svg/icon-avatar.svg);
+    background-color: #2D2F49;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+
+    -moz-border-radius: 29px;
+    -webkit-border-radius: 29px;
+    border-radius: 29px;
+}
+
+.lineupPlayerAvatar {
+    width: 100%;
+
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.lineupPlayerNameContainer {
+    position: absolute;
+    width: 140px;
+    height: 51px;
+    margin-top: -4px;
+    padding: 8px 5px 5px 40px;
+    left: 50%;
+    font-size: 12px;
+    line-height: 13px;
+    text-align: left;
+    white-space: nowrap;
+    background-color: #FFF;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.lineupPlayerTeamLogoWrapper {
+    position: absolute;
+    width: 24px !important;
+    height: 24px !important;
+    top: 8px;
+    left: 7px;
+
+    -moz-border-radius: 13px !important;
+    -webkit-border-radius: 13px !important;
+    border-radius: 13px !important;
+}
+
+.lineupPlayerTeamLogo {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -9px;
+    background-color: #FFF;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.lineupPlayerAvatarContainer.hasAvatar {
+    background-color: #FFF;
+    border-color: #2D2F49;
+}
+
+.lineupPlayerNameContainer:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-style: solid;
+    border-width: 38px 32px 0 0;
+    border-color: #2D2F48 transparent transparent transparent;
+}
+
+.lineupPlayerTeamName {
+    font-size: 12px;
+    font-weight: 500;
+    color: #CCC;
+}
+
+.lineupPlayerName,
+.lineupPlayerPoints {
+    font-size: 12px;
+    color: #4F5A65;
+}
+
+.lineupPlayerName label{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 7px;
+    margin-top: 2px;
+    margin-left: 1px;
+    vertical-align: middle;
+    display: none;
+}
+
+.lineupPlayerName span{
+    font-weight: 500;
+    margin-right: 2px;
+}
+
+.lineupPlayerPoints {
+    position: relative;
+    padding-left: 10px;
+}
+
+.lineupPlayerPoints:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    left: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #FF931E;
+}
+
+.lineupPlayerContainer,
+.lineupPlayerNameContainer {
+    -webkit-box-shadow: 6px 2px 5px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 6px 2px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 2px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.lineupPlayerSalary {
+    position: absolute;
+    width: 56px;
+    height: 19px;
+    left: 50%;
+    bottom: -19px;
+    margin-left: -28px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 20px;
+    color: #C3FF00;
+    background-color: #2D2F49;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    -webkit-box-shadow: 10px 5px 4px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 10px 5px 4px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 5px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+#playerSummaryDialog {
+    width: 470px !important;
+    height: 590px !important;
+}
+
+#playerDialogContent {
+    padding: 20px 24px 0 96px;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+#playerDialogContent:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    border-width: 74px 102px 0 0;
+    border-style: solid;
+    border-color: #2D2F49 transparent;
+}
+
+#playerDialogAvatarWrapper {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    left: 16px;
+    top: 11px;
+    background-color: #FFF;
+    border: 2px solid #2D2F49;
+
+    -moz-border-radius: 32px;
+    -webkit-border-radius: 32px;
+    border-radius: 32px;
+}
+
+#playerDialogAvatar {
+    width: 60px;
+    height: 100%;
+
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+}
+
+#playerDialogUserInfo {
+    display: table;
+    width: 100%;
+}
+
+#playerDialogUserInfo > div {
+    display: table-cell;
+}
+
+#playerDialogPosition {
+    color: #B3B3B3;
+}
+
+#playerDialogSalary {
+    color: #9697A4;
+}
+
+#playerDialogUserInfo .right {
+    text-align: right;
+}
+
+#playerDialogTeamInfo {
+    position: relative;
+    display: inline-block;
+    margin: 2px 0 0;
+}
+
+#playerDialogTeamLogoWrapper {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -2px;
+    left: -28px;
+
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+}
+
+#playerDialogTeamLogo {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+}
+
+#playerDialogTeamName {
+    display: inline-block;
+}
+
+#playerDialogPoints {
+    position: relative;
+    display: inline-block;
+    margin: 14px 0 0;
+}
+
+#playerDialogPoints:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    left: -10px;
+    border-style: solid;
+    border-width: 5px 0 5px 4px;
+    border-color: transparent transparent transparent #FF931E;
+}
+
+#playerDialogEventsContainer {
+    position: absolute;
+    top: 94px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+}
+
+#playerDialogTableContainer,
+#playerDialogNoActionContainer {
+    height: 272px;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    position: absolute;
+    margin: 25px 10px 0;
+    padding: 0 20px;
+    background-color: #FFF;
+    z-index: 1;
+}
+
+#playerDialogEventsTable {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.actionData {
+    height: 34px;
+    white-space: nowrap;
+}
+
+.actionIcon {
+    width: 8.4%;
+    position: relative;
+}
+
+.actionName {
+    width: 48%;
+    padding-left: 15px;
+}
+
+.actionCount {
+    width: 11%;
+    text-align: center;
+}
+
+.actionMatch {
+    width: 12.8%;
+    position: relative;
+}
+
+.actionPoints {
+    width: 19.8%;
+    text-align: right;
+}
+
+.actionIconWrapper {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 0;
+    bottom: 5px;
+    background-color: #26B999;
+
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    border-radius: 13px;
+}
+
+.actionIconImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.actionPointsIcon {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+}
+
+.actionPointsIcon.positive {
+    border-style: solid;
+    border-width: 0px 6px 6px;
+    border-color: transparent transparent #53A51E;
+}
+
+.actionPointsIcon.negative {
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #FF1D25 transparent transparent;
+}
+
+#playerDialogNoActionText {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+#playerDialogNoActionText span {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#prizePayoutsDialog {
+    width: 400px !important;
+    height: 588px !important;
+}
+
+#payoutsEntriesNumber {
+    float: right;
+    margin-right: 46px;
+    margin-top: 1px;
+    font-size: 85%;
+}
+
+#payoutsDialogContent {
+    bottom: 29px;
+    padding: 0;
+}
+
+#payoutsDialogBanner {
+    position: relative;
+    padding: 17px;
+    height: 116px;
+    background-color: #2D2F48;
+    z-index: 2;
+}
+
+#payoutsDialogTournamentName {
+    font-size: 18px;
+    color: #FFF;
+    text-align: center;
+}
+
+#payoutsDialogTotalPrize {
+    float: left;
+    margin: 15px 0 0 49px;
+    position: relative;
+}
+
+#payoutsDialogTotalPrize:before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 1px;
+    left: -22px;
+    background: url(../../icongraphy/svg/icon-dollar.svg);
+}
+
+#payoutsDialogPlayers {
+    float: right;
+    margin: 15px 30px 0 0;
+}
+
+.payoutsDialogInfoName {
+    font-size: 11px;
+    color: #B5B9C9;
+}
+
+.payoutsDialogInfoValue {
+    font-size: 12px;
+    color: #C3FF00;
+}
+
+#payoutDialogTournamentLogoWrapper {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    left: 50%;
+    margin-left: -22px;
+    bottom: -22px;
+    border: 2px solid #2D2F48;
+    background-color: #FFF;
+
+    -moz-border-radius: 22px;
+    -webkit-border-radius: 22px;
+    border-radius: 22px;
+}
+
+#payoutTournamentDialogLogo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 7px;
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#payoutsDialogPrizeContainer {
+    position: absolute;
+    top: 116px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#payoutsDialogTableContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    background-color: #FFF;
+    z-index: 1;
+}
+
+#payoutsScrollArea {
+    margin: 23px 5px 0;
+    max-height: 263px;
+}
+
+.payoutsData {
+    height: 33px;
+    color: #4F5A65;
+}
+
+.prizePlaceData {
+    width: 65%;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 0 0 48px;
+    position: relative;
+}
+
+td.prizePlaceData:before {
+    content: "";
+    position: absolute;
+    border-width: 4px 0 4px 4px;
+    border-style: solid;
+    border-color: transparent transparent transparent #FF920F;
+    left: 30px;
+    bottom: 14px;
+}
+
+.prizePlaceData sup {
+    font-weight: 400;
+}
+
+.prizePayoutData {
+    width: 35%;
+    font-size: 14px;
+}
+
+#eventsPointsDialog {
+    width: 469px !important;
+    height: 681px !important;
+}
+
+#pointsDialogContent {
+    bottom: 57px;
+    padding: 28px 20px 0 129px;
+}
+
+#dcTeamAvatar {
+    position: absolute;
+    width: 68px;
+    height: 68px;
+    top: 20px;
+    left: 30px;
+    border: 2px solid #C3FF00;
+
+    -moz-border-radius: 34px;
+    -webkit-border-radius: 34px;
+    border-radius: 34px;
+}
+
+#dcTeamLogoWrapper {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    top: 60px;
+    left: 78px;
+    border: 1px solid #2D2F49;
+    background-color: #FFF;
+
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+}
+
+#dcTeamLogo {
+    position: absolute;
+    width: 20px;
+    top: 2px;
+    left: 50%;
+    margin-left: -10px;
+}
+
+#pointsDialogContent > p {
+    font-size: 14px;
+    color: #626377;
+}
+
+#pointsContainer {
+    position: absolute;
+    top: 116px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    padding: 11px 4px 0;
+}
+
+#pointsTableHeader {
+    font-size: 11px;
+    font-weight: 500;
+    color: #FFF;
+    background-color: #2F6196;
+    padding: 9px 40px 7px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#pointsTableHeader:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#pointsTableHeader p:first-child {
+    float: left;
+}
+
+#pointsTableHeader p:last-child {
+    float: right;
+}
+
+#pointsTableContainer {
+    height: 305px;
+    overflow: auto;
+    position: relative;
+    margin: 5px 0 0;
+    z-index: 2;
+}
+
+#pointsTable {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.pointsData {
+    height: 33px;
+    font-size: 14px;
+    color: #4F5A65;
+    position: relative;
+}
+
+th.pointsData {
+    height: 50px;
+    padding: 8px 0;
+}
+
+th.pointsData p {
+    padding: 6px 0 7px;
+    text-align: center;
+    background-color: #F2F7F6;
+}
+
+tr:first-child th.pointsData {
+    height: 42px;
+    padding: 0 0 8px;
+}
+
+.pointsNameData {
+    width: 77%;
+    padding: 0 0 0 66px;
+}
+
+.pointsValueData {
+    width: 23%;
+    text-align: center;
+}
+
+.definitionData {
+    padding: 10px 25px;
+}
+
+td.pointsValueData:before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    bottom: 13px;
+    border-width: 5px 0 5px 4px;
+    border-style: solid;
+}
+
+td.pointsValueData.positive:before {
+    border-color: transparent transparent transparent #53A51E;
+}
+
+td.pointsValueData.negative:before {
+    border-color: transparent transparent transparent #FF1D25;
+}
+
+.pointsNameData .actionIconWrapper {
+    left: 26px;
+    background-color: #2F6196;
+}
+
+#definitionsContainer {
+    padding: 15px 0 0;
+}
+
+#definitionsContainer h5 {
+    margin: 10px 0 8px;
+    padding: 9px 0;
+    text-align: center;
+    background-color: #F2F7F6;
+}
+
+#definitionsContainer ul {
+    margin: 0;
+    padding: 0 25px;
+    list-style: none;
+}
+
+#definitionsContainer li {
+    padding: 10px 0;
+}
+
+#definitionsContainer li h6 {
+    font-size: 14px;
+}
+
+#definitionsContainer li p {
+    font-size: 13px;
+    margin: 5px 0 0;
+}
+
+.has-stadium:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 82px;
+    left: 0;
+    bottom: 0;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-image: url(/icongraphy/img/tour-lobby-stadium.jpg);
+    background-size: auto 206px;
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+    #entryDialogSquadContainer {
+        background-image: url(../../icongraphy/img/football-field-large@2x.jpg);
+    }
+
+    .has-stadium:after {
+        background-image: url(/icongraphy/img/tour-lobby-stadium@2x.jpg);
+    }
+}
