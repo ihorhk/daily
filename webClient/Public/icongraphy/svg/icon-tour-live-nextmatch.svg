@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="247.60001"
+   height="48.200001"
+   viewBox="0 0 247.6 48.2"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="icon-tour-live.svg">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1857"
+     inkscape:window-height="1056"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="2.721342"
+     inkscape:cx="97.596759"
+     inkscape:cy="30.097235"
+     inkscape:window-x="63"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <style
+     id="style4">.st0{fill:#ff1d25}.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#fff}</style>
+  <path
+     class="st0"
+     d="M 242.93052,14.2 H 32.259525 C 31.79421,22.8 23.534883,29.6 13.4143,29.6 H 12.6 v 14.6 c 0,2.2 2.093913,4 4.653142,4 H 243.04686 c 2.55921,0 4.65314,-1.8 4.65314,-4 v -26 c -0.11634,-2.2 -2.21025,-4 -4.76948,-4 z"
+     id="path6"
+     inkscape:connector-curvature="0"
+     style="fill:#ff1d25" />
+  <circle
+     class="st0"
+     cx="13.4"
+     cy="13.4"
+     r="13.4"
+     id="circle8"
+     sodipodi:cx="13.4"
+     sodipodi:cy="13.4"
+     sodipodi:rx="13.4"
+     sodipodi:ry="13.4"
+     style="fill:#ff1d25" />
+  <path
+     class="st1"
+     d="M 13.3,18.7 C 10.4,18.7 8,16.3 8,13.4 c 0,-2.9 2.4,-5.3 5.3,-5.3 2.9,0 5.3,2.4 5.3,5.3 0,2.9 -2.4,5.3 -5.3,5.3 z m 0,-12.4 c -3.9,0 -7.1,3.2 -7.1,7.1 0,3.9 3.2,7.1 7.1,7.1 3.9,0 7.1,-3.2 7.1,-7.1 C 20.3,9.5 17.2,6.3 13.3,6.3 z"
+     id="path10"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd" />
+  <path
+     class="st1"
+     d="m 12.6,12.8 c -0.2,0.2 -0.2,0.5 -0.2,0.7 l 0.7,3.9 c 0,0.1 0.1,0.2 0.3,0.2 0.1,0 0.2,-0.1 0.2,-0.2 l 0.5,-4 c 0,-0.3 0,-0.5 -0.2,-0.7 -0.2,-0.2 -0.4,-0.3 -0.7,-0.3 -0.2,0.1 -0.4,0.2 -0.6,0.4 z m 1,0.3 c 0.1,0.1 0.1,0.2 0.1,0.3 l -0.3,2.4 -0.5,-2.4 c 0,-0.1 0,-0.2 0.1,-0.3 0.1,-0.1 0.2,-0.1 0.3,-0.1 0.1,0 0.2,0.1 0.3,0.1 z m 0,0"
+     id="path12"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd" />
+  <path
+     class="st1"
+     d="m 13.3,14.3 c 0.3,0 0.5,-0.2 0.7,-0.4 l 2.3,-3.2 c 0.1,-0.1 0.1,-0.2 0,-0.3 -0.1,-0.1 -0.2,-0.1 -0.3,0 l -3.2,2.3 c -0.2,0.2 -0.3,0.4 -0.4,0.7 0,0.3 0.1,0.5 0.3,0.7 0.1,0.1 0.3,0.2 0.6,0.2 z m -0.4,-0.9 c 0,-0.1 0.1,-0.2 0.2,-0.3 l 2,-1.4 -1.4,2 c -0.1,0.1 -0.2,0.2 -0.3,0.2 -0.1,0 -0.2,0 -0.3,-0.1 -0.2,-0.2 -0.3,-0.3 -0.2,-0.4 z m 0,0"
+     id="path14"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;fill-rule:evenodd" />
+</svg>
