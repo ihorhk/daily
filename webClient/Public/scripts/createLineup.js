@@ -21,8 +21,8 @@ var LINEUP_POS_COOR_7P = {
 var socket = io();
 
 var currentPos = ALL_POS;
-var players = []; // maps the ids of all players with the corresponding player
-var selectedPlayers = []; // selected players
+var players = [];
+var selectedPlayers = [];
 var selectedTeams = [];
 var tournament;
 var remainingSalary;
@@ -534,8 +534,6 @@ function setupMatchView (match, teams) {
     dateText.appendChild(matchDate);
 
     matchesSlider[0].appendChild(matchView);
-
-    // retinajs($(matchView).find('.teamLogo img'));
 }
 
 
@@ -1094,8 +1092,8 @@ function isPlayerSuitableForCurrentSelection (player) {
     }
 
     // filter player name
-    if (filterNameQuery.replace(/\s/g, '').length > 0) { // skip empty query
-        var queryWords = filterNameQuery.split(/[\s-\/]/); // regex is correct but the ide is a bit off the rocker
+    if (filterNameQuery.replace(/\s/g, '').length > 0) {
+        var queryWords = filterNameQuery.split(/[\s-\/]/);
         var name = formatPlayerName(player);
         var nameWords = name.split(/[\s-\/]/);
 
