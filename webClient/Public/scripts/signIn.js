@@ -304,22 +304,6 @@ function submitRegistration () {
         errorMsg = 'Username can only contain latin letters and numbers followed by - or _';
     }
 
-    //***** test values ******
-    // errorMsg = null;
-    // username = 'test' + Math.round((Math.random() * 10000));
-    // password = 'ValidPassword2.';
-    // email = 'valid@email' + Math.round((Math.random() * 10090)) + '.com';
-    // birthYear = 1991;
-    // birthDay = 30;
-    // birthMonth = 8;
-    // firstName = 'test';
-    // lastName = 'johnny bravo';
-    // country = 'ITA';
-    // street = 'Bella zio';
-    // zipCode = '666999';
-    // city = 'Yolo';
-    //***** end test values
-
     var errorText = $('#registrationError');
 
     if (errorMsg) {

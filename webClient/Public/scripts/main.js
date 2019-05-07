@@ -90,23 +90,9 @@ window.isTablet = false;
 
 
 function check_window_width() {
-    // var window_width = $(window).width();
-
-    // if (window_width < 768){
-    //     window.isDesktop = false;
-    //     window.isTablet = false;
-    //     window.isMobile = true;
-    // }
-    // else if (window_width < 992){
-    //     window.isDesktop = false;
-    //     window.isTablet = true;
-    //     window.isMobile = false;
-    // }
-    // else {
-        window.isDesktop = true;
-        window.isTablet = false;
-        window.isMobile = false;
-    // }
+    window.isDesktop = true;
+    window.isTablet = false;
+    window.isMobile = false;
 }
 
 check_window_width();
