@@ -78,7 +78,8 @@
         </div>
     </div>
     <div style="display:none;" class="genericDialog">
-        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+        <div class="dialogHeader">
+            <img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
             <div class="dialogHeaderInner"><span class="dialogTitle"></span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
@@ -90,7 +91,8 @@
         </div>
     </div>
     <div id="termsAndConditionsDialog" style="display:none;">
-        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+        <div class="dialogHeader">
+            <img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
             <div class="dialogHeaderInner"><span class="dialogTitle">Terms and Conditions</span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
@@ -107,22 +109,22 @@
     <div id="mainHeader">
         <div id="mainHeaderNavContainer">
             <div class="fantasy-container">
-                <div class="mainHeaderCell logoCell"><img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg"
-                        alt="Daily Champion"></div>
+                <div class="mainHeaderCell logoCell">
+                    <img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg" alt="Daily Champion"></div>
                 <div class="mainHeaderCell triangleCell">
                     <div class="triangle"></div>
                 </div>
                 <div class="mainHeaderCell navCell">
                     <nav class="mainHeaderNav">
                         <ul class="mainHeaderNavItems">
-                            <li class="mainHeaderItem"><a href="/home" id="headerHomeOption"
-                                    class="mainHeaderOption">Home</a></li>
-                            <li class="mainHeaderItem"><a href="/contests" id="headerLobbyOption"
-                                    class="mainHeaderOption">Contests</a></li>
-                            <li class="mainHeaderItem"><a href="/myContests" id="headerContestsOption"
-                                    class="mainHeaderOption">My Contests</a></li>
-                            <li class="mainHeaderItem"><a href="/account" id="headerAccountOption"
-                                    class="mainHeaderOption">Account</a></li>
+                            <li class="mainHeaderItem">
+                                <a href="/home" id="headerHomeOption" class="mainHeaderOption">Home</a></li>
+                            <li class="mainHeaderItem">
+                                <a href="/contests" id="headerLobbyOption" class="mainHeaderOption">Contests</a></li>
+                            <li class="mainHeaderItem">
+                                <a href="/myContests" id="headerContestsOption" class="mainHeaderOption">My Contests</a></li>
+                            <li class="mainHeaderItem">
+                                <a href="/account" id="headerAccountOption" class="mainHeaderOption">Account</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -133,7 +135,8 @@
                         </svg>
                         <form action="/signIn#login" method="get">
                             <button id="loginButton" class="userButton">Login</button>
-                        </form><span class="divider"></span>
+                        </form>
+                        <span class="divider"></span>
                         <form action="/signIn#register" method="get">
                             <button id="registerButton" class="userButton">Register</button>
                         </form>
@@ -168,7 +171,8 @@
                 <div id="promoPrize">
                     <div id="promoPrizeInner">WIN
                         <p id="promoPrizeText">$1,000</p>
-                    </div><img id="promoPrizeImage" src="/icongraphy/svg/icon-promo.svg">
+                    </div>
+                    <img id="promoPrizeImage" src="/icongraphy/svg/icon-promo.svg">
                 </div>
             </div>
         </div>
@@ -216,9 +220,11 @@
                 </div>
             </div>
             <div id="panelContainer">
-                <div class="panelHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion"
+                <div class="panelHeader">
+                    <img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion"
                         class="panelLogo">
-                    <div class="panelHeaderInner"><span id="panelTitle"></span></div>
+                    <div class="panelHeaderInner">
+                        <span id="panelTitle"></span></div>
                 </div>
                 <div id="accountInfoContainer" class="accountOptionContainer">
                     <div class="accountInfoSection">
@@ -243,8 +249,7 @@
                             </div>
                         </div>
                         <div>
-                            <button id="accountInfoDepositButton"
-                                class="paymentButton mainActionButton paymentNextButton accountInfoButton">DEPOSIT</button>
+                            <button id="accountInfoDepositButton" class="paymentButton mainActionButton paymentNextButton accountInfoButton">DEPOSIT</button>
                         </div>
                     </div>
                     <div class="accountInfoSection">
@@ -263,10 +268,8 @@
                             </div>
                         </div>
                         <div>
-                            <button id="passwordResetButton"
-                                class="paymentButton mainActionButton paymentNextButton accountInfoButton"><img
-                                    id="resetPasswordProgress" src="/icongraphy/img/spinner.gif"
-                                    style="display:none"><span>RESET PASSWORD</span></button>
+                            <button id="passwordResetButton" class="paymentButton mainActionButton paymentNextButton accountInfoButton">
+                                <img id="resetPasswordProgress" src="/icongraphy/img/spinner.gif" style="display:none"><span>RESET PASSWORD</span></button>
                         </div>
                     </div>
                     <div class="accountInfoSection">
@@ -300,13 +303,13 @@
                     <div class="extraPaymentStepsContainer"></div>
                     <div class="paymentProviderContainer"></div>
                     <p class="errorMessage"></p>
-                    <button id="depositPrevious" class="paymentButton mainActionButton paymentPreviousButton"><span
-                            class="paymentButtonArrow">
+                    <button id="depositPrevious" class="paymentButton mainActionButton paymentPreviousButton">
+                        <span class="paymentButtonArrow">
                             <</span> <span>PREVIOUS
                         </span></button>
-                    <button id="depositNext" disabled
-                        class="paymentButton mainActionButton paymentNextButton"><span>NEXT</span><span
-                            class="paymentButtonArrow">></span></button>
+                    <button id="depositNext" disabled class="paymentButton mainActionButton paymentNextButton">
+                        <span>NEXT</span>
+                        <span class="paymentButtonArrow">></span></button>
                 </div>
                 <div id="withdrawalContainer" class="accountOptionContainer paymentContainer">
                     <div class="mainPaymentStepsContainer">
@@ -327,11 +330,12 @@
                     <p class="errorMessage"></p>
                     <button id="withdrawPrevious" class="paymentButton mainActionButton paymentPreviousButton"><span
                             class="paymentButtonArrow">
-                            <</span> <span>PREVIOUS
-                        </span></button>
+                            <</span> 
+                            <span>PREVIOUS</span></button>
                     <button id="withdrawNext" disabled
-                        class="paymentButton mainActionButton paymentNextButton"><span>NEXT</span><span
-                            class="paymentButtonArrow">></span></button>
+                        class="paymentButton mainActionButton paymentNextButton">
+                        <span>NEXT</span>
+                        <span class="paymentButtonArrow">></span></button>
                 </div>
                 <div id="transactionHistoryContainer" class="accountOptionContainer">
                     <div id="transactionHistoryTableContainer" class="clusterize">
@@ -428,7 +432,8 @@
                             <li><a href="#">Contact Us</a></li>
                         </ul>
                     </div>
-                    <div id="mainFooterWarning" class="mainFooterSection"><span>Warning:</span> Morbi tempor cursus
+                    <div id="mainFooterWarning" class="mainFooterSection">
+                        <span>Warning:</span> Morbi tempor cursus
                         nibh, a tempor nunc mollis nec. Etiam vel dui commodo, suscipit mauris ac, venenatis nunc. Sed
                         urna nisl, iaculis et elit in, aliquam sodales augue. Praesent ullamcorper condimentum enim et
                         vestibulum. Sed enim est, mollis sit amet libero vitae, rhoncus malesuada velit. Donec pharetra,

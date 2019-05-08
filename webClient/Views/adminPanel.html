@@ -68,8 +68,10 @@
         </div>
     </div>
     <div id="termsAndConditionsDialog" style="display:none;">
-        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
-            <div class="dialogHeaderInner"><span class="dialogTitle">Terms and Conditions</span>
+        <div class="dialogHeader">
+            <img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+            <div class="dialogHeaderInner">
+                <span class="dialogTitle">Terms and Conditions</span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -88,8 +90,8 @@
     <script src="/scripts/adminPanel.js"></script>
     <div id="mainHeaderNavContainer">
         <div class="fantasy-container">
-            <div class="mainHeaderCell logoCell"><img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg"
-                    alt="Daily Champion"></div>
+            <div class="mainHeaderCell logoCell">
+                <img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg" alt="Daily Champion"></div>
             <div class="mainHeaderCell triangleCell">
                 <div class="triangle"></div>
             </div>
@@ -122,8 +124,7 @@
             <div id="panelContainer">
                 <h3 id="adminLoadingView" class="adminLabel">Loading...</h3>
                 <div id="manageTournamentsContainer" class="adminOptionContainer">
-                    <input type="text" placeholder="Filter by name..." autocomplete="off"
-                        id="manageTournamentNameFilter">
+                    <input type="text" placeholder="Filter by name..." autocomplete="off" id="manageTournamentNameFilter">
                     <table id="manageTournamentsTable" class="adminTable"></table>
                 </div>
                 <div id="createTournamentContainer" class="adminOptionContainer">
@@ -131,8 +132,6 @@
                         <div class="form-group">
                             <label class="adminLabel">Name*</label>
                             <input id="name" type="text" name="name" class="adminInput form-control">
-                            <!--label.adminLabel Summary*-->
-                            <!--textarea#summary.adminInput.form-control(rows='5', name="summary")-->
                             <label class="adminLabel">Matches*
                                 <table id="matchesSelectorTable" class="adminInput adminTable"></table>
                                 <table id="selectedMatchesContainer" class="adminInput"></table>
@@ -140,17 +139,12 @@
                             <label class="adminLabel">Start Time*
                                 <div class="createTournamentStartTimeContainer adminInput">
                                     <label class="adminOptionText createTournamentStartTimeText">Date mm/dd/yyyy</label>
-                                    <input id="startDay" type="number" name="startDay" placeholder="dd" min="1" max="31"
-                                        class="form-control">
-                                    <input id="startMonth" type="number" name="startMonth" placeholder="mm" min="1"
-                                        max="12" class="form-control">
-                                    <input id="startYear" type="number" name="startYear" placeholder="yyyy" min="1880"
-                                        max="2050" class="form-control">
+                                    <input id="startDay" type="number" name="startDay" placeholder="dd" min="1" max="31" class="form-control">
+                                    <input id="startMonth" type="number" name="startMonth" placeholder="mm" min="1" max="12" class="form-control">
+                                    <input id="startYear" type="number" name="startYear" placeholder="yyyy" min="1880" max="2050" class="form-control">
                                     <label class="adminOptionText createTournamentStartTimeText">Time hh:MM</label>
-                                    <input id="startHour" type="number" name="startHour" placeholder="hh" min="0"
-                                        max="23" class="form-control">
-                                    <input id="startMinute" type="number" name="startMinute" placeholder="MM" min="0"
-                                        max="59" class="form-control">
+                                    <input id="startHour" type="number" name="startHour" placeholder="hh" min="0" max="23" class="form-control">
+                                    <input id="startMinute" type="number" name="startMinute" placeholder="MM" min="0" max="59" class="form-control">
                                 </div>
                             </label>
                             <table class="adminInput">
@@ -159,15 +153,13 @@
                                         <label class="adminLabel">Guaranteed Prize</label>
                                     </td>
                                     <td class="adminTableOption adminInputTable">
-                                        <input id="guaranteedPrize" type="number" name="guaranteedPrize" placeholder="0"
-                                            class="form-control">
+                                        <input id="guaranteedPrize" type="number" name="guaranteedPrize" placeholder="0" class="form-control">
                                     </td>
                                     <td class="adminTableOption adminTextTable">
                                         <label class="adminLabel">Entry Fee</label>
                                     </td>
                                     <td class="adminTableOption adminInputTable">
-                                        <input id="entryFee" type="number" name="entryFee" placeholder="Free"
-                                            class="form-control">
+                                        <input id="entryFee" type="number" name="entryFee" placeholder="Free" class="form-control">
                                     </td>
                                 </tr>
                                 <tr>
@@ -187,8 +179,7 @@
                                 </tr>
                             </table>
                             <label class="adminLabel">Contest type*
-                                <select id="tournamentTypes" style="width:200px"
-                                    class="adminInput form-control"></select>
+                                <select id="tournamentTypes" style="width:200px" class="adminInput form-control"></select>
                             </label>
                             <label class="adminLabel">Contest flags
                                 <div id="tournamentFlagsContainer"></div>
@@ -204,8 +195,8 @@
                                 <input id="freePlayMode" type="checkbox" name="freePlayMode" checked class="adminInput">
                             </label>
                             <button type="submit" class="submitButton mainActionButton">SUBMIT</button>
-                            <p id="tournamentCreationError" class="errorMessage"></p><img id="loadingProgress"
-                                src="/img/progress.gif" style="display:none" class="centered">
+                            <p id="tournamentCreationError" class="errorMessage"></p>
+                            <img id="loadingProgress" src="/img/progress.gif" style="display:none" class="centered">
                         </div>
                     </form>
                 </div>
