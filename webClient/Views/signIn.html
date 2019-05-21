@@ -55,7 +55,8 @@
             <svg width="26.8" height="23.1" class="dialogLogo">
                 <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
             </svg>
-            <div class="dialogHeaderInner"><span class="dialogTitle">Warning</span>
+            <div class="dialogHeaderInner">
+            	<span class="dialogTitle">Warning</span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -69,7 +70,8 @@
             <svg width="26.8" height="23.1" class="dialogLogo">
                 <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
             </svg>
-            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+            <div class="dialogHeaderInner">
+            	<span class="dialogTitle"></span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -80,8 +82,10 @@
         </div>
     </div>
     <div style="display:none;" class="genericDialog">
-        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
-            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+        <div class="dialogHeader">
+        	<img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner">
+            	<span class="dialogTitle"></span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -92,8 +96,10 @@
         </div>
     </div>
     <div id="termsAndConditionsDialog" style="display:none;">
-        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
-            <div class="dialogHeaderInner"><span class="dialogTitle">Terms and Conditions</span>
+        <div class="dialogHeader">
+        	<img src="/icongraphy/svg/icon-logo2.svg" alt="Champion League" class="dialogLogo">
+            <div class="dialogHeaderInner">
+            	<span class="dialogTitle">Terms and Conditions</span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -109,22 +115,22 @@
     <div id="mainHeader">
         <div id="mainHeaderNavContainer">
             <div class="fantasy-container">
-                <div class="mainHeaderCell logoCell"><img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg"
-                        alt="Champion League"></div>
+                <div class="mainHeaderCell logoCell">
+                	<img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg" alt="Champion League"></div>
                 <div class="mainHeaderCell triangleCell">
                     <div class="triangle"></div>
                 </div>
                 <div class="mainHeaderCell navCell">
                     <nav class="mainHeaderNav">
                         <ul class="mainHeaderNavItems">
-                            <li class="mainHeaderItem"><a href="/home" id="headerHomeOption"
-                                    class="mainHeaderOption">Home</a></li>
-                            <li class="mainHeaderItem"><a href="/contests" id="headerLobbyOption"
-                                    class="mainHeaderOption">Contests</a></li>
-                            <li class="mainHeaderItem"><a href="/myContests" id="headerContestsOption"
-                                    class="mainHeaderOption">My Contests</a></li>
-                            <li class="mainHeaderItem"><a href="/account" id="headerAccountOption"
-                                    class="mainHeaderOption">Account</a></li>
+                            <li class="mainHeaderItem">
+                            	<a href="/home" id="headerHomeOption" class="mainHeaderOption">Home</a></li>
+                            <li class="mainHeaderItem">
+                            	<a href="/contests" id="headerLobbyOption" class="mainHeaderOption">Contests</a></li>
+                            <li class="mainHeaderItem">
+                            	<a href="/myContests" id="headerContestsOption" class="mainHeaderOption">My Contests</a></li>
+                            <li class="mainHeaderItem">
+                            	<a href="/account" id="headerAccountOption" class="mainHeaderOption">Account</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -135,7 +141,8 @@
                         </svg>
                         <form action="/signIn#login" method="get">
                             <button id="loginButton" class="userButton">Login</button>
-                        </form><span class="divider"></span>
+                        </form>
+                        <span class="divider"></span>
                         <form action="/signIn#register" method="get">
                             <button id="registerButton" class="userButton">Register</button>
                         </form>
@@ -189,53 +196,41 @@
             </div>
             <div class="signInFormContainer">
                 <div id="loginContainer">
-                    <p class="signInTitle"><span id="loginTitle">Register now and play with your favourite team
-                            today!</span></p>
+                    <p class="signInTitle">
+                    	<span id="loginTitle">Register now and play with your favourite team today!</span></p>
                     <div id="loginError" style="display:none" class="horizontalErrorMessage">Invalid username or
                         password</div>
                     <form id="loginForm" role="form" action="/signIn" method="post">
-                        <input id="loginUsername" type="text" name="username" placeholder="Username"
-                            class="form-control signInForm">
-                        <input id="loginPassword" type="password" name="password" placeholder="Password"
-                            class="form-control signInForm">
+                        <input id="loginUsername" type="text" name="username" placeholder="Username" class="form-control signInForm">
+                        <input id="loginPassword" type="password" name="password" placeholder="Password" class="form-control signInForm">
                         <input id="loginSubmitButton" type="submit" value="LOGIN" class="submitButton mainActionButton">
                     </form><a id="forgotLogin" class="centered">Forgot your keys?</a>
                 </div>
                 <div id="forgotLoginContainer">
                     <p class="signInTitle signInTitleShort">Forgot your keys?</p>
                     <div id="forgotLoginError" style="display:none" class="horizontalErrorMessage"></div>
-                    <div id="forgotLoginSuccess" style="display:none" class="horizontalMessage">Almost done! Check your
-                        e-mail to set a new password</div>
+                    <div id="forgotLoginSuccess" style="display:none" class="horizontalMessage">Almost done! Check your e-mail to set a new password</div>
                     <form id="forgotLoginForm" role="form" action="/api/requestPasswordReset" method="post">
-                        <input id="forgotLoginUsername" type="text" name="username"
-                            placeholder="Your account username or e-mail" class="form-control signInForm">
-                        <input id="forgotLoginSubmit" type="submit" value="RESET PASSWORD"
-                            class="submitButton mainActionButton">
+                        <input id="forgotLoginUsername" type="text" name="username" placeholder="Your account username or e-mail" class="form-control signInForm">
+                        <input id="forgotLoginSubmit" type="submit" value="RESET PASSWORD" class="submitButton mainActionButton">
                     </form>
                 </div>
                 <div id="registerContainer">
-                    <p class="signInTitle"><span>Register now and play with your favourite team today!</span></p>
+                    <p class="signInTitle">
+                    	<span>Register now and play with your favourite team today!</span></p>
                     <div id="registrationSuccess" style="display:none" class="horizontalMessage"></div>
                     <form id="registrationForm" role="form" action="/api/createUser" method="post">
                         <input id="registerUsername" type="text" placeholder="Username" class="form-control signInForm">
-                        <input id="registerPassword" type="password" placeholder="Password"
-                            class="form-control signInForm registerPassword">
-                        <input id="registerConfirmPassword" type="password" placeholder="Confirm Password"
-                            class="form-control signInForm registerPassword">
-                        <input id="registerEmail" type="text" placeholder="E-mail" name="email"
-                            class="form-control signInForm">
-                        <input id="registerFirstName" type="text" placeholder="First Name" name="fname"
-                            class="form-control signInForm">
-                        <input id="registerLastName" type="text" placeholder="Last Name" name="lname"
-                            class="form-control signInForm">
+                        <input id="registerPassword" type="password" placeholder="Password" class="form-control signInForm registerPassword">
+                        <input id="registerConfirmPassword" type="password" placeholder="Confirm Password" class="form-control signInForm registerPassword">
+                        <input id="registerEmail" type="text" placeholder="E-mail" name="email" class="form-control signInForm">
+                        <input id="registerFirstName" type="text" placeholder="First Name" name="fname" class="form-control signInForm">
+                        <input id="registerLastName" type="text" placeholder="Last Name" name="lname" class="form-control signInForm">
                         <p class="registrationLabel">Birth Date</p>
                         <div>
-                            <input id="birthDay" type="number" placeholder="DD" min="1" max="31" name="date day"
-                                class="birthDateForm form-control signInForm">
-                            <input id="birthMonth" type="number" placeholder="MM" min="1" max="12" name="month"
-                                class="birthDateForm form-control signInForm">
-                            <input id="birthYear" type="number" placeholder="YYYY" min="1880" max="1999" name="year"
-                                class="birthDateForm form-control signInForm">
+                            <input id="birthDay" type="number" placeholder="DD" min="1" max="31" name="date day" class="birthDateForm form-control signInForm">
+                            <input id="birthMonth" type="number" placeholder="MM" min="1" max="12" name="month" class="birthDateForm form-control signInForm">
+                            <input id="birthYear" type="number" placeholder="YYYY" min="1880" max="1999" name="year" class="birthDateForm form-control signInForm">
                         </div>
                         <p class="registrationLabel">Residence Address</p>
                         <select default id="countriesDropdown" class="form-control signInForm">
@@ -243,11 +238,9 @@
                         </select>
                         <div>
                             <input id="city" type="text" placeholder="City" name="city" class="form-control signInForm">
-                            <input id="zipCode" type="text" placeholder="Zip Code" name="zipCode"
-                                class="form-control signInForm">
+                            <input id="zipCode" type="text" placeholder="Zip Code" name="zipCode" class="form-control signInForm">
                         </div>
-                        <input id="street" type="text" placeholder="Street" name="address"
-                            class="form-control signInForm">
+                        <input id="street" type="text" placeholder="Street" name="address" class="form-control signInForm">
                         <div id="termsAndConditionsContainer">
                             <input id="termsAndConditionsCheckbox" type="checkbox" class="checkbox">
                             <label id="termsAndConditionsLabel" class="checkbox-label">
@@ -256,8 +249,7 @@
                             </label>
                         </div>
                         <div id="registrationError" style="display:none" class="horizontalErrorMessage"></div>
-                        <input id="registrationSubmitButton" type="submit" value="CREATE ACCOUNT"
-                            class="submitButton mainActionButton">
+                        <input id="registrationSubmitButton" type="submit" value="CREATE ACCOUNT" class="submitButton mainActionButton">
                     </form>
                 </div>
             </div><img id="signInFieldImage" src="icongraphy/img/football-field-perspective.png">
@@ -305,31 +297,31 @@
             </div>
         </div>
         <div id="mainFooterPayments">
-            <div id="mainFooterPaymentsInner"><img src="/icongraphy/svg/icon-payment-18+.svg" width="20"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/astropay_card.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/bitcoin.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/discover.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/elv.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/eps.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/giro_pay.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/ideal.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/instant_transfer.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/maestro.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/mastercard.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/neteller.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paypal.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/paysafe_card.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/poli.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/przelewy24.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/qiwi.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/safety_pay.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/skrill.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/sofort.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/trustpay.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/visa.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/web_money.svg"
-                    class="mainFooterPaymentLogo"><img src="/icongraphy/svg/payment/bw/yandex.svg"
-                    class="mainFooterPaymentLogo"></div>
+            <div id="mainFooterPaymentsInner">
+            	<img src="/icongraphy/svg/icon-payment-18+.svg" width="20" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/astropay_card.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/bitcoin.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/discover.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/elv.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/eps.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/giro_pay.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/ideal.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/instant_transfer.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/maestro.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/mastercard.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/neteller.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/paypal.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/paysafe_card.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/poli.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/przelewy24.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/qiwi.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/safety_pay.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/skrill.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/sofort.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/trustpay.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/visa.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/web_money.svg" class="mainFooterPaymentLogo">
+            	<img src="/icongraphy/svg/payment/bw/yandex.svg" class="mainFooterPaymentLogo"></div>
         </div>
     </footer>
     <div id="mainPopBoxContainer">
