@@ -2,11 +2,10 @@
 <html>
 
 <head>
-    <title>Daily Champion</title>
+    <title>Champion League</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet"
-        type="text/css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/index.css">
@@ -31,7 +30,8 @@
             <svg width="26.8" height="23.1" class="dialogLogo">
                 <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
             </svg>
-            <div class="dialogHeaderInner"><span class="dialogTitle">Warning</span>
+            <div class="dialogHeaderInner">
+				<span class="dialogTitle">Warning</span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -45,7 +45,8 @@
             <svg width="26.8" height="23.1" class="dialogLogo">
                 <use xlink:href="/icongraphy/svg/svg-sprite.svg#svg-icon-dialog-warning"></use>
             </svg>
-            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+            <div class="dialogHeaderInner">
+            	<span class="dialogTitle"></span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -56,8 +57,10 @@
         </div>
     </div>
     <div style="display:none;" class="genericDialog">
-        <div class="dialogHeader"><img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
-            <div class="dialogHeaderInner"><span class="dialogTitle"></span>
+        <div class="dialogHeader">
+        	<img src="/icongraphy/svg/icon-logo2.svg" alt="Daily Champion" class="dialogLogo">
+            <div class="dialogHeaderInner">
+            	<span class="dialogTitle"></span>
                 <button class="dialogCloseButton"><span></span></button>
             </div>
         </div>
@@ -78,10 +81,8 @@
         <div class="alertBody">
             <p class="dialogMessage"></p>
             <textarea id="termsAndConditionsDialogContent" rows="25" readonly="true"></textarea>
-            <button id="termsAndConditionsDialogDecline"
-                class="dialogButton lightGrayButton dialogActionButton">DECLINE</button>
-            <button id="termsAndConditionsDialogAccept"
-                class="dialogButton lightGrayButton dialogActionButton">ACCEPT</button>
+            <button id="termsAndConditionsDialogDecline" class="dialogButton lightGrayButton dialogActionButton">DECLINE</button>
+            <button id="termsAndConditionsDialogAccept" class="dialogButton lightGrayButton dialogActionButton">ACCEPT</button>
         </div>
     </div>
     <script src="/scripts/helpers/util.js"></script>
@@ -91,9 +92,11 @@
     <div id="mainHeaderNavContainer">
         <div class="fantasy-container">
             <div class="mainHeaderCell logoCell">
-                <img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg" alt="Daily Champion"></div>
+                <img id="mainLogo" src="/icongraphy/svg/icon-logo1.svg" alt="Daily Champion">
+            </div>
             <div class="mainHeaderCell triangleCell">
-                <div class="triangle"></div>
+                <div class="triangle">
+                </div>
             </div>
             <div class="mainHeaderCell navCell">
                 <nav class="mainHeaderNav">
@@ -211,8 +214,7 @@
                     <input id="termsAndConditionsVersion" type="number" class="adminInput">
                     <label class="adminLabel">Content</label>
                     <textarea id="termsAndConditionsContent" rows="25" class="adminInput"></textarea>
-                    <button id="updateTermsAndConditionsButton" type="submit"
-                        class="submitButton mainActionButton">UPDATE</button>
+                    <button id="updateTermsAndConditionsButton" type="submit" class="submitButton mainActionButton">UPDATE</button>
                 </div>
             </div>
         </div>
