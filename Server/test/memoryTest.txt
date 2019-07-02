@@ -1,0 +1,40 @@
+Wed Nov 30 2016 10:49:38 GMT+0100 (CET) ||              total       used       free     shared    buffers     cached
+Mem:         11899       8516       3383        711        180       3258
+-/+ buffers/cache:       5076       6823
+Swap:            0          0          0
+Total:       11899       8516       3383
+Wed Nov 30 2016 10:49:47 GMT+0100 (CET) ||              total       used       free     shared    buffers     cached
+Mem:         11899       8518       3381        711        180       3258
+-/+ buffers/cache:       5078       6821
+Swap:            0          0          0
+Total:       11899       8518       3381
+Wed Nov 30 2016 10:50:09 GMT+0100 (CET) ||              total       used       free     shared    buffers     cached
+Mem:         11899       8500       3399        711        180       3261
+-/+ buffers/cache:       5058       6841
+Swap:            0          0          0
+Total:       11899       8500       3399
+
+Wed Nov 30 2016 10:50:13 GMT+0100 (CET) ||              total       used       free     shared    buffers     cached
+Mem:         11899       8524       3375        711        180       3261
+-/+ buffers/cache:       5082       6817
+Swap:            0          0          0
+Total:       11899       8524       3375
+
+_____________________________________
+Wed Nov 30 2016 10:50:50 GMT+0100 (CET) ||              total       used       free     shared    buffers     cached
+Mem:         11899       8498       3401        711        180       3263
+-/+ buffers/cache:       5054       6845
+Swap:            0          0          0
+Total:       11899       8498       3401
+
+_____________________________________
+Wed Nov 30 2016 10:51:19 GMT+0100 (CET) ||              total       used       free     shared    buffers     cached
+Mem:         11899       8509       3390        711        180       3266
+-/+ buffers/cache:       5062       6837
+Swap:            0          0          0
+Total:       11899       8509       3390
+
+jedi      9047  0.0  0.2 647416 25316 ?        Sl   10:51   0:00 /usr/local/bin/node memoryTest.js
+jedi      9055  0.0  0.0   4448   800 ?        S    10:51   0:00 /bin/sh -c ps aux | grep 'node'
+jedi      9057  0.0  0.0  15948  2220 ?        S    10:51   0:00 grep node
+
