@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Renew Let's Encrypt SSL cert
+
+cd /home/ec2-user/FantasyFootball
+./stop_daily_champion
+
+cd /usr/local/bin
+./certbot-auto --text --debug -n --force-renewal certonly --standalone -d dailychampion.com
+
+if [ $? -ne 0 ]
+ then
+        ERRORLOG=`tail /var/log/letsencrypt/letsencrypt.log`
+        echo -e "The Lets Encrypt Cert has not been renewed! \n \n" $ERRORLOG | mail -s "Lets Encrypt Cert Alert" sb15utah@grassprojects.com
+ else
+        mail -s "Lets Encrypt successful auto renewal" alessandro@grassprojects.com <<< "The certificate has been successfully renewed"
+fi
+
+cd /home/ec2-user/FantasyFootball
+./start_daily_champion
+
+exit 0

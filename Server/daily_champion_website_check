@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cd /home/ec2-user/FantasyFootball
+
+if !(curl -sL -w "%{http_code}\\n" "https://dailychampion.com" --max-time 10 -o /dev/null | grep "200")
+    then
+        mail -s "ALERT: DailyChampion is DOWN" sb15utah@grassprojects.com <<< "The website check has failed, trying to restart automatically"
+        ./start_daily_champion
+fi
+
+#check memory usage if prod server
+if (hostname | grep "dailychampion_prod")
+    then
+        free_memory=`cat /proc/meminfo | grep MemAvailable|awk '{ print $2 }'`
+        total_memory=`cat /proc/meminfo | grep MemTotal|awk '{ print $2 }'`
+        perc_free=`expr $free_memory \* 100 / $total_memory`
+
+        if ((perc_free < 10))
+            then
+                mail -s "ALERT: DailyChampion LOW MEMORY" sb15utah@grassprojects.com <<< "The currently available RAM memory is below 10%"
+        fi
+fi
+
+exit 0
