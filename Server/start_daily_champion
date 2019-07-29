@@ -1,0 +1,27 @@
+#!/bin/bash
+
+cd /home/ec2-user/FantasyFootball
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+printf "${RED}Running 'npm install'${NC}\n"
+npm install
+
+printf "${RED}stopping active app process${NC}\n"
+./stop_daily_champion
+
+printf "${RED}stopping active MongoDB${NC}\n"
+/usr/bin/mongod --dbpath /var/lib/mongodb/ --shutdown
+
+sleep 1
+printf "${RED}starting MongoDB${NC}\n"
+mkdir -p /var/lib/mongodb
+/usr/bin/mongod --auth --fork --logpath /var/lib/mongodb/log.log --dbpath /var/lib/mongodb
+
+printf "${RED}starting Redis${NC}\n"
+/usr/local/bin/redis-server --daemonize yes
+
+sleep 2
+forever start -c "npm start -s" app.js
+
