@@ -1,0 +1,271 @@
+[
+  /*
+  SINGLE LEAGUES
+
+  Creates the listed tournaments for every league separately
+  */
+  {
+    "setType" : "SINGLE_LEAGUE",
+    "tournaments" : [
+      {
+        "programmedId" : "%s_early",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "17:29",
+        "createOnlyIfTournamentIsPresent" : "%s_late",
+        "name" : "%s · Kick-off",
+        "type" : "TOURNAMENT",
+        "entryFee" : 2,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "%s_late",
+        "minStartTime" : "17:30",
+        "maxStartTime" : "23:59",
+        "createOnlyIfTournamentIsPresent" : "%s_early",
+        "name" : "%s · Night",
+        "type" : "TOURNAMENT",
+        "entryFee" : 2,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "%s_day",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "%s · Daily Round",
+        "type" : "TOURNAMENT",
+        "entryFee" : 5,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "%s_headsup",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "%s · Head-to-head",
+        "type" : "HEAD_TO_HEAD",
+        "entryFee" : 8,
+        "lineupSize" : 7
+      },
+      {
+        "programmedId" : "%s_double_up",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "%s · Double Up STANDARD",
+        "type" : "DOUBLE_UP",
+        "entryFee" : 8,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "%s_tiny_double_up",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "%s · Double Up MICRO",
+        "type" : "DOUBLE_UP",
+        "entryFee" : 1,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "%s_long_weekend",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "%s · Long Weekend",
+        "type" : "TOURNAMENT",
+        "entryFee" : 15,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"],
+        "startDay" : "Fri",
+        "endDay" : "Sun",
+        "strictStartDay" : true
+      },
+      {
+        "programmedId" : "%s_weekend",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "%s · Weekend",
+        "type" : "TOURNAMENT",
+        "entryFee" : 10,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"],
+        "startDay" : "Sat",
+        "endDay" : "Sun",
+        "strictStartDay" : true
+      }
+    ]
+  },
+
+  /*
+  ALL LEAGUES
+  */
+  {
+    "setType" : "ALL_LEAGUES",
+    "tournaments" : [
+      {
+        "programmedId" : "weekly_mega_freeroll",
+        "startDay" : "Fri",
+        "endDay" : "Sun",
+        "minStartTime" : "18:00",
+        "maxStartTime" : "23:59",
+        "name" : "Weekly MEGA Freeroll (€1,000 GTD)",
+        "type" : "TOURNAMENT",
+        "entryFee" : 0,
+        "lineupSize" : 7,
+        "guaranteedPrize" : 1000,
+        "flags" : ["GUARANTEED", "FEATURED"]
+      },
+      {
+        "programmedId" : "champions_league_mega_freeroll",
+        "startDay" : "Mon",
+        "endDay" : "Sun",
+        "minStartTime" : "18:00",
+        "maxStartTime" : "23:59",
+        "name" : "Champions League Weekly MEGA Freeroll [€500 Guaranteed]",
+        "type" : "TOURNAMENT",
+        "entryFee" : 0,
+        "lineupSize" : 7,
+        "guaranteedPrize" : 500,
+        "flags" : ["GUARANTEED", "FEATURED"]
+      },
+      {
+        "programmedId" : "all_leagues_early",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "17:29",
+        "createOnlyIfTournamentIsPresent" : "all_leagues_late",
+        "name" : "All Leagues · Kick-off",
+        "type" : "TOURNAMENT",
+        "entryFee" : 7,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_late",
+        "minStartTime" : "17:30",
+        "maxStartTime" : "23:59",
+        "createOnlyIfTournamentIsPresent" : "all_leagues_early",
+        "name" : "All Leagues · Night",
+        "type" : "TOURNAMENT",
+        "entryFee" : 7,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_day",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Daily Round",
+        "type" : "TOURNAMENT",
+        "entryFee" : 10,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_headsup",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Head-to-head",
+        "type" : "HEAD_TO_HEAD",
+        "entryFee" : 12,
+        "lineupSize" : 7
+      },
+      {
+        "programmedId" : "all_leagues_double_up",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Double Up STANDARD",
+        "type" : "DOUBLE_UP",
+        "entryFee" : 12,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_tiny_double_up",
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Double Up MICRO",
+        "type" : "DOUBLE_UP",
+        "entryFee" : 1,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_baby_long_weekend",
+        "startDay" : "Fri",
+        "endDay" : "Sun",
+        "strictStartDay" : true,
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Long Weekend MICRO",
+        "type" : "TOURNAMENT",
+        "entryFee" : 2,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_starter_long_weekend",
+        "startDay" : "Fri",
+        "endDay" : "Sun",
+        "strictStartDay" : true,
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Long Weekend STANDARD",
+        "type" : "TOURNAMENT",
+        "entryFee" : 20,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_master_long_weekend",
+        "startDay" : "Fri",
+        "endDay" : "Sun",
+        "strictStartDay" : true,
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Long Weekend MASTER",
+        "type" : "TOURNAMENT",
+        "entryFee" : 50,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_short_weekend_small",
+        "startDay" : "Sat",
+        "endDay" : "Sun",
+        "strictStartDay" : true,
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Weekend MICRO",
+        "type" : "TOURNAMENT",
+        "entryFee" : 1,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      },
+      {
+        "programmedId" : "all_leagues_short_weekend_large",
+        "startDay" : "Sat",
+        "endDay" : "Sun",
+        "strictStartDay" : true,
+        "minStartTime" : "00:00",
+        "maxStartTime" : "23:59",
+        "name" : "All Leagues · Weekend STANDARD",
+        "type" : "TOURNAMENT",
+        "entryFee" : 15,
+        "lineupSize" : 7,
+        "flags" : ["MULTI_ENTRY"]
+      }
+    ]
+  },
+
+  /*
+  CUSTOM LEAGUES
+
+  Create tournaments for specific competitions
+  */
+  {
+    "setType" : "CUSTOM",
+    "competitions": [/* competitions ids here */],
+    "tournaments": []
+  }
+]
