@@ -159,8 +159,6 @@ function calculatePayoutsForNormalTournament (entries, entryFee, totalPrize) {
             y = cheapPositionsFunction(posPerc);
         }
 
-        //logger.debug('x: ' + x + ' | y: ' + y);
-
         sumY += y;
         m[x] = y;
     }
@@ -205,7 +203,6 @@ function calculatePayoutsForNormalTournament (entries, entryFee, totalPrize) {
         var payout = (m[x] * 100 / sumY) * totalPrize / 100;
 
         if (shouldBeautify) {
-            //beautify
             if (payout < 1) {
                 var div = 0.1; // multiply instead of dividing
             }
@@ -243,10 +240,6 @@ function calculatePayoutsForNormalTournament (entries, entryFee, totalPrize) {
             }
             payouts[x] = payout;
         }
-
-        //var perc = payouts[x] * 100 / totalPrize;
-        //logger.debug((x+1) + ': ' + payouts[x] + ' - ' + perc);
-        //logger.debug((x + 1) + ': ' + beauty + '      <- ' + payout + '      rem: ' + remainder + '    diff: ' + payoutDiff);
     }
 
     adjustPayoutsWithRemainder(payouts, entryFee, remainder);

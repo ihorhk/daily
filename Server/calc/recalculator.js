@@ -14,11 +14,6 @@ var moment = require('moment');
 //TODO set a limit of the number of matches to consider, cause now it's recalculating ALL of the matches
 
 require('../db/Database.js').initDB(function() {
-
-    // recalculatePointsForAllMatches(function() {
-    //     recalculateHistoryPointsForAllPlayers();
-    // });
-
     recalculateSalariesForPreviousPlayersActions();
 });
 
