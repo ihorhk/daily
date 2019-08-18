@@ -10,9 +10,9 @@ var moment = require('moment');
 var FeedParser = function () {
     this.xmlParser = new nodeExpat.Parser('UTF-8');
     this.feedFormat = null;
-    this.parentElements = []; // stack containing parent objects
+    this.parentElements = [];
     this.currentElement = null;
-    this.parentElementNames = []; // stack containing parent element names
+    this.parentElementNames = [];
     this.currentElementName = null;
     this.fieldToBeAssigned = null;
     this.openTags = 0;
@@ -20,7 +20,7 @@ var FeedParser = function () {
     this.shouldParseDate = false;
     this.shouldParseStat = false;
     this.shouldAddStatToParent = false;
-    this.isSeasonIdOld = false; // if true, aborts process
+    this.isSeasonIdOld = false;
 };
 
 
@@ -60,8 +60,6 @@ FeedParser.prototype.parseFeed = function (file, callback) {
             return;
         }
 
-        //logger.debug('Start: ' + elementName, attrs);
-
         this.shouldAddElement = false;
 
         switch (this.feedFormat) {
@@ -92,8 +90,6 @@ FeedParser.prototype.parseFeed = function (file, callback) {
     this.xmlParser.on('text', function (value) {
         if (!value || value.length === 0) return;
 
-        //logger.silly(value);
-
         if (this.fieldToBeAssigned) {
             if (this.shouldParseDate) {
                 value = this.parseDate(value);
@@ -104,10 +100,8 @@ FeedParser.prototype.parseFeed = function (file, callback) {
                 this.shouldParseInt = false;
             }
 
-            //logger.debug('Assigning value to field ' + this.fieldToBeAssigned + ': ' +value);
-
             if (this.fieldToBeAssigned[0] === this.fieldToBeAssigned[0].toUpperCase()) {
-                this.fieldToBeAssigned = helper.setCharAt(this.fieldToBeAssigned, 0, this.fieldToBeAssigned[0].toLowerCase()); // first char to lower case
+                this.fieldToBeAssigned = helper.setCharAt(this.fieldToBeAssigned, 0, this.fieldToBeAssigned[0].toLowerCase());
             }
 
             if (this.shouldParseStat) {
@@ -135,7 +129,6 @@ FeedParser.prototype.parseFeed = function (file, callback) {
 
     this.xmlParser.on('endElement', function (element) {
         if (element === this.currentElementName) {
-            //logger.debug('Closing element '+element);
 
             var oldElement = this.parentElements.pop();
             this.parentElementNames.pop();
@@ -157,11 +150,8 @@ FeedParser.prototype.parseFeed = function (file, callback) {
             }
         }
 
-        //logger.debug('End: ' + element);
         this.openTags--;
         if (this.openTags === 0) {
-            // if (constants.GLOBAL_DEBUG) logger.debug('Feed parsing completed in ' + (Date.now() - this.parsingStartTime));
-
             this.parsingCompleted(callback, null);
         }
     }.bind(this));
@@ -214,8 +204,6 @@ FeedParser.prototype.initF40Parsing = function () {
     this.shouldParseManager = false;
 };
 
-
-// the result of the parsing of a F1 feed is an array object containing all the parsed matches
 FeedParser.prototype.handleF1Element = function (elementName, attrs) {
     if (elementName === 'MatchData') {
         this.match = new models.match.Match(this.competition);
@@ -309,11 +297,9 @@ FeedParser.prototype.handleF1Element = function (elementName, attrs) {
 };
 
 
-// the result of the parsing of a F9 feed is an array object containing the parsed match
 FeedParser.prototype.handleF9Element = function (elementName, attrs) {
     if (elementName === 'SoccerDocument') {
         if (this.match.uID) {
-            // there are info for more than one match listed in the file: skip to end (for example, 1st and 2nd legged matches)
             this.xmlParser.destroy();
             this.parsingCompleted(this.callback, null);
             return;
@@ -535,7 +521,6 @@ FeedParser.prototype.handleF9Element = function (elementName, attrs) {
                         break;
 
                     case 'Goal':
-                        // if the goal is made by the opposite team (own goal) then use that team to look for the player
                         var goalType = attrs.Type;
                         var teamOfPlayerScoring = (goalType === models.goal.Type.OWN) ?
                             ((this.currentTeam.uID === this.firstTeam.uID) ? this.secondTeam : this.firstTeam)
@@ -647,9 +632,6 @@ FeedParser.prototype.handleF9Element = function (elementName, attrs) {
                 else if (elementName === 'SecondAssist') {
                     this.currentElement.secondAssist = this.findOrCreatePlayer(this.parseuIDfromString(attrs.PlayerRef), this.currentTeam);
                 }
-                // else if (elementName === 'SoloRun') {
-                //     this.currentElement.isSoloRun = true;
-                // }
                 break;
 
             case 'Team':
@@ -697,7 +679,7 @@ FeedParser.prototype.handleF40Element = function (elementName, attrs) {
 
             this.currentTeam.players.push(player);
         }
-        else if (elementName === 'Name' && !this.currentElement.name) { // assign Name only if it's not assigned yet (see 'official_club_name')
+        else if (elementName === 'Name' && !this.currentElement.name) {
             this.fieldToBeAssigned = elementName;
         }
         else if (elementName === 'Founded') {
@@ -847,7 +829,6 @@ FeedParser.prototype.parsingCompleted = function (callback, err, isAborted) {
             res = this.match;
 
             if (res && res.winner) {
-                // find the winning team from its ID
                 res.winner = (res.winner === res.teamsData[0].team.uID) ? res.teamsData[0].team : res.teamsData[1].team;
             }
 
@@ -899,7 +880,6 @@ FeedParser.prototype.findOrCreateTeam = function (uID, teams) {
 FeedParser.prototype.calculatePointsForEveryPlayer = function (match, positionsForPlayers) {
     var actions = models.Action;
     var isMatchFinished = match.isFinished();
-    //var shouldCalculateMinutesPlayed = !isMatchFinished;
 
     for (var i = 0; i < match.teamsData.length; i++) {
         var teamData = match.teamsData[i];
@@ -907,48 +887,13 @@ FeedParser.prototype.calculatePointsForEveryPlayer = function (match, positionsF
 
         if (!players || players.length === 0) continue;
 
-        // put the players who made a goal in a solo run in an array
-        // var soloRuns = [];
-        // for (var k = 0; k < teamData.goals.length; k++) {
-        //     if (teamData.goals[k].isSoloRun) {
-        //         var playerId = teamData.goals[k].player.uID;
-        //         if (soloRuns[playerId]) {
-        //             soloRuns[playerId]++;
-        //         }
-        //         else {
-        //             soloRuns[playerId] = 1;
-        //         }
-        //     }
-        // }
-
         for (var j = 0; j < players.length; j++) {
             var player = players[j];
             var position = positionsForPlayers[player.player.uID];
-
-            //var minsPlayed = player.stats.get('mins_played');
-            //
-            //if (isMatchFinished && minsPlayed === 0) {
-            //    continue;
-            //}
-            //
-            //if (shouldCalculateMinutesPlayed || !minsPlayed) {
-                // mins_played stats is not reliable at the end of the match so we always calculate it by ourselves.
-                // if the mountain doesn't come to Mohammad, then Mohammad goes to the mountain.
-                player.stats.set('mins_played', match.manageGameStatusForPlayerAndCalculateMinutesPlayed(player, teamData, isMatchFinished));
-            //}
-
-            // var playersSoloRuns = soloRuns[player.player.uID];
-            // if (playersSoloRuns) {
-            //     player.stats.set('solo_runs', playersSoloRuns);
-            // }
-
-            //logger.debug('Calculating points for player '+player.player.first + ' ' + player.player.last);
-
+            player.stats.set('mins_played', match.manageGameStatusForPlayerAndCalculateMinutesPlayed(player, teamData, isMatchFinished));
             Object.keys(actions).forEach( function (key) {
                 player.calculateActionAndIncreasePoints(actions[key], position, teamData, isMatchFinished);
             });
-
-            //logger.debug('total player points: ' + player.points);
         }
     }
 };
