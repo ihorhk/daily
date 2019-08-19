@@ -145,37 +145,14 @@ function handleGetFastPayXMLRequest (req, res) {
 
 function generateFastPayXML (user, transactionType, amount, currency, paymentMethod, additionalData, callback) {
     helper.generateToken(function (oref) {
-
-        // for withdrawal, check if the user has already deposited with the given transaction method
-        //TODO remove comments
-        // if (transactionType === TransactionType.WITHDRAWAL) { //TODO skip check if its bank transfer
-        //     db.getTransactionForUserWithPaymentMethod(user.username, paymentMethod, function (err, previousDeposit) {
-        //         if (err) {
-        //             callback(err, 501);
-        //         }
-        //         else if (!previousDeposit) {
-        //             callback('In order to withdraw with the selected payment method, you have to make a deposit with the same method first.', 202);
-        //         }
-        //         else {
-        //             additionalData.pspID = previousDeposit.pspID;
-        //             var xml = createFastPayRequestXML(oref, user, transactionType, amount, currency, paymentMethod, additionalData);
-        //             callback(null, 200, xml);
-        //         }
-        //     });
-        // }
-        // else {
-            var xml = createFastPayRequestXML(oref, user, transactionType, amount, currency, paymentMethod, additionalData);
-            callback(null, 200, xml);
-        // }
+        var xml = createFastPayRequestXML(oref, user, transactionType, amount, currency, paymentMethod, additionalData);
+        callback(null, 200, xml);
     });
 }
 
 
 function createFastPayRequestXML (oref, user, transactionType, amount, currency, paymentMethod, additionalData) {
-    //TODO remove test credentials
-    // currency = '949';
     user.country = 'AT';
-    //user.email = 'joedoe@mail.com';
 
     var xml = '<ProfileID>' + FASTPAY_PROFILE_ID + '</ProfileID>' +
         '<ActionType>' + transactionType + '</ActionType>' +
@@ -202,9 +179,8 @@ function createFastPayRequestXML (oref, user, transactionType, amount, currency,
         '<PostDeclined />' +
 
         '<TEST />' +
-        '<TESTCARD />' +  //TODO remove test
+        '<TESTCARD />' + 
         '<ForcePayment>' + paymentMethod + '</ForcePayment>'
-        //'<BTCAddress>3HA5GXNLXu5FF91eUMehg84JshABcYRnak</BTCAddress>'
         ;
 
     if (transactionType === TransactionType.WITHDRAWAL && additionalData.pspID) {
@@ -349,21 +325,6 @@ function handleTransactionPending (transactionId, res) {
  * @param errorCallback(err, status, transactionId[optional]) - called when error
  */
 function createTransactionDocAndCheckResponseValidity (req, xml, okCallback, pendingCallback, declinedCallback, errorCallback) {
-    //var host = req.connection.remoteAddress;
-    //var validHost = false;
-    //
-    //for (var i = 0; i < APCO_IP_ADDRESSES.length; i++) {
-    //    if (APCO_IP_ADDRESSES[i] === host) {
-    //        validHost = true;
-    //        break;
-    //    }
-    //}
-    //
-    //if (!validHost) {
-    //    errorCallback('Invalid host', 401);
-    //    return;
-    //}
-    //TODO put back
 
     // check fields validity
     var oref = xml.match(/<oref>(.+?)<\/oref>/);
@@ -592,12 +553,6 @@ function handleGetAvailablePaymentMethodsRequest (req, res) {
 
 function isPaymentMethodValid (payment, user, transactionType) {
     return true;
-
-    //TODO remove test!
-    //TODO what about currency?
-    //return !((payment.countriesSupported && payment.countriesSupported.indexOf(user.country.toUpperCase()) < 0) ||
-    //            (payment.withdrawalOnly && transactionType === TransactionType.DEPOSIT) ||
-    //            (payment.depositOnly && transactionType === TransactionType.WITHDRAWAL));
 }
 
 

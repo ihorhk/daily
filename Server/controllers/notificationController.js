@@ -25,7 +25,6 @@ function notifyUserForTournamentsWithNonPlayingPlayers (username, tournaments, i
             var tournamentPlayers = models.tournament.createPlayersDocFromTournamentPlayersString(tournament.players);
             var inactivePlayersIds = inactivePlayers[tournament._id];
 
-            //TODO remove test
             if (!inactivePlayersIds) {
                 logger.error('Inactive players ids is undefined: inactivePlayers: ' + JSON.stringify(inactivePlayers) + '  ||   tournaments: ' + JSON.stringify(tournaments));
                 continue;
@@ -44,33 +43,6 @@ function notifyUserForTournamentsWithNonPlayingPlayers (username, tournaments, i
 
             msg += string + '<br>';
         }
-
-        // var table = '<table style="border-collapse: collapse;background-color: #f1f1f1;">';
-        // var thStyle = 'border: 0; padding: 5px 10px; font-size: 90%; color: #ddd; text-align: center;';
-        // var thead = '<thead>' +
-        //     '<tr style="background: #0D763B;">' +
-        //     '<th style="'+ thStyle + '; min-width: 350px;">Contest</th>' +
-        //     '<th style="'+ thStyle + '; min-width: 120px;">Total Prizes</th>' +
-        //     '<th style="'+ thStyle + '; min-width: 120px;">Start Time</th>' +
-        //     '</tr></thead>';
-        //
-        // var tbody = '<tbody>';
-        // var trStyle = 'border-bottom: 1px solid #DCDCDC;';
-        // var tdStyle = 'border: 0; font-size: 95%; height: 35px; text-align: center; color: #333; padding: 3px 8px;';
-        // var contestStyle = 'color: #333; font-weight: bold; text-decoration: underline;';
-        //
-        // for (var i = 0; i < tournaments.length; i++) {
-        //     var tournament = tournaments[i];
-        //
-        //     var link = 'https://' + constants.WEBSITE_URL + routes.MY_TOURNAMENTS + '?contest=' + tournament._id + '&type=upcoming';
-        //
-        //     tbody += '<tr style="' + trStyle + '">';
-        //     tbody += '<td style="' + tdStyle + '"><a style="' + contestStyle + '" href="' + link + '">' + tournament.name + '</a>';
-        //     tbody += '<td style="' + tdStyle + '">' + helper.formatMoney(tournament.totalPrize)  + '</td>';
-        //     tbody += '<td style="' + tdStyle + '">' + moment(tournament.startDate).format("HH:mm")  + '</td>';
-        // }
-        //
-        // msg += table + thead + tbody + '</tbody></table>';
 
         emailer.sendEmail(user.email,
                         'Inactive players in your lineups',
