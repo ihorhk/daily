@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2001-2017 Opta Sportsdata Ltd. All rights reserved. -->
+
+<!-- PRODUCTION HEADER
+     produced on:        valde-jobq-a01.nexus.opta.net
+     production time:    20170122T160021,364Z
+     production module:  Opta::Feed::XML::Soccer::F9
+-->
+<SoccerFeed TimeStamp="20170122T160021+0000">
+  <SoccerDocument Type="Latest" uID="f853339">
+    <Competition uID="c24">
+      <Country>France</Country>
+      <Name>French Ligue 1</Name>
+      <Stat Type="season_id">2016</Stat>
+      <Stat Type="season_name">Season 2016/2017</Stat>
+      <Stat Type="symid">FR_L1</Stat>
+      <Stat Type="matchday">21</Stat>
+    </Competition>
+    <MatchData>
+      <MatchInfo MatchType="Regular" Period="FirstHalf" TimeStamp="20170122T160016+0000">
+        <Date>20170122T160000+0000</Date>
+      </MatchInfo>
+      <MatchOfficial uID="o42022">
+        <OfficialData>
+          <OfficialRef Type="Main" />
+        </OfficialData>
+        <OfficialName>
+          <First>Benoit</First>
+          <Last>Bastien</Last>
+        </OfficialName>
+      </MatchOfficial>
+      <AssistantOfficials>
+        <AssistantOfficial FirstName="Frederic" LastName="Haquette" Type="Lineman 1" uID="o46081" />
+        <AssistantOfficial FirstName="Hicham" LastName="Zakrani" Type="Lineman 2" uID="o46082" />
+        <AssistantOfficial FirstName="Florent" LastName="Batta" Type="Fourth official" uID="o42035" />
+      </AssistantOfficials>
+      <Stat Type="match_time">1</Stat>
+      <Stat Type="first_half_start">20170122T160016+0000</Stat>
+      <TeamData Score="0" Side="Home" TeamRef="t152">
+        <PlayerLineUp>
+          <MatchPlayer PlayerRef="p37990" Position="Goalkeeper" ShirtNumber="30" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">1</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p58636" Position="Defender" ShirtNumber="2" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">5</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p83340" Position="Defender" ShirtNumber="25" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">2</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p112323" Position="Defender" ShirtNumber="3" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">3</Stat>
+          </MatchPlayer>
+          <MatchPlayer Captain="1" PlayerRef="p19670" Position="Defender" ShirtNumber="24" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">6</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p96740" Position="Midfielder" ShirtNumber="14" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">7</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p43553" Position="Midfielder" ShirtNumber="18" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">8</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p101494" Position="Midfielder" ShirtNumber="17" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">4</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p67276" Position="Striker" ShirtNumber="21" Status="Start">
+            <Stat Type="accurate_pass">1</Stat>
+            <Stat Type="touches">1</Stat>
+            <Stat Type="accurate_back_zone_pass">1</Stat>
+            <Stat Type="successful_open_play_pass">1</Stat>
+            <Stat Type="total_back_zone_pass">1</Stat>
+            <Stat Type="open_play_pass">1</Stat>
+            <Stat Type="total_pass">1</Stat>
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="backward_pass">1</Stat>
+            <Stat Type="formation_place">10</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p38261" Position="Striker" ShirtNumber="22" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">11</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p221717" Position="Striker" ShirtNumber="32" Status="Start">
+            <Stat Type="accurate_pass">1</Stat>
+            <Stat Type="rightside_pass">1</Stat>
+            <Stat Type="touches">1</Stat>
+            <Stat Type="total_fwd_zone_pass">1</Stat>
+            <Stat Type="accurate_fwd_zone_pass">1</Stat>
+            <Stat Type="total_pass">1</Stat>
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="long_pass_own_to_opp">1</Stat>
+            <Stat Type="long_pass_own_to_opp_success">1</Stat>
+            <Stat Type="formation_place">9</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p83561" Position="Substitute" ShirtNumber="7" Status="Sub" SubPosition="Midfielder">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p220074" Position="Substitute" ShirtNumber="31" Status="Sub" SubPosition="Defender">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p79237" Position="Substitute" ShirtNumber="19" Status="Sub" SubPosition="Defender">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p245915" Position="Substitute" ShirtNumber="34" Status="Sub" SubPosition="Midfielder">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p51525" Position="Substitute" ShirtNumber="9" Status="Sub" SubPosition="Forward">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p214042" Position="Substitute" ShirtNumber="1" Status="Sub" SubPosition="Goalkeeper">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p235050" Position="Substitute" ShirtNumber="33" Status="Sub" SubPosition="Midfielder">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+        </PlayerLineUp>
+        <Stat FH="2" Type="accurate_pass">2</Stat>
+        <Stat FH="1" Type="rightside_pass">1</Stat>
+        <Stat FH="2" Type="touches">2</Stat>
+        <Stat FH="1" Type="total_fwd_zone_pass">1</Stat>
+        <Stat FH="1" Type="accurate_fwd_zone_pass">1</Stat>
+        <Stat FH="1" Type="accurate_back_zone_pass">1</Stat>
+        <Stat FH="1" Type="successful_open_play_pass">1</Stat>
+        <Stat FH="1" Type="total_back_zone_pass">1</Stat>
+        <Stat FH="1" Type="open_play_pass">1</Stat>
+        <Stat FH="2" Type="total_pass">2</Stat>
+        <Stat FH="1" Type="long_pass_own_to_opp">1</Stat>
+        <Stat FH="100" Type="possession_percentage">100</Stat>
+        <Stat FH="1" Type="backward_pass">1</Stat>
+        <Stat FH="1" Type="long_pass_own_to_opp_success">1</Stat>
+        <Stat Type="formation_used">433</Stat>
+      </TeamData>
+      <TeamData Score="0" Side="Away" TeamRef="t2128">
+        <PlayerLineUp>
+          <MatchPlayer PlayerRef="p40511" Position="Goalkeeper" ShirtNumber="1" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">1</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p68545" Position="Defender" ShirtNumber="4" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">5</Stat>
+          </MatchPlayer>
+          <MatchPlayer Captain="1" PlayerRef="p42416" Position="Defender" ShirtNumber="8" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">6</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p54518" Position="Defender" ShirtNumber="29" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">3</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p57266" Position="Defender" ShirtNumber="25" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">2</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p45505" Position="Defender" ShirtNumber="24" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">4</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p168985" Position="Midfielder" ShirtNumber="18" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">8</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p112580" Position="Midfielder" ShirtNumber="15" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">7</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p18574" Position="Midfielder" ShirtNumber="5" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">11</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p80485" Position="Striker" ShirtNumber="2" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">9</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p81118" Position="Striker" ShirtNumber="27" Status="Start">
+            <Stat Type="game_started">1</Stat>
+            <Stat Type="formation_place">10</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p15304" Position="Substitute" ShirtNumber="6" Status="Sub" SubPosition="Midfielder">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p119744" Position="Substitute" ShirtNumber="16" Status="Sub" SubPosition="Goalkeeper">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p216646" Position="Substitute" ShirtNumber="12" Status="Sub" SubPosition="Forward">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p154011" Position="Substitute" ShirtNumber="20" Status="Sub" SubPosition="Midfielder">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p213575" Position="Substitute" ShirtNumber="26" Status="Sub" SubPosition="Defender">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p93622" Position="Substitute" ShirtNumber="21" Status="Sub" SubPosition="Defender">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+          <MatchPlayer PlayerRef="p66757" Position="Substitute" ShirtNumber="11" Status="Sub" SubPosition="Forward">
+            <Stat Type="formation_place">0</Stat>
+          </MatchPlayer>
+        </PlayerLineUp>
+        <Stat Type="formation_used">532</Stat>
+      </TeamData>
+    </MatchData>
+    <Team uID="t152">
+      <Country>France</Country>
+      <Name>St Etienne</Name>
+      <Player Position="Goalkeeper" uID="p37990">
+        <PersonName>
+          <First>Jessy</First>
+          <Last>Moulin</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p58636">
+        <PersonName>
+          <First>Kévin</First>
+          <Last>Théophile-Catherine</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p83340">
+        <PersonName>
+          <First>Kevin</First>
+          <Last>Malcuit</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p112323">
+        <PersonName>
+          <First>Pierre-Yves</First>
+          <Last>Polomat</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p19670">
+        <PersonName>
+          <First>Loic</First>
+          <Last>Perrin</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Midfielder" uID="p96740">
+        <PersonName>
+          <First>Jordan</First>
+          <Last>Veretout</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Midfielder" uID="p43553">
+        <PersonName>
+          <First>Fabien</First>
+          <Last>Lemoine</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Midfielder" uID="p101494">
+        <PersonName>
+          <First>Ole</First>
+          <Last>Selnaes</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Striker" uID="p67276">
+        <PersonName>
+          <First>Romain</First>
+          <Last>Hamouma</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Striker" uID="p38261">
+        <PersonName>
+          <First>Kévin</First>
+          <Last>Monnet-Paquet</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Striker" uID="p221717">
+        <PersonName>
+          <First>Hamidou</First>
+          <Last>Keyta</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p83561">
+        <PersonName>
+          <First>Bryan</First>
+          <Last>Dabo</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p220074">
+        <PersonName>
+          <First>Ronael</First>
+          <Last>Pierre Gabriel</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p79237">
+        <PersonName>
+          <First>Florentin</First>
+          <Last>Pogba</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p245915">
+        <PersonName>
+          <First>Kenny</First>
+          <Last>Rocha Santos</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p51525">
+        <PersonName>
+          <First>Nolan</First>
+          <Last>Roux</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p214042">
+        <PersonName>
+          <First>Anthony</First>
+          <Last>Maisonnial</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p235050">
+        <PersonName>
+          <First>Arnaud</First>
+          <Last>Nordin</Last>
+        </PersonName>
+      </Player>
+      <TeamOfficial Type="Manager" uID="man39414">
+        <PersonName>
+          <First>Christophe</First>
+          <Last>Galtier</Last>
+        </PersonName>
+      </TeamOfficial>
+    </Team>
+    <Team uID="t2128">
+      <Country>France</Country>
+      <Name>Angers</Name>
+      <Player Position="Goalkeeper" uID="p40511">
+        <PersonName>
+          <First>Denis</First>
+          <Last>Petric</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p68545">
+        <PersonName>
+          <First>Mateo</First>
+          <Last>Pavlovic</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p42416">
+        <PersonName>
+          <First>Ismael</First>
+          <Known>Ismael Traoré</Known>
+          <Last>Traoré</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p54518">
+        <PersonName>
+          <First>Vincent</First>
+          <Last>Manceau</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p57266">
+        <PersonName>
+          <First>Abdoulaye</First>
+          <Last>Bamba</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Defender" uID="p45505">
+        <PersonName>
+          <First>Romain</First>
+          <Last>Thomas</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Midfielder" uID="p168985">
+        <PersonName>
+          <First>Baptiste</First>
+          <Last>Santamaria</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Midfielder" uID="p112580">
+        <PersonName>
+          <First>Pierrick</First>
+          <Last>Capelle</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Midfielder" uID="p18574">
+        <PersonName>
+          <First>Thomas</First>
+          <Last>Mangani</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Striker" uID="p80485">
+        <PersonName>
+          <First>Kévin</First>
+          <Last>Berigaud</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Striker" uID="p81118">
+        <PersonName>
+          <First>Ferebory</First>
+          <Last>Dore</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p15304">
+        <PersonName>
+          <First>Grégory</First>
+          <Last>Bourillon</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p119744">
+        <PersonName>
+          <First>Mathieu</First>
+          <Last>Michel</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p216646">
+        <PersonName>
+          <First>Yoane</First>
+          <Last>Wissa</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p154011">
+        <PersonName>
+          <First>Flavien</First>
+          <Last>Tait</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p213575">
+        <PersonName>
+          <First>Mehdi</First>
+          <Known>Mehdi Tahrat</Known>
+          <Last>Jean Tahrat</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p93622">
+        <PersonName>
+          <First>Pablo</First>
+          <Last>Martinez</Last>
+        </PersonName>
+      </Player>
+      <Player Position="Substitute" uID="p66757">
+        <PersonName>
+          <First>Dickson</First>
+          <Last>Nwakaeme</Last>
+        </PersonName>
+      </Player>
+      <TeamOfficial Type="Manager" uID="man41057">
+        <PersonName>
+          <First>Stéphane</First>
+          <Last>Moulin</Last>
+        </PersonName>
+      </TeamOfficial>
+    </Team>
+    <Venue uID="v1319">
+      <Country>France</Country>
+      <Name>Stade Geoffroy-Guichard</Name>
+    </Venue>
+  </SoccerDocument>
+</SoccerFeed>
