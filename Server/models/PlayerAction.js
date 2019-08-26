@@ -9,7 +9,6 @@ var PlayerAction = function (action, count, totalPoints) {
 
 
 PlayerAction.prototype.calculatePointsForPosition = function (position) {
-    // calculate points based on player position
     var actionValue = this.action.values[position];
     this.totalPoints = this.count * actionValue;
 
@@ -20,7 +19,6 @@ PlayerAction.prototype.calculatePointsForPosition = function (position) {
 function mergeActions (actions1, actions2) {
     var res = [];
 
-    // since actions are stored in the array in the same way, using the index defined by each Action, we can just loop through them and sum them
     for (var i = 0; i < actions1.length; i++) {
         var action1 = actions1[i];
         var action2 = actions2[i];
@@ -62,7 +60,6 @@ function differenceBetweenActions (actions1, actions2) {
         }
     }
 
-    // look for actions that have been removed
     for (index in actions2) {
         action2 = actions2[index];
         var action1 = actions1[index];
@@ -75,8 +72,6 @@ function differenceBetweenActions (actions1, actions2) {
     return diff;
 }
 
-
-// see @convertActionsToString
 function parseActions (string) {
     if (!string || string === null) return;
 
@@ -104,8 +99,6 @@ function parseActions (string) {
     return res;
 }
 
-
-// the resulting string will be in this format: <action_id1>(x<action_count>;<action_total_points>);<action_id2>(...);<action_id3>(...)
 function convertActionsToString (actions) {
     if (actions.length === 0) return null;
 

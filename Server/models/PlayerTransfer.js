@@ -1,4 +1,4 @@
-// this object represents a player being transferred FROM a team, without any specific info about the new team
+
 var PlayerTransfer = function (player, isLoan, oldTeam) {
     this.player = player;
     this.isLoan = isLoan;

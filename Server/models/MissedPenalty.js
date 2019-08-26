@@ -3,7 +3,7 @@ var MissedPenalty = function (player, eventID, period) {
     this.period = period;
     this.player = player;
 
-    this.minute = -1; // appears only for regular play penalties, not for shoot-outs
+    this.minute = -1;
 };
 
 exports.MissedPenalty = MissedPenalty;

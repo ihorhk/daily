@@ -3,14 +3,14 @@ var models = require('./index.js');
 var MatchPlayer = function (player, position, subposition, shirtNumber, isCaptain) {
     this.player = player;
     this.position = position;
-    this.subposition = subposition; // position in which a substitute should play once he's on the field, can be undefined even if the player is a substitute
+    this.subposition = subposition;
     this.shirtNumber = shirtNumber;
     this.isCaptain = isCaptain;
 
     this.stats = new models.stats.Stats();
     this.formationPlace = -1;
-    this.points = 0; // total points scored by the player in the match
-    this.actions = []; // the actions are stored as PlayerAction objects, the position in the array is defined by the index field of the related Action
+    this.points = 0;
+    this.actions = [];
 };
 
 
@@ -27,7 +27,6 @@ MatchPlayer.prototype.calculateActionAndIncreasePoints = function (action, playe
     this.points += playerAction.totalPoints;
     this.actions[action.index] = playerAction;
 
-    //logger.debug('points for '+action.name + ': '+points);
 };
 
 

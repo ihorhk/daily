@@ -15,9 +15,9 @@ var Tournament = function (name, summary, type, subtype, flags, entryFee, maxEnt
 
     this.name = name;
     this.summary = summary;
-    this.type = type; // must be one of the values of TournamentType
-    this.subtype = subtype; // optional, see tour type
-    this.flags = flags; // an array containing values of TournamentFlags
+    this.type = type;
+    this.subtype = subtype;
+    this.flags = flags;
     this.entryFee = parseFloat(entryFee);
     this.maxEntries = maxEntries ? parseInt(maxEntries) : -1;
     this.guaranteedPrize = parseFloat(guaranteedPrize);
@@ -28,8 +28,8 @@ var Tournament = function (name, summary, type, subtype, flags, entryFee, maxEnt
     this.multiEntries = (!multiEntries || multiEntries < 1) ? 0 : parseInt(multiEntries);
     this.salaryCap = salaryCap;
 
-    this.tournamentId = null; // the id is assigned by the DB once the tournament is inserted, or retrieved from it
-    this.slateId = null; // the object id of the slate
+    this.tournamentId = null;
+    this.slateId = null;
     this.isMock = false;
     this.playMode = PlayMode.REAL;
     this.entries = null;
@@ -40,9 +40,9 @@ var Tournament = function (name, summary, type, subtype, flags, entryFee, maxEnt
     this.totalPrize = -1;
     this.rake = 0;
     this.isCancelled = false;
-    this.groupId = null; // when there are multiple identical contests, this id identifies the group that they belong to
-    this.copyNumber = 0; // used to keep track of different tournaments within the same group
-    this.programmedId = null; // set when tournament is programmed
+    this.groupId = null;
+    this.copyNumber = 0;
+    this.programmedId = null;
     this.progress = 0;
 };
 

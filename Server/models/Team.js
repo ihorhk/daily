@@ -9,7 +9,7 @@ var Team = function (uID) {
 
     this.abbreviation = null;
     this.regionName = null;
-    this.founded = -1; // year in which the team has been funded
+    this.founded = -1;
     this.optasportsId = null;
 };
 
