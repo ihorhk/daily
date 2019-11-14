@@ -191,13 +191,6 @@ function calculatePayoutsForNormalTournament (entries, entryFee, totalPrize) {
 
     var shouldBeautify = (moneyPositions > 2);
 
-    /*
-     Calculate the actual prize in proportion to the prize pool:
-     y : sumY = perc(?) : 100 -> perc : 100 = prize(?) : totPrize
-
-     The payout for every position if beautified by rounding the number to a certain amount. After this process, the remainder
-     resulting from the difference between the beautified payouts and the former payouts is adjusted to the payout structure.
-     */
     var remainder = 0;
     for (x = m.length - 1; x >= 0; x--) {
         var payout = (m[x] * 100 / sumY) * totalPrize / 100;
@@ -359,13 +352,6 @@ function calculateTotalPrize (entries, entryFee, rake) {
     return entries * (entryFee - rake);
 }
 
-
-/*
- - if the remainder is positive: add payouts with the same amount of the last calculated payout if possible,
-        or if remainder < lastPayout then take some amounts from the last payouts to make it at least big as the entry fee
- - if the remainder is negative, do the opposite: remove payouts if remainder > payout otherwise remove just a part of it,
-        as long as the payout will still be as big as the entry fee
- */
 function adjustPayoutsWithRemainder (payouts, entryFee, remainder) {
     var itsJustAFewCents = (entryFee < 1);
 
@@ -425,8 +411,7 @@ function adjustPayoutsWithRemainder (payouts, entryFee, remainder) {
             // take amounts from the last positions until their sum + remainder is at least an entry fee
             for (i = payouts.length - 1; i >= 0; i--) {
                 payout = payouts[i];
-                diff = Math.round(entryFee - remainder); // how much more do we need?
-
+                diff = Math.round(entryFee - remainder);
                 if (payout - diff > entryFee) {
                     payouts[i] = payout - diff;
                     payouts.push(entryFee);

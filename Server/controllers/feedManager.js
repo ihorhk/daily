@@ -71,12 +71,7 @@ function matchParsingCompleted (match, feedParser, file) {
             db.backupDatabase(true);
         }, 5000);
     }
-
-    /*
-     The player in the match could not have the same position that its assigned to him in its team, competition-wise.
-     So to keep it consistent we need to retrieve the players from competitions, then we calculate the points for their actions.
-     Finally we insert the match, actions etc etc
-     */
+    
     const requiredFields = { 'teams.players.position' : 1, 'teams.players.playerId' : 1, 'teams.name' : 1, 'teams.abbreviation' : 1,};
     db.getTeamsByIdsFromCompetition(match.competition.uID, [ match.teamsData[0].team.uID, match.teamsData[1].team.uID ], function (err, res) {
 

@@ -46,10 +46,6 @@ function calculateSalaryForSlate (slate, callback, competitionsIds) {
         }
 
         var avg = calculatePointsAverage(pointsOfAllPlayers); //TODO for more performance: cache this calculation
-
-        // then calculate the points of every player in every team in the slate, by weighting the points of his last played matches
-
-        //loop through teams and through every player of each team
         for (var i = 0; i < slate.teams.length; i++) {
             var players = slate.teams[i].players;
 
@@ -81,9 +77,6 @@ function calculateSalaryForPlayer (player, lastMatchesPoints, avg) {
         var playerPoints = calculatePointsForLastPlayedMatches(lastMatchesPoints, avg);
 
         player.salary = calculateSalaryUsingProportion(avg, playerPoints);
-
-        // logger.verbose('Player ' + player.playerId + ' || Last matches: ' + player.pointsOfLastPlayedMatches
-        //     + ' || Points: ' + Math.round(playerPoints) + ' - €' + player.salary + '\n');
     }
     else {
         player.salary = BASE_SALARY;
@@ -115,8 +108,6 @@ function calculatePointsForLastPlayedMatches (arr, avgPoints) {
 
     for (var i = 0; i < Math.min(arr.length, getNumberOfMatchesUsedForCalculations()); i++) {
         if (arr[i].length === 0) break;
-
-        //debugString += Math.round(arr[i] * MATCH_WEIGHTS[i]) + ', ';
 
         points += arr[i] * MATCH_WEIGHTS[i];
         weightsSum += MATCH_WEIGHTS[i];

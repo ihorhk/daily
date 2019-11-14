@@ -91,14 +91,6 @@ function updateBalanceAndNotify (username, amount, reason, tournament) {
     }, tournament.playMode);
 }
 
-
-// function testAddMoneyToUser (user) {
-//     if (constants.TEST_VERSION) {
-//         updateBalanceAndNotify(user.username, 1000, { playMode : require('../models/enums/PlayMode').PlayMode.REAL });
-//     }
-// }
-
-
 exports.assignPayoutsForTournament = assignPayoutsForTournament;
 exports.updateBalanceForNewTournamentEntry = updateBalanceForNewTournamentEntry;
 exports.updateBalanceForRemovedTournamentEntry = updateBalanceForRemovedTournamentEntry;

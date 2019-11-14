@@ -10,15 +10,6 @@ var helper = require('../util/helper');
 var emailer = require('../util/emailer');
 var countries = require('country-data').countries;
 
-//var passwordCheck = require('owasp-password-strength-test');
-//passwordCheck.config({
-//    allowPassphrases       : true,
-//    maxLength              : 128,
-//    minLength              : 10,
-//    minPhraseLength        : 20,
-//    minOptionalTestsToPass : 4
-//});
-
 var VERIFICATION_VIEW_NAME = 'emailVerification';
 
 
